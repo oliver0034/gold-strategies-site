@@ -1,0 +1,199 @@
+# ==========================================================
+# Gold Strategies — Redirections 301 (refonte 2026)
+# Genere depuis la table de migration des 92 URLs.
+# LiteSpeed/Apache lit ce fichier nativement sur Hostinger.
+# ==========================================================
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Forcer HTTPS + non-www (a confirmer selon config domaine)
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+
+# --- Redirections de contenu (ancienne URL -> nouvelle) ---
+# [Analyse hebdo]
+Redirect 301 /tendances-et-opportunites-bitcoin-or-et-indices-analyse-hebdomadaire /blog/tendances-et-opportunites-bitcoin-or-et-indices-analyse-hebdomadaire
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdomadaire-des-marches-bitcoin-or-indices-sp500-nasdaq-dax-cac /blog/analyse-hebdomadaire-des-marches-bitcoin-or-indices-sp500-nasdaq-dax-cac
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-bitcoin-cours-de-lor-et-indices-boursiers-quelles-opportunites- /blog/analyse-hebdo-bitcoin-cours-de-lor-et-indices-boursiers-quelles-opportunites
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-30-mai-2026-bull-market-confirme-or-en-consolidation-et-bce-hawkish-en-embuscade /blog/analyse-hebdo-30-mai-2026-bull-market-confirme-or-en-consolidation-et-bce-hawkish-en-embuscade
+# [Analyse hebdo]
+Redirect 301 /votre-arti-mon-analyse-hebdomadaire-des-marches-financiers-et-cryptomonnaies-les-signaux-cles-a-surveilcle-de-blog /blog/votre-arti-mon-analyse-hebdomadaire-des-marches-financiers-et-cryptomonnaies-les-signaux-cles-a-surveil
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdomadaire-geopolitique-et-marches-financiers /blog/analyse-hebdomadaire-geopolitique-et-marches-financiers
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-krach-crypto-or-en-ebullition-et-rotation-boursiere-ma-lecture-claire-des-marches /blog/analyse-hebdo-krach-crypto-or-en-ebullition-et-rotation-boursiere-ma-lecture-claire-des-marches
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-marches-agites-comment-japprivoise-le-retour-de-la-volatilite /blog/analyse-hebdo-marches-agites-comment-japprivoise-le-retour-de-la-volatilite
+# [Analyse hebdo]
+Redirect 301 /2026-vers-un-krach-annonce-mon-analyse-exclusive-de-la-carte-de-benner-et-des-signaux-economiques-actuels /blog/2026-vers-un-krach-annonce-mon-analyse-exclusive-de-la-carte-de-benner-et-des-signaux-economiques-actuels
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-cassure-des-pivots-bitcoin-et-marches-prets-pour-un-rebond- /blog/analyse-hebdo-cassure-des-pivots-bitcoin-et-marches-prets-pour-un-rebond
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-lor-franchit-ses-records-quelles-strategies-adopter- /blog/analyse-hebdo-lor-franchit-ses-records-quelles-strategies-adopter
+# [Editorial macro]
+Redirect 301 /crise-economique-pourquoi-la-france-fonce-dans-le-mur-et-comment-eviter-limpact- /blog/crise-economique-pourquoi-la-france-fonce-dans-le-mur-et-comment-eviter-limpact
+# [Analyse hebdo]
+Redirect 301 /analyse-de-la-semaine-ogold-en-eruption-bitcoin-en-consolidation-indices-en-tension /blog/analyse-de-la-semaine-ogold-en-eruption-bitcoin-en-consolidation-indices-en-tension
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-leuro-seffondre-et-le-gold-change-de-cycle /blog/analyse-hebdo-leuro-seffondre-et-le-gold-change-de-cycle
+# [Editorial macro]
+Redirect 301 /et-si-on-arretait-de-taxer-le-travail-reflexion-sur-lavenir-fiscal-de-la-france /blog/et-si-on-arretait-de-taxer-le-travail-reflexion-sur-lavenir-fiscal-de-la-france
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdoles-marches-financiers-secoues-bitcoin-or-et-indices-boursiers-a-la-loupe /blog/analyse-hebdoles-marches-financiers-secoues-bitcoin-or-et-indices-boursiers-a-la-loupe
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-ou-trump-a-secoue-les-marches /blog/analyse-hebdo-ou-trump-a-secoue-les-marches
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-alerte-sur-les-actions-et-redistribution-des-cartes /blog/analyse-hebdo-alerte-sur-les-actions-et-redistribution-des-cartes
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdomadaire-marches-financiers-or-crypto-indices /blog/analyse-hebdomadaire-marches-financiers-or-crypto-indices
+# [Editorial macro]
+Redirect 301 /-bulles-speculatives-pourquoi-on-tombe-toujours-dans-le-piege- /blog/bulles-speculatives-pourquoi-on-tombe-toujours-dans-le-piege
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdomadaire-le-pivot-du-bitcoin-et-la-relance-des-marches-actions /blog/analyse-hebdomadaire-le-pivot-du-bitcoin-et-la-relance-des-marches-actions
+# [Analyse hebdo]
+Redirect 301 /le-calme-avant-la-tempete-analyse-hebdomadaire-cryptos-or-et-indices /blog/le-calme-avant-la-tempete-analyse-hebdomadaire-cryptos-or-et-indices
+# [Analyse hebdo]
+Redirect 301 /cycles-economiques-et-trading-comment-anticiper-les-crises-et-maximiser-ses-gains /blog/cycles-economiques-et-trading-comment-anticiper-les-crises-et-maximiser-ses-gains
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-marches-en-pause-opportunites-en-vue-ce-que-cache-le-calme-apparent-des-cryptos-et-des-indices /blog/analyse-hebdo-marches-en-pause-opportunites-en-vue-ce-que-cache-le-calme-apparent-des-cryptos-et-des-indices
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdomadaire-verticalisation-de-lor-reveil-des-matieres-premieres-et-asymetrie-des-marches /blog/analyse-hebdomadaire-verticalisation-de-lor-reveil-des-matieres-premieres-et-asymetrie-des-marches
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-des-marches-comprendre-les-turbulences-economiques-de-la-semaine /blog/analyse-hebdo-des-marches-comprendre-les-turbulences-economiques-de-la-semaine
+# [Analyse hebdo]
+Redirect 301 /une-semaine-sous-haute-tension-les-marches-approchent-dun-point-de-rupture /blog/une-semaine-sous-haute-tension-les-marches-approchent-dun-point-de-rupture
+# [Promo (conformite)]
+Redirect 301 /optimisez-vos-finances-avec-gold-strategies-et-boostez-vos-revenus /complement-revenu/
+# [Analyse hebdo]
+Redirect 301 /-analyse-macro-financiere-hebdomadaire-cycle-crypto-indices-et-strategie-de-trading /blog/analyse-macro-financiere-hebdomadaire-cycle-crypto-indices-et-strategie-de-trading
+# [Analyse hebdo]
+Redirect 301 /or-bitcoin-et-marches-quand-le-dollar-reprend-les-commandes-analyse-hebdo-du-21-juin-2026 /blog/or-bitcoin-et-marches-quand-le-dollar-reprend-les-commandes-analyse-hebdo-du-21-juin-2026
+# [Analyse hebdo]
+Redirect 301 /le-retour-du-dollar-roi-un-nouveau-cycle-mondial-demarre /blog/le-retour-du-dollar-roi-un-nouveau-cycle-mondial-demarre
+# [Analyse hebdo]
+Redirect 301 /samedi-6-juin-2026-analyse-hebdo-quand-une-bonne-nouvelle-fait-paniquer-wall-street /blog/samedi-6-juin-2026-analyse-hebdo-quand-une-bonne-nouvelle-fait-paniquer-wall-street
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdomadaire-des-marches-or-bitcoin-cac-40-et-dax-prets-pour-un-nouveau-cycle-haussier /blog/analyse-hebdomadaire-des-marches-or-bitcoin-cac-40-et-dax-prets-pour-un-nouveau-cycle-haussier
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdomadaire-des-marches-un-vent-doptimisme-souffle-sur-la-finance-mondiale /blog/analyse-hebdomadaire-des-marches-un-vent-doptimisme-souffle-sur-la-finance-mondiale
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-comment-naviguer-quand-tous-les-actifs-semballent- /blog/analyse-hebdo-comment-naviguer-quand-tous-les-actifs-semballent
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdomadaire-des-marches-entre-acceleration-parabolique-et-retournement-structurel /blog/analyse-hebdomadaire-des-marches-entre-acceleration-parabolique-et-retournement-structurel
+# [Analyse hebdo]
+Redirect 301 /marches-mondiaux-pourquoi-le-prochain-grand-mouvement-partira-des-matieres-premieres /blog/marches-mondiaux-pourquoi-le-prochain-grand-mouvement-partira-des-matieres-premieres
+# [Analyse hebdo]
+Redirect 301 /inflation-matieres-premieres-dollar-pourquoi-2026-marque-un-tournant-historique-des-marches /blog/inflation-matieres-premieres-dollar-pourquoi-2026-marque-un-tournant-historique-des-marches
+# [Analyse hebdo]
+Redirect 301 /marches-mondiaux-le-retour-du-momentum-face-aux-risques-macroeconomiques /blog/marches-mondiaux-le-retour-du-momentum-face-aux-risques-macroeconomiques
+# [Editorial macro]
+Redirect 301 /france-crise-financiere-en-vue-decortiquons-les-defis-et-les-solutions-pour-un-avenir-plus-stable /blog/france-crise-financiere-en-vue-decortiquons-les-defis-et-les-solutions-pour-un-avenir-plus-stable
+# [Analyse hebdo]
+Redirect 301 /lheure-du-choix-entre-explosion-de-lor-et-short-squeeze-de-la-tech /blog/lheure-du-choix-entre-explosion-de-lor-et-short-squeeze-de-la-tech
+# [Analyse hebdo]
+Redirect 301 /marches-2026-entre-hyper-climax-compression-et-arbitrages-cles-mon-analyse-hebdomadaire /blog/marches-2026-entre-hyper-climax-compression-et-arbitrages-cles-mon-analyse-hebdomadaire
+# [Analyse hebdo]
+Redirect 301 /le-retour-des-bond-vigilantes-stagflation-petrole-a-109dollar-et-marches-sous-tension-analyse-du-16-mai-2026 /blog/le-retour-des-bond-vigilantes-stagflation-petrole-a-109dollar-et-marches-sous-tension-analyse-du-16-mai-2026
+# [Analyse hebdo]
+Redirect 301 /previsions-marches-2026-pourquoi-lor-largent-et-les-cryptomonnaies-entrent-en-zone-de-turbulence-historiquecle-de-blog /blog/previsions-marches-2026-pourquoi-lor-largent-et-les-cryptomonnaies-entrent-en-zone-de-turbulence-historique
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-les-marches-ont-perdu-la-tete-cette-semaine-et-voila-ce-que-ca-signifie-vraiment-pour-toi /blog/analyse-hebdo-les-marches-ont-perdu-la-tete-cette-semaine-et-voila-ce-que-ca-signifie-vraiment-pour-toi
+# [Institutionnelle]
+Redirect 301 /signaux-de-trading /communaute/
+# [Analyse hebdo]
+Redirect 301 /lor-a-des-sommets-historiques-pourquoi-jexploite-le-grand-rattrapage-des-minieres-en-2026 /blog/lor-a-des-sommets-historiques-pourquoi-jexploite-le-grand-rattrapage-des-minieres-en-2026
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdomadaire-des-tendances-des-cryptos-des-indices-et-des-matieres-premieres /blog/analyse-hebdomadaire-des-tendances-des-cryptos-des-indices-et-des-matieres-premieres
+# [Analyse hebdo]
+Redirect 301 /analyse-de-marche-mai-2026-euphorie-artificielle-ou-momentum-reel- /blog/analyse-de-marche-mai-2026-euphorie-artificielle-ou-momentum-reel
+# [Analyse hebdo]
+Redirect 301 /le-dow-bat-un-record-pendant-ce-temps-2007-frappe-a-la-porte /blog/le-dow-bat-un-record-pendant-ce-temps-2007-frappe-a-la-porte
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-pourquoi-le-gold-pourrait-devenir-le-roi-des-marches-cette-annee /blog/analyse-hebdo-pourquoi-le-gold-pourrait-devenir-le-roi-des-marches-cette-annee
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-la-guerre-economique-mondiale-comprendre-et-anticiper-les-impacts /blog/analyse-hebdo-la-guerre-economique-mondiale-comprendre-et-anticiper-les-impacts
+# [Analyse hebdo]
+Redirect 301 /-analyse-hebdomadaire-crypto-and-bourse-acceleration-ou-faux-signal-analyse-complete /blog/analyse-hebdomadaire-crypto-et-bourse-acceleration-ou-faux-signal-analyse-complete
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdomadaire-des-marches-un-equilibre-fragile /blog/analyse-hebdomadaire-des-marches-un-equilibre-fragile
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdomadaire-leffet-taco-et-lequilibre-fragile-des-marches /blog/analyse-hebdomadaire-leffet-taco-et-lequilibre-fragile-des-marches
+# [Analyse hebdo]
+Redirect 301 /2025-le-grand-tournant-des-marches-mon-analyse-hebdo-sur-bitcoin-or-et-indices /blog/2025-le-grand-tournant-des-marches-mon-analyse-hebdo-sur-bitcoin-or-et-indices
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdomadaire-opportunites-sur-bitcoin-blockchain-or-et-indices /blog/analyse-hebdomadaire-opportunites-sur-bitcoin-blockchain-or-et-indices
+# [Editorial macro]
+Redirect 301 /ce-que-personne-ne-vous-dit-sur-leffondrement-de-la-france-et-comment-vous-preparer /blog/ce-que-personne-ne-vous-dit-sur-leffondrement-de-la-france-et-comment-vous-preparer
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-bitcoin-indices-americains-et-europeens-et-le-gold /blog/analyse-hebdo-bitcoin-indices-americains-et-europeens-et-le-gold
+# [Editorial macro]
+Redirect 301 /la-france-face-a-la-recession-en-2025-un-regard-sans-filtre-sur-notre-situation-economique /blog/la-france-face-a-la-recession-en-2025-un-regard-sans-filtre-sur-notre-situation-economique
+# [Analyse hebdo]
+Redirect 301 /analyse-macro-2026-strategie-crypto-trading-nasdaq-et-gestion-du-risque-hebdomadaire /blog/analyse-macro-2026-strategie-crypto-trading-nasdaq-et-gestion-du-risque-hebdomadaire
+# [Analyse hebdo]
+Redirect 301 /analyse-marche-lor-senvole-le-bitcoin-corrige-et-le-dollar-prepare-sa-revanche /blog/analyse-marche-lor-senvole-le-bitcoin-corrige-et-le-dollar-prepare-sa-revanche
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-bitcoin-un-mouvement-explosif-se-prepare- /blog/analyse-hebdo-bitcoin-un-mouvement-explosif-se-prepare
+# [Analyse hebdo]
+Redirect 301 /les-marches-financiers-en-aout-2025-entre-euphorie-et-prudence-gardons-la-tete-froide /blog/les-marches-financiers-en-aout-2025-entre-euphorie-et-prudence-gardons-la-tete-froide
+# [Analyse hebdo]
+Redirect 301 /tendances-des-marches-ce-quil-faut-savoir-cette-semaine-pour-investir-malin /blog/tendances-des-marches-ce-quil-faut-savoir-cette-semaine-pour-investir-malin
+# [Editorial macro]
+Redirect 301 /enjeux-economiques-2025-france-etats-unis-argentine-opportunites-et-defis-a-venir /blog/enjeux-economiques-2025-france-etats-unis-argentine-opportunites-et-defis-a-venir
+# [Analyse hebdo]
+Redirect 301 /mon-analyse-hebdomadaire-crypto-indices-et-gold-7-juillet-2025 /blog/mon-analyse-hebdomadaire-crypto-indices-et-gold-7-juillet-2025
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-crypto-indices-and-or-la-boussole-de-la-semaine-pour-vos-decisions-strategiques /blog/analyse-hebdo-crypto-indices-et-or-la-boussole-de-la-semaine-pour-vos-decisions-strategiques
+# [Editorial macro]
+Redirect 301 /france-2025-800-millionnaires-quittent-le-pays-un-signal-dalerte-economique /blog/france-2025-800-millionnaires-quittent-le-pays-un-signal-dalerte-economique
+# [Editorial macro]
+Redirect 301 /le-japon-en-crise-pourquoi-cela-nous-concerne-tous /blog/le-japon-en-crise-pourquoi-cela-nous-concerne-tous
+# [Editorial macro]
+Redirect 301 /inflation-dettes-volatilite-sommes-nous-a-laube-dune-nouvelle-crise- /blog/inflation-dettes-volatilite-sommes-nous-a-laube-dune-nouvelle-crise
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-crypto-and-bourse-vers-un-nouveau-cycle-haussier- /blog/analyse-hebdo-crypto-et-bourse-vers-un-nouveau-cycle-haussier
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdomadaire-des-marches-tendances-des-cryptos-matieres-premieres-et-bourses-mondiales /blog/analyse-hebdomadaire-des-marches-tendances-des-cryptos-matieres-premieres-et-bourses-mondiales
+# [Analyse hebdo]
+Redirect 301 /gold-bitcoin-et-inflation-mon-analyse-hebdo-du-13-juin-2026-or-gold-strategies /blog/gold-bitcoin-et-inflation-mon-analyse-hebdo-du-13-juin-2026-or-gold-strategies
+# [Analyse hebdo]
+Redirect 301 /chute-massive-des-cryptomonnaies-comment-jajuste-mes-positions-et-gere-le-risque-en-periode-de-crise /blog/chute-massive-des-cryptomonnaies-comment-jajuste-mes-positions-et-gere-le-risque-en-periode-de-crise
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-2026-geopolitique-de-choc-petrole-et-marches-en-etat-divresse /blog/analyse-hebdo-2026-geopolitique-de-choc-petrole-et-marches-en-etat-divresse
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-le-dollar-prend-le-pouvoir-les-cryptos-soufflent-lor-pret-a-exploser /blog/analyse-hebdo-le-dollar-prend-le-pouvoir-les-cryptos-soufflent-lor-pret-a-exploser
+# [Editorial macro]
+Redirect 301 /crise-politique-economique-et-financiere-en-france-a-la-rentree-2025-ce-que-tout-le-monde-doit-comprendre /blog/crise-politique-economique-et-financiere-en-france-a-la-rentree-2025-ce-que-tout-le-monde-doit-comprendre
+# [Editorial macro]
+Redirect 301 /limpact-de-deepseek-sur-les-marches-financiers-ce-quil-faut-savoir /blog/limpact-de-deepseek-sur-les-marches-financiers-ce-quil-faut-savoir
+# [Analyse hebdo]
+Redirect 301 /crypto-indices-gold-ma-semaine-sous-haute-pression-analyses-et-perspectives-fin-aout-2025 /blog/crypto-indices-gold-ma-semaine-sous-haute-pression-analyses-et-perspectives-fin-aout-2025
+# [Analyse hebdo]
+Redirect 301 /mon-analyse-hebdo-des-marches-de-debut-aout /blog/mon-analyse-hebdo-des-marches-de-debut-aout
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdomadaire-des-marches-semaine-du-12-mai-2025 /blog/analyse-hebdomadaire-des-marches-semaine-du-12-mai-2025
+# [Promo (conformite)]
+Redirect 301 /maximisez-vos-gains-avec-gold-strategies--trading-et-coaching-experts /complement-revenu/
+# [Analyse hebdo]
+Redirect 301 /-matieres-premieres-le-signal-cache-qui-peut-declencher-un-krach-boursier-en-2026 /blog/matieres-premieres-le-signal-cache-qui-peut-declencher-un-krach-boursier-en-2026
+# [Analyse hebdo]
+Redirect 301 /analyse-hebdo-du-cac-40-au-bitcoin-anatomie-dun-bull-run-historique /blog/analyse-hebdo-du-cac-40-au-bitcoin-anatomie-dun-bull-run-historique
+# [Institutionnelle]
+Redirect 301 /a-proposs /a-propos/
+# [Institutionnelle]
+Redirect 301 /contact /contact/
+# [Institutionnelle]
+Redirect 301 /coaching-trading /formation/#coaching
+# [Institutionnelle]
+Redirect 301 /formation-trading /formation/
+# [Institutionnelle]
+Redirect 301 /actualites /blog/
+# [Institutionnelle]
+Redirect 301 /services-en-trading /solutions/
+
+# [Fix lien accueil - page jamais creee sous cette URL]
+Redirect 301 /analyses-opportunites /analyses/
