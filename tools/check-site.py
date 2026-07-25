@@ -65,7 +65,7 @@ def astro_pages():
         rel = p.relative_to(ROOT)
         if rel.parts[0] in {"_astro", "img", "assets", "tools", "astro-patch", ".git", "blog"}:
             continue
-        head = p.read_text(encoding="utf-8", errors="ignore")[:4000]
+        head = p.read_text(encoding="utf-8", errors="ignore")[:8000]
         if "/_astro/" in head and "stylesheet" in head:
             out.append(p)
     return out
