@@ -113,7 +113,7 @@ body.mobile-nav-open { overflow: hidden; }
   inset: 0;
   z-index: 0;
   opacity: .55;
-  background: url(/img/constat-bg.png) 100% 0 / 50% auto no-repeat;
+  background: url(/img/constat-bg.png) 68% 0 / 56% auto no-repeat;
   pointer-events: none;
 }
 #constat .constat-bg::after {
