@@ -179,3 +179,36 @@ body.mobile-nav-open { overflow: hidden; }
 @media (max-width: 640px) {
   #definition .definition-bg { display: none; }
 }
+
+/* ---------- 6. Photo preuve — page /complement-revenu/ ---------- */
+/* Même esprit que .founder/.founder-media (accueil) : cadre bordé, teinte
+   désaturée pour rester dans la charte, dégradé de fondu. Classes propres
+   (pas .founder-media) car la photo est un portrait 941x1672 très vertical,
+   un aspect-ratio figé la rognerait — on la laisse respirer à sa hauteur. */
+.proof {
+  grid-template-columns: minmax(0, .62fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 4rem);
+  display: grid;
+}
+@media (max-width: 860px) {
+  .proof { grid-template-columns: 1fr; }
+}
+.proof-media {
+  border: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.proof-media img {
+  width: 100%;
+  display: block;
+  filter: saturate(.8) contrast(1.05);
+}
+.proof-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(200deg, #d4a24c2e, transparent 55%),
+    linear-gradient(transparent 72%, #0b0a0899);
+}
