@@ -149,3 +149,33 @@ body.mobile-nav-open { overflow: hidden; }
 }
 .solc:hover::before { opacity: 1; }
 .solc .ic, .solc h3, .solc p, .solc .go { position: relative; }
+
+/* ---------- 5. Visuel data-viz — page /complement-revenu/, section "Définition" ---------- */
+/* Même technique que #constat (accueil) : image ancrée en haut à droite,
+   fondu vers --ink. Fondu vertical un peu plus bas que sur #constat car
+   le lede de cette section est plus long (pose avant .prose, pas .cards). */
+#definition { position: relative; overflow: hidden; }
+#definition .definition-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: .5;
+  background: url(/img/definition-bg.png) 68% 0 / 48% auto no-repeat;
+  pointer-events: none;
+}
+#definition .definition-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, var(--ink) 0%, var(--ink) 22%, transparent 58%),
+    linear-gradient(180deg, transparent 0, transparent 260px, var(--ink) 500px);
+}
+#definition .wrap { position: relative; z-index: 1; }
+
+@media (max-width: 900px) {
+  #definition .definition-bg { opacity: .3; background-size: 74% auto; }
+}
+@media (max-width: 640px) {
+  #definition .definition-bg { display: none; }
+}
