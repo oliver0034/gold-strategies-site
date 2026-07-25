@@ -212,3 +212,20 @@ body.mobile-nav-open { overflow: hidden; }
     linear-gradient(200deg, #d4a24c2e, transparent 55%),
     linear-gradient(transparent 72%, #0b0a0899);
 }
+
+/* ---------- 7. Encadré "Avertissement sur les risques" (pied de page, 10 pages Astro) ---------- */
+/* Le pied de page Astro affichait ce texte en pleine largeur, non encadré.
+   Le blog (charte legacy, assets/style.css) a déjà un encadré équivalent —
+   on aligne les pages Astro dessus, en gardant les angles droits propres
+   à cette charte (pas de border-radius, contrairement au blog). */
+.disclaimer {
+  max-width: 640px;
+  margin: 2.5rem auto 2rem;
+  padding: 1.3rem clamp(1rem, 4vw, 1.6rem);
+  border: 1px solid var(--line);
+  background: var(--ink-2);
+  color: var(--muted);
+  font-size: .75rem;
+  line-height: 1.6;
+  text-align: center;
+}
