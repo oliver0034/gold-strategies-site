@@ -1,0 +1,209 @@
+---
+/**
+ * MobileNav.astro — menu mobile pour gold-strategies.com
+ *
+ * À placer dans `src/components/MobileNav.astro` du projet Astro, puis à inclure
+ * UNE SEULE FOIS dans `src/layouts/Layout.astro` (et dans `src/pages/index.astro`
+ * tant que l'accueil n'utilise pas le Layout), juste avant `</body>` :
+ *
+ *   ---
+ *   import MobileNav from '../components/MobileNav.astro';
+ *   ---
+ *   ...
+ *   <MobileNav />
+ *   </body>
+ *
+ * Pourquoi ce composant : le CSS du site masque `.navlinks` sous 1180px et aucun
+ * bouton burger n'existe — la navigation devient impossible sur mobile et tablette.
+ *
+ * Il ne redéclare AUCUN lien : il reconstruit le menu à partir de ceux déjà présents
+ * dans `.nav .navlinks` et `.nav .nav-cta`. Modifier le menu du site suffit donc, le
+ * menu mobile suit automatiquement. Aucune prop, aucune dépendance.
+ *
+ * Une fois ce composant en place et le site rebuildé, supprimer du repo de production :
+ *   - assets/nav-mobile.js
+ *   - la partie « navigation mobile » de assets/site-fixes.css
+ *   - les <link>/<script> correspondants dans les 10 pages Astro
+ * (voir refonte/README-MAINTENANCE.md).
+ */
+---
+
+<style is:global>
+  .burger-mobile {
+    display: none;
+    background: none;
+    border: 0;
+    color: var(--gold-light, #f2dfa8);
+    cursor: pointer;
+    padding: 6px;
+    line-height: 0;
+    border-radius: 2px;
+  }
+  .burger-mobile:focus-visible {
+    outline: 2px solid var(--gold, #d4a24c);
+    outline-offset: 2px;
+  }
+
+  .mobile-nav {
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    background: var(--ink, #0b0a08);
+    padding: 84px 24px 32px;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity .28s ease, transform .28s ease, visibility .28s;
+  }
+  .mobile-nav[data-open="true"] { opacity: 1; visibility: visible; transform: none; }
+
+  /* Le panneau passe au-dessus du reste, mais la barre de navigation doit rester
+     accessible : sans ça le burger (donc la fermeture) est recouvert. */
+  body.mobile-nav-open { overflow: hidden; }
+  body.mobile-nav-open .nav {
+    z-index: 80;
+    background: var(--ink, #0b0a08);
+    border-bottom-color: var(--line, #d4a24c2e);
+  }
+
+  .mobile-nav a {
+    display: block;
+    padding: 13px 2px;
+    color: var(--paper, #ede8df);
+    font-size: 1.06rem;
+    border-bottom: 1px solid var(--line, #d4a24c2e);
+  }
+  .mobile-nav a[aria-current="page"] { color: var(--gold-light, #f2dfa8); }
+  .mobile-nav .mn-group {
+    display: block;
+    margin: 22px 0 4px;
+    color: var(--gold, #d4a24c);
+    font-size: .74rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+  .mobile-nav .mn-cta { display: flex; flex-direction: column; gap: 12px; margin-top: 30px; }
+  .mobile-nav .mn-cta a {
+    border: 1px solid var(--line, #d4a24c2e);
+    border-radius: 2px;
+    text-align: center;
+    padding: 14px;
+  }
+  .mobile-nav .mn-cta a.is-gold {
+    background: var(--gold, #d4a24c);
+    border-color: var(--gold, #d4a24c);
+    color: var(--ink, #0b0a08);
+    font-weight: 500;
+  }
+
+  @media (max-width: 1180px) {
+    .burger-mobile { display: block; }
+    .nav-cta .btn-primary { display: none; }
+  }
+  @media (min-width: 1181px) {
+    .mobile-nav { display: none; }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    'use strict';
+
+    function cloneLink(source) {
+      var a = document.createElement('a');
+      a.href = source.getAttribute('href') || '#';
+      a.textContent = source.textContent.trim();
+      if (source.getAttribute('target')) a.target = source.getAttribute('target');
+      if (source.getAttribute('rel')) a.rel = source.getAttribute('rel');
+      if (source.getAttribute('aria-current')) a.setAttribute('aria-current', source.getAttribute('aria-current'));
+      return a;
+    }
+
+    function icon(open) {
+      var path = open ? '<path d="M6 6l12 12M18 6L6 18"/>' : '<path d="M4 7h16M4 12h16M4 17h16"/>';
+      return '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">' + path + '</svg>';
+    }
+
+    function init() {
+      var nav = document.querySelector('.nav');
+      var navlinks = nav && nav.querySelector('.navlinks');
+      if (!nav || !navlinks || document.querySelector('.burger-mobile')) return;
+
+      var panel = document.createElement('div');
+      panel.className = 'mobile-nav';
+      panel.id = 'mobileNav';
+      panel.setAttribute('data-open', 'false');
+      panel.setAttribute('aria-label', 'Navigation principale (mobile)');
+
+      Array.prototype.forEach.call(navlinks.children, function (li) {
+        var dd = li.querySelector('.dd-panel');
+        if (dd) {
+          var trigger = li.querySelector('.dd-trigger');
+          var label = document.createElement('span');
+          label.className = 'mn-group';
+          label.textContent = trigger ? trigger.textContent.trim() : 'Services';
+          panel.appendChild(label);
+          Array.prototype.forEach.call(dd.querySelectorAll('a'), function (a) {
+            panel.appendChild(cloneLink(a));
+          });
+          return;
+        }
+        var link = li.querySelector('a');
+        if (link) panel.appendChild(cloneLink(link));
+      });
+
+      var ctas = nav.querySelectorAll('.nav-cta .btn');
+      if (ctas.length) {
+        var box = document.createElement('div');
+        box.className = 'mn-cta';
+        Array.prototype.forEach.call(ctas, function (btn) {
+          var a = cloneLink(btn);
+          a.className = btn.classList.contains('btn-primary') ? 'is-gold' : '';
+          box.appendChild(a);
+        });
+        panel.appendChild(box);
+      }
+
+      document.body.appendChild(panel);
+
+      var burger = document.createElement('button');
+      burger.type = 'button';
+      burger.className = 'burger-mobile';
+      burger.setAttribute('aria-label', 'Ouvrir le menu');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-controls', 'mobileNav');
+      burger.innerHTML = icon(false);
+
+      var ctaBox = nav.querySelector('.nav-cta');
+      (ctaBox || nav.querySelector('.wrap') || nav).appendChild(burger);
+
+      function setOpen(open) {
+        panel.setAttribute('data-open', open ? 'true' : 'false');
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+        burger.innerHTML = icon(open);
+        document.body.classList.toggle('mobile-nav-open', open);
+      }
+
+      burger.addEventListener('click', function () {
+        setOpen(panel.getAttribute('data-open') !== 'true');
+      });
+      panel.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') setOpen(false);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setOpen(false);
+      });
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 1180) setOpen(false);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>

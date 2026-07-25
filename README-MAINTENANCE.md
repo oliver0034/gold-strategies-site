@@ -55,23 +55,20 @@ Ils sont référencés dans les 10 pages Astro (`<link>` avant `</head>`,
 ### Réappliquer après un rebuild
 
 ```bash
-cd "refonte" && python3 - <<'PY'
-import pathlib
-pages = ['index.html','a-propos/index.html','analyses/index.html','capital-finance-prop-firm/index.html',
-         'communaute/index.html','complement-revenu/index.html','formation/index.html','methode/index.html',
-         'resultats/index.html','trading-de-lor/index.html']
-CSS = '<link rel="stylesheet" href="/assets/site-fixes.css?v=20260725">'
-JS  = '<script src="/assets/nav-mobile.js?v=20260725" defer></script>'
-for rel in pages:
-    p = pathlib.Path(rel); s = p.read_text(encoding='utf-8')
-    if 'site-fixes.css' in s: print('déjà patché :', rel); continue
-    p.write_text(s.replace('</head>', CSS+'</head>', 1).replace('</body>', JS+'</body>', 1), encoding='utf-8')
-    print('patché :', rel)
-PY
+python3 tools/apply-fixes.py
 ```
 
-Le vrai correctif, à terme : porter ces deux points dans les sources Astro
-(`Layout.astro` + le composant de galerie) pour pouvoir supprimer ces fichiers.
+Idempotent : ne fait rien s'il n'y a rien à réparer. Les pages Astro sont détectées
+automatiquement (celles qui chargent `/_astro/*.css`), donc ajouter une page au site ne
+demande aucune modification de l'outillage.
+
+### Le correctif définitif
+
+`astro-patch/` contient le composant `MobileNav.astro` et les instructions pour porter
+les deux correctifs **dans les sources Astro** — c'est ce qu'il faut faire dès qu'on
+remet la main sur le projet source. Une fois fait, `python3 tools/apply-fixes.py --remove`
+retire les béquilles et `EXPECT_FIXES = False` dans `tools/check-site.py` désactive le
+contrôle correspondant.
 
 ---
 
@@ -110,7 +107,30 @@ Pas de schéma `FAQPage` (convention du site).
 
 ---
 
-## 5. Vérifications avant push
+## 5. Outillage
+
+| Commande | Rôle |
+|---|---|
+| `python3 tools/check-site.py` | contrôles avant déploiement (voir ci-dessous) |
+| `python3 tools/apply-fixes.py` | réinjecte les correctifs dans les pages Astro |
+| `python3 tools/apply-fixes.py --check` | vérifie sans rien modifier |
+| `python3 tools/apply-fixes.py --remove` | retire les correctifs (après portage dans Astro) |
+| `sh tools/install-hooks.sh` | (ré)installe le garde-fou `pre-push` |
+
+`check-site.py` vérifie : correctifs présents sur les pages Astro, une seule version de
+cache-busting, `sitemap.xml` ↔ dossiers `blog/`, compteur du blog = nombre de cartes,
+images référencées présentes, ratio des bannières mises en avant (avertissement).
+
+### Garde-fou pre-push
+
+Un hook `pre-push` lance `check-site.py` et **refuse le push** si le site partirait
+cassé — puisqu'un push est un déploiement immédiat. Il est déjà installé sur ce Mac ;
+après un nouveau clone, le remettre avec `sh tools/install-hooks.sh`.
+En cas d'urgence : `git push --no-verify`.
+
+---
+
+## 6. Vérifications visuelles avant push
 
 ```bash
 cd "refonte" && python3 -m http.server 8642

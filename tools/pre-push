@@ -1,0 +1,42 @@
+#!/bin/sh
+#
+# Hook pre-push — garde-fou avant mise en production.
+#
+# `git push` déploie directement sur Hostinger : ce qui part est en ligne 30 secondes
+# plus tard. Ce hook refuse un push qui casserait le site (menu mobile absent après un
+# rebuild Astro, sitemap incohérent, image manquante, compteur faux).
+#
+# Installé par tools/install-hooks.sh. Pour passer outre en cas d'urgence :
+#   git push --no-verify
+
+repo_root=$(git rev-parse --show-toplevel)
+cd "$repo_root" || exit 1
+
+if [ ! -f tools/check-site.py ]; then
+  exit 0   # dépôt sans outillage : on ne bloque pas
+fi
+
+echo "→ Vérification du site avant déploiement…"
+
+if ! python3 tools/check-site.py; then
+  cat <<'MSG'
+
+╭──────────────────────────────────────────────────────────────────────╮
+│  PUSH BLOQUÉ — le site partirait cassé en production.                │
+│                                                                      │
+│  Cas le plus fréquent : un rebuild Astro a écrasé les pages et       │
+│  retiré les correctifs (le menu mobile disparaît alors du site).     │
+│                                                                      │
+│      python3 tools/apply-fixes.py                                    │
+│      git add -A && git commit -m "Réapplique les correctifs Astro"   │
+│      git push                                                        │
+│                                                                      │
+│  Détail des contrôles : refonte/README-MAINTENANCE.md                │
+│  Forcer malgré tout (à éviter) : git push --no-verify                │
+╰──────────────────────────────────────────────────────────────────────╯
+
+MSG
+  exit 1
+fi
+
+exit 0
