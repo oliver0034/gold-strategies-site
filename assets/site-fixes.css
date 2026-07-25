@@ -1,0 +1,103 @@
+/* =========================================================================
+   site-fixes.css — correctifs appliqués aux pages générées par Astro
+   (accueil + les 9 pages du menu). Ces pages sont committées telles quelles
+   dans le repo : leur CSS `_astro/gold.*.css` est un build hashé qu'on ne
+   modifie pas. Ce fichier surcharge, il ne remplace rien.
+
+   À réappliquer après chaque rebuild Astro (voir README-MAINTENANCE.md).
+
+   1. Navigation mobile : sous 1180px, `.navlinks` est masqué par le build et
+      aucun bouton burger n'existe → plus aucune navigation possible.
+      Le burger et le panneau sont injectés par /assets/nav-mobile.js.
+   2. Vignettes de la galerie d'analyses : le ratio 820/462 rognait les
+      bannières (format 40/21), coupant le titre incrusté.
+   ========================================================================= */
+
+/* ---------- 1. Navigation mobile ---------- */
+
+.burger-mobile {
+  display: none;
+  background: none;
+  border: 0;
+  color: var(--gold-light, #f2dfa8);
+  cursor: pointer;
+  padding: 6px;
+  line-height: 0;
+  border-radius: 2px;
+}
+.burger-mobile:focus-visible { outline: 2px solid var(--gold, #d4a24c); outline-offset: 2px; }
+
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  background: var(--ink, #0b0a08);
+  padding: 84px 24px 32px;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity .28s ease, transform .28s ease, visibility .28s;
+}
+.mobile-nav[data-open="true"] { opacity: 1; visibility: visible; transform: none; }
+
+/* Le panneau passe au-dessus du reste, mais la barre de navigation doit
+   rester accessible : sans ça le burger (donc la fermeture) est recouvert. */
+body.mobile-nav-open .nav {
+  z-index: 80;
+  background: var(--ink, #0b0a08);
+  border-bottom-color: var(--line, #d4a24c2e);
+}
+
+.mobile-nav a {
+  display: block;
+  padding: 13px 2px;
+  color: var(--paper, #ede8df);
+  font-size: 1.06rem;
+  border-bottom: 1px solid var(--line, #d4a24c2e);
+}
+.mobile-nav a[aria-current="page"] { color: var(--gold-light, #f2dfa8); }
+.mobile-nav .mn-group {
+  display: block;
+  margin: 22px 0 4px;
+  color: var(--gold, #d4a24c);
+  font-size: .74rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.mobile-nav .mn-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 30px;
+}
+.mobile-nav .mn-cta a {
+  border: 1px solid var(--line, #d4a24c2e);
+  border-radius: 2px;
+  text-align: center;
+  padding: 14px;
+}
+.mobile-nav .mn-cta a.is-gold {
+  background: var(--gold, #d4a24c);
+  border-color: var(--gold, #d4a24c);
+  color: var(--ink, #0b0a08);
+  font-weight: 500;
+}
+
+@media (max-width: 1180px) {
+  .burger-mobile { display: block; }
+  /* le CTA texte prend toute la place sur petit écran : on garde le burger seul */
+  .nav-cta .btn-primary { display: none; }
+}
+@media (min-width: 1181px) {
+  .mobile-nav { display: none; }
+}
+
+body.mobile-nav-open { overflow: hidden; }
+
+/* ---------- 2. Vignettes de la galerie d'analyses ---------- */
+/* Les bannières d'articles sont au format 40/21 (1600x840, 1200x630).
+   Le ratio 820/462 du build rognait ~7% de largeur, donc le titre. */
+.tile-img { aspect-ratio: 40 / 21; }
+.tile-img img { transform: none; }
+.tile:hover .tile-img img { transform: scale(1.06); }
