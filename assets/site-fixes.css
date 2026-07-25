@@ -229,3 +229,91 @@ body.mobile-nav-open { overflow: hidden; }
   line-height: 1.6;
   text-align: center;
 }
+
+/* ---------- 8. Bloc prix — page /formation/ ---------- */
+/* Même esprit que .col.good (accueil, comparatif) : cadre teinté or,
+   pour signaler "l'offre" sans casser la charte sobre du site. */
+.pricing {
+  max-width: 620px;
+  margin: 0 auto;
+  border: 1px solid #d4a24c6b;
+  background: linear-gradient(#d4a24c0f, transparent 60%);
+  padding: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+.pricing .price-tag {
+  font-family: Bodoni Moda, serif;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--gold-light);
+  font-size: clamp(2.6rem, 6vw, 3.8rem);
+  margin-bottom: 1.6rem;
+}
+.pricing .price-tag span {
+  display: block;
+  margin-top: .6rem;
+  color: var(--muted);
+  font-family: IBM Plex Mono, monospace;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: .7rem;
+}
+.pricing ul {
+  list-style: none;
+  display: grid;
+  gap: .7rem;
+  margin: 0 auto 1.8rem;
+  max-width: 440px;
+  text-align: left;
+}
+.pricing li {
+  display: flex;
+  gap: .7rem;
+  color: #cbc4b8;
+  line-height: 1.55;
+  font-size: .9375rem;
+}
+.pricing li::before { content: "—"; color: var(--gold); flex: none; }
+.pricing .proof-link {
+  margin-top: 1.4rem;
+  color: var(--muted);
+  font-size: .875rem;
+  line-height: 1.6;
+}
+.pricing .proof-link a { color: var(--gold); }
+
+/* ---------- 9. Grille "Le socle" (6 cartes) — page /formation/ ---------- */
+/* .cards utilise grid-template-columns:auto-fit ; avec 6 items ça bascule
+   sur 4 colonnes aux grandes largeurs (4+2, dernière rangée décalée à
+   gauche). On fixe 3 colonnes pour cette instance précise, sans toucher
+   .cards globalement (utilisé ailleurs avec 3 items, jamais concerné). */
+#socle-cards { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) {
+  #socle-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  #socle-cards { grid-template-columns: 1fr; }
+}
+
+/* ---------- 10. Sections deux-colonnes alternées — page /formation/ ---------- */
+/* Casse la monotonie des sections .sec-head + .prose empilées en pleine
+   largeur : titre d'un côté, texte de l'autre, alterné section par section
+   via .split-reverse. Pas de pattern équivalent ailleurs sur le site (les
+   comparatifs .compare sont symétriques, pas titre/texte) — nouveau, sobre,
+   même grammaire visuelle que .founder/.proof (grid 2 colonnes, align:start). */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+.split .sec-head { margin-bottom: 0; }
+.split.split-reverse { grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); }
+.split.split-reverse > :first-child { order: 2; }
+.split.split-reverse > :last-child { order: 1; }
+@media (max-width: 860px) {
+  .split { grid-template-columns: 1fr; }
+  .split.split-reverse > :first-child,
+  .split.split-reverse > :last-child { order: initial; }
+  .split .sec-head { margin-bottom: clamp(1.5rem, 4vw, 2.25rem); }
+}
