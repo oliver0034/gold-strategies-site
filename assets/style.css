@@ -27,6 +27,10 @@
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto;display:block}
     .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+    /* Fix nav cassee (audit du 25/07/2026) : le header a besoin de plus de place que le
+       reste du contenu pour son logo + 6 liens + 2 CTA sur une seule ligne. Le reste des
+       sections garde --maxw (1160px) ; seule la barre de nav est elargie. */
+    header.nav .wrap{max-width:1400px}
     .gold{color:var(--gold-2)}
     .eyebrow{font-family:'Inter';font-weight:600;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
     .lead{color:var(--muted);font-size:1.06rem;max-width:60ch}

@@ -185,7 +185,9 @@ Redirect 301 /analyse-hebdo-du-cac-40-au-bitcoin-anatomie-dun-bull-run-historiqu
 # [Institutionnelle]
 Redirect 301 /a-proposs /a-propos/
 # [Institutionnelle]
-Redirect 301 /contact /contact/
+# RedirectMatch (pas Redirect/mod_alias) : "Redirect" matche par prefixe et
+# redirigeait /contact/ vers lui-meme (boucle infinie, trouvee par l'audit du 25/07/2026).
+RedirectMatch 301 ^/contact$ /contact/
 # [Institutionnelle]
 Redirect 301 /coaching-trading /formation/#coaching
 # [Institutionnelle]
@@ -193,7 +195,8 @@ Redirect 301 /formation-trading /formation/
 # [Institutionnelle]
 Redirect 301 /actualites /blog/
 # [Institutionnelle]
-Redirect 301 /services-en-trading /solutions/
+# Cible /solutions/ n'a jamais existe (404 en prod, trouve par l'audit du 25/07/2026) -> /methode/
+Redirect 301 /services-en-trading /methode/
 
 # [Fix lien accueil - page jamais creee sous cette URL]
 Redirect 301 /analyses-opportunites /analyses/
@@ -221,4 +224,17 @@ Redirect 301 /analyses-opportunites /analyses/
   <FilesMatch "\.(xml|txt)$">
     Header set Cache-Control "public, max-age=3600"
   </FilesMatch>
+</IfModule>
+
+# ==========================================================
+# En-tetes de securite (ajout suite a l'audit du 25/07/2026)
+# Aucun de ces en-tetes n'existait ; seule une CSP minimale
+# (upgrade-insecure-requests, definie ailleurs) etait presente.
+# ==========================================================
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 </IfModule>
