@@ -1,0 +1,1 @@
+import{n as e,t}from"./ScrollTrigger.DDi3XPDo.js";e.registerPlugin(t),matchMedia(`(prefers-reduced-motion: reduce)`).matches||(e.to(`#founderMask`,{scaleY:0,duration:1.3,ease:`power4.inOut`,delay:.3}),e.fromTo(`#founderImg`,{yPercent:-6},{yPercent:6,ease:`none`,scrollTrigger:{trigger:`.founder-media`,start:`top bottom`,end:`bottom top`,scrub:.5}}));
