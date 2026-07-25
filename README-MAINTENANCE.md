@@ -84,6 +84,21 @@ cd "refonte" && grep -rl "style.css?v=20260725" --include="*.html" . | xargs sed
 
 Même logique pour `site-fixes.css` / `nav-mobile.js` (paramètre `?v=` dans les 10 pages Astro).
 
+### En-têtes de cache
+
+Depuis le 25/07/2026, `.htaccess` fixe explicitement les en-têtes (avant, le HTML n'en
+avait aucun et les navigateurs gardaient une page publiée plusieurs heures — une
+publication pouvait rester invisible malgré un déploiement réussi) :
+
+| Type | `Cache-Control` |
+|---|---|
+| `.html` | `no-cache, must-revalidate` (revalidé à chaque visite, l'ETag évite le retéléchargement) |
+| `.css` `.js` | `public, max-age=604800` — d'où l'importance du `?v=` |
+| images, polices | `public, max-age=31536000` (noms uniques par article) |
+| `.xml` `.txt` | `public, max-age=3600` |
+
+Vérification : `curl -sI https://gold-strategies.com/blog/ | grep -i cache-control`.
+
 ---
 
 ## 4. Publier un article hebdo — les 5 points d'intégration
