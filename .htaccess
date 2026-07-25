@@ -197,3 +197,28 @@ Redirect 301 /services-en-trading /solutions/
 
 # [Fix lien accueil - page jamais creee sous cette URL]
 Redirect 301 /analyses-opportunites /analyses/
+
+# ==========================================================
+# En-tetes de cache (ajout du 25/07/2026)
+#
+# Sans ces regles, le HTML n'avait AUCUN Cache-Control : les navigateurs
+# appliquaient une heuristique et pouvaient garder une page publiee plusieurs
+# heures — d'ou des articles ou des correctifs CSS invisibles apres un deploiement.
+#
+# HTML  : revalidation systematique (l'ETag evite de retelecharger si rien n'a change)
+# Assets: cache long, les URL sont versionnees (?v=AAAAMMJJ) ou uniques par article
+# ==========================================================
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|svg|ico|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000"
+  </FilesMatch>
+  <FilesMatch "\.(xml|txt)$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+</IfModule>
