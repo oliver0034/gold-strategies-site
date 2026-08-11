@@ -51,6 +51,14 @@ Ils sont référencés dans les 10 pages Astro (`<link>` avant `</head>`,
 2. **Vignettes rognées.** `.tile-img` était en ratio 820/462 alors que les bannières
    d'articles sont en 40/21 (1600×840, 1200×630) : les bords étaient coupés, donc le
    titre incrusté dans la bannière aussi.
+3. **Retouches de texte SEO** (`TEXT_PATCHES` dans `apply-fixes.py`). Un rebuild réécrit
+   aussi le **contenu** des pages, pas seulement les balises de ressources : une
+   correction de `title`, de `h1` ou de meta faite à la main disparaît en silence.
+   Aujourd'hui une seule entrée — `formation/index.html`, retitrée sur « or » et
+   « XAUUSD » le 11/08/2026 (page 10 du backlog de `plan-editorial-seo.md` : la page est
+   à 100 % une formation sur l'or et aucun des deux mots n'apparaissait dans son title,
+   son H1 ni sa meta). Toute future correction SEO sur une page Astro **doit** passer par
+   cette table, sinon elle ne survivra pas au prochain build.
 
 ### Réappliquer après un rebuild
 
@@ -61,6 +69,13 @@ python3 tools/apply-fixes.py
 Idempotent : ne fait rien s'il n'y a rien à réparer. Les pages Astro sont détectées
 automatiquement (celles qui chargent `/_astro/*.css`), donc ajouter une page au site ne
 demande aucune modification de l'outillage.
+
+> Deux bugs corrigés le 11/08/2026 : le script ne voyait que **6 pages sur 12** (il ne
+> lisait que les 4 000 premiers caractères, trop court pour les `<head>` chargés de
+> JSON-LD), et sa constante de version était en retard sur celle en ligne — il
+> **rétrogradait** donc le `?v=` de `site-fixes.css` à chaque passage, faisant resservir
+> une feuille en cache. `CSS_VERSION` et `JS_VERSION` sont désormais distinctes : les
+> bumper ici en même temps que dans les pages.
 
 ### Le correctif définitif
 
