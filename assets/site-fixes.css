@@ -317,3 +317,70 @@ body.mobile-nav-open { overflow: hidden; }
   .split.split-reverse > :last-child { order: initial; }
   .split .sec-head { margin-bottom: clamp(1.5rem, 4vw, 2.25rem); }
 }
+
+/* ---------- 11. Section « preuve hebdomadaire » — page d'accueil ---------- */
+/* HTML généré par tools/build-preuve-hebdo.py depuis le journal de trades ; un rebuild
+   Astro efface la section (le script la réinjecte) mais jamais ce fichier. */
+.ph-card {
+  background: rgba(255, 255, 255, .022);
+  border: 1px solid rgba(255, 255, 255, .085);
+  border-radius: 16px;
+  padding: clamp(14px, 2.4vw, 26px) clamp(10px, 2vw, 22px) 14px;
+  margin: clamp(1.6rem, 4vw, 2.6rem) 0 clamp(1.2rem, 3vw, 1.8rem);
+}
+.ph-chart { display: block; width: 100%; height: auto; overflow: visible; }
+.ph-grid { stroke: rgba(255, 255, 255, .07); stroke-width: 1; }
+.ph-ytick {
+  fill: rgba(255, 255, 255, .34); font-size: 12px; text-anchor: end;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+}
+.ph-xtick {
+  fill: rgba(255, 255, 255, .40); font-size: 12px; text-anchor: middle;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+}
+.ph-bar { fill: rgba(202, 138, 4, .40); transition: fill .25s; }
+.ph-bar:hover { fill: rgba(202, 138, 4, .78); }
+.ph-bar-neg { fill: rgba(192, 57, 43, .62); }
+.ph-bar-neg:hover { fill: rgba(192, 57, 43, .92); }
+.ph-area { fill: rgba(202, 138, 4, .09); stroke: none; }
+.ph-line {
+  fill: none; stroke: #e9c46a; stroke-width: 2.4;
+  stroke-linejoin: round; stroke-linecap: round;
+  stroke-dasharray: 2600; stroke-dashoffset: 2600;
+}
+.ph-dot { fill: #e9c46a; opacity: 0; }
+/* Le tracé se dessine quand la carte entre à l'écran (classe .ph-in posée par site-fixes.js,
+   indépendamment de GSAP dont le script est régénéré à chaque build Astro). */
+.ph-card.ph-in .ph-line { animation: ph-draw 1.9s .25s cubic-bezier(.3,.7,.3,1) forwards; }
+.ph-card.ph-in .ph-dot  { animation: ph-pop .5s 1.5s forwards; }
+@keyframes ph-draw { to { stroke-dashoffset: 0; } }
+@keyframes ph-pop  { to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .ph-line { stroke-dashoffset: 0; animation: none !important; }
+  .ph-dot { opacity: 1; animation: none !important; }
+}
+.ph-legend {
+  margin: .9rem 0 0; text-align: center;
+  color: rgba(255, 255, 255, .42); font-size: .82rem;
+}
+.ph-legend i { display: inline-block; vertical-align: middle; margin-right: 5px; }
+.ph-k-bar { width: 11px; height: 11px; border-radius: 2px; background: rgba(202, 138, 4, .55); }
+.ph-k-line { width: 18px; height: 2px; background: #e9c46a; }
+.ph-note {
+  color: rgba(255, 255, 255, .40); font-size: .84rem; line-height: 1.6;
+  max-width: 78ch; margin: 0 auto clamp(1.4rem, 3vw, 2rem); text-align: center;
+}
+#preuve .stat { margin-bottom: clamp(1.2rem, 3vw, 1.8rem); }
+#preuve .cta-row { justify-content: center; }
+@media (max-width: 700px) {
+  .ph-xtick-alt { display: none; }
+  .ph-ytick { font-size: 15px; }
+  .ph-xtick { font-size: 15px; }
+  .ph-legend { font-size: .9rem; }
+}
+.ph-zero { stroke: rgba(255, 255, 255, .16); stroke-width: 1; }
+.ph-neg-lbl {
+  fill: rgba(224, 122, 111, .95); font-size: 11.5px; text-anchor: middle; font-weight: 600;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+}
+@media (max-width: 700px) { .ph-neg-lbl { font-size: 14px; } }

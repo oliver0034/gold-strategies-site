@@ -34,10 +34,13 @@ pas d'`astro.config.*` ni de `Layout.astro` sur le Mac : les sources vivent aill
 
 ## 2. Correctifs appliqués par-dessus le build Astro
 
-Deux fichiers non générés par Astro, donc jamais écrasés :
+Trois fichiers non générés par Astro, donc jamais écrasés :
 
 - `assets/site-fixes.css`
 - `assets/nav-mobile.js`
+- `assets/site-fixes.js` — **ajouté à `apply-fixes.py` le 18/08/2026.** Il était référencé
+  par le build sans être géré par le script : un rebuild le faisait sauter en silence,
+  emportant le spotlight des cartes Solutions et le tracé de la section `#preuve`.
 
 Ils sont référencés dans les 10 pages Astro (`<link>` avant `</head>`,
 `<script defer>` avant `</body>`). C'est **cette référence** qu'un rebuild fait sauter.
@@ -86,6 +89,36 @@ retire les béquilles et `EXPECT_FIXES = False` dans `tools/check-site.py` désa
 contrôle correspondant.
 
 ---
+
+### 4. Section « preuve hebdomadaire » de l'accueil (`#preuve`)
+
+Ajoutée le 18/08/2026 en **3ᵉ position** de la page d'accueil, juste après « Le constat ».
+Elle montre le résultat de chaque semaine depuis l'ouverture du journal de trades — barres
+hebdomadaires, courbe de cumul, semaine perdante comprise — et renvoie vers `/resultats/`.
+
+C'est du **contenu ajouté par-dessus le build** : un rebuild Astro l'efface, comme le reste.
+Elle n'est donc pas écrite à la main mais **générée depuis le journal réel** :
+
+```bash
+python3 tools/build-preuve-hebdo.py           # (re)génère la section dans index.html
+python3 tools/build-preuve-hebdo.py --check   # signale son absence ou sa péremption
+```
+
+Source : `~/Desktop/GOLD STRATEGIES TRADING 2/journal trades/journal_master.csv`, montants
+en euros, capital de départ affiché : 300 €. Le HTML est délimité par les marqueurs
+`<!-- PREUVE-HEBDO:START -->` / `<!-- PREUVE-HEBDO:END -->` — **ne rien éditer entre les
+deux**, la prochaine exécution écraserait la retouche. Pour changer le texte, la mise en
+page ou le graphique, modifier `tools/build-preuve-hebdo.py`.
+
+`apply-fixes.py` appelle ce script automatiquement, et `--check` le contrôle : après un
+rebuild, `python3 tools/apply-fixes.py` remet la section en place avec les chiffres à jour.
+
+Le style vit dans `assets/site-fixes.css` (§ 11) et l'animation du tracé dans
+`assets/site-fixes.js` — volontairement indépendante de GSAP, dont le script est régénéré
+à chaque build.
+
+**À réexécuter après chaque mise à jour du journal** (la routine `journal-trades` du
+vendredi soir), sinon la section vieillit sur place.
 
 ## 3. Cache-busting
 
@@ -142,7 +175,8 @@ Pas de schéma `FAQPage` (convention du site).
 | Commande | Rôle |
 |---|---|
 | `python3 tools/check-site.py` | contrôles avant déploiement (voir ci-dessous) |
-| `python3 tools/apply-fixes.py` | réinjecte les correctifs dans les pages Astro |
+| `python3 tools/apply-fixes.py` | réinjecte les correctifs dans les pages Astro (et régénère la section `#preuve`) |
+| `python3 tools/build-preuve-hebdo.py` | régénère la section « preuve hebdomadaire » de l'accueil depuis le journal |
 | `python3 tools/apply-fixes.py --check` | vérifie sans rien modifier |
 | `python3 tools/apply-fixes.py --remove` | retire les correctifs (après portage dans Astro) |
 | `sh tools/install-hooks.sh` | (ré)installe le garde-fou `pre-push` |

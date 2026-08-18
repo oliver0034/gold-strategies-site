@@ -20,19 +20,25 @@ Usage :
 
 import pathlib
 import re
+import subprocess
 import sys
 
 # Cache-busting des deux correctifs. Ces valeurs doivent être celles réellement
 # en ligne : le script REMPLACE le `?v=` existant, donc une constante en retard
 # rétrograde silencieusement la version et fait resservir une feuille en cache.
 # Les deux fichiers évoluant séparément, ils ont leur propre version.
-CSS_VERSION = "202607261"   # assets/site-fixes.css — bumpé le 26/07/2026
+CSS_VERSION = "20260818"    # assets/site-fixes.css — bumpé le 18/08/2026 (section #preuve)
 JS_VERSION = "20260725"     # assets/nav-mobile.js
+SITEJS_VERSION = "20260818"  # assets/site-fixes.js — bumpé le 18/08/2026 (tracé de #preuve)
 CSS_TAG = '<link rel="stylesheet" href="/assets/site-fixes.css?v=%s">' % CSS_VERSION
 JS_TAG = '<script src="/assets/nav-mobile.js?v=%s" defer></script>' % JS_VERSION
+SITEJS_TAG = '<script src="/assets/site-fixes.js?v=%s" defer></script>' % SITEJS_VERSION
 
 CSS_RE = re.compile(r'<link[^>]+assets/site-fixes\.css[^>]*>')
 JS_RE = re.compile(r'<script[^>]+assets/nav-mobile\.js[^>]*></script>')
+# site-fixes.js était référencé dans le build sans être géré ici : un rebuild le faisait
+# donc sauter en silence (spotlight des cartes Solutions, tracé de la section #preuve).
+SITEJS_RE = re.compile(r'<script[^>]+assets/site-fixes\.js[^>]*></script>')
 
 # --- retouches de texte sur les pages Astro ----------------------------------
 # Un rebuild réécrit aussi le CONTENU des pages, pas seulement les balises de
@@ -106,6 +112,11 @@ def apply(path):
     elif "</body>" in out:
         out = out.replace("</body>", JS_TAG + "</body>", 1)
 
+    if SITEJS_RE.search(out):
+        out = SITEJS_RE.sub(SITEJS_TAG, out, count=1)
+    elif "</body>" in out:
+        out = out.replace("</body>", SITEJS_TAG + "</body>", 1)
+
     if out != src:
         path.write_text(out, encoding="utf-8")
         return True
@@ -114,7 +125,7 @@ def apply(path):
 
 def remove(path):
     src = path.read_text(encoding="utf-8")
-    out = JS_RE.sub("", CSS_RE.sub("", src))
+    out = SITEJS_RE.sub("", JS_RE.sub("", CSS_RE.sub("", src)))
     if out != src:
         path.write_text(out, encoding="utf-8")
         return True
@@ -141,6 +152,8 @@ def main():
 
     if mode == "--check":
         missing = []
+        if subprocess.run([sys.executable, str(ROOT / "tools" / "build-preuve-hebdo.py"), "--check"]).returncode:
+            missing.append((pathlib.Path("index.html"), "section #preuve (build-preuve-hebdo.py)"))
         for p in pages:
             s = p.read_text(encoding="utf-8")
             if not (CSS_RE.search(s) and JS_RE.search(s)):
@@ -155,6 +168,10 @@ def main():
             return 1
         print("✓ correctifs présents sur les %d pages Astro." % len(pages))
         return 0
+
+    # La section « preuve hebdomadaire » de l'accueil est du contenu ajouté par-dessus le
+    # build : un rebuild l'efface. On la régénère depuis le journal de trades.
+    subprocess.run([sys.executable, str(ROOT / "tools" / "build-preuve-hebdo.py")])
 
     touched = [p for p in pages if apply(p)]
     for p in touched:
