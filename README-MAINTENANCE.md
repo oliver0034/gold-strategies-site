@@ -54,7 +54,15 @@ Ils sont référencés dans les 10 pages Astro (`<link>` avant `</head>`,
 2. **Vignettes rognées.** `.tile-img` était en ratio 820/462 alors que les bannières
    d'articles sont en 40/21 (1600×840, 1200×630) : les bords étaient coupés, donc le
    titre incrusté dans la bannière aussi.
-3. **Retouches de texte SEO** (`TEXT_PATCHES` dans `apply-fixes.py`). Un rebuild réécrit
+3. **Menu déroulant « Services »** (`DROPDOWN` dans `apply-fixes.py`). Le build sert un
+   menu figé — ni Guide XAUUSD, ni Cours du XAUUSD, aucun groupe. La liste vit désormais
+   dans le script, qui régénère le panneau des pages Astro. Le menu des pages **legacy**
+   est dans leur HTML : le modifier demande une passe sur les 105 pages (voir le commit
+   `e39f8af` du 26/08/2026), plus la liste de secours codée dans `assets/main.js`.
+   Le vide entre le bouton et le panneau se franchit grâce à un pseudo-élément posé sur
+   le **parent** (`.nav-dropdown` / `li.nav-dd`) : sur le panneau, `overflow-y:auto` le rogne.
+
+4. **Retouches de texte SEO** (`TEXT_PATCHES` dans `apply-fixes.py`). Un rebuild réécrit
    aussi le **contenu** des pages, pas seulement les balises de ressources : une
    correction de `title`, de `h1` ou de meta faite à la main disparaît en silence.
    Aujourd'hui une seule entrée — `formation/index.html`, retitrée sur « or » et
@@ -175,7 +183,7 @@ Pas de schéma `FAQPage` (convention du site).
 | Commande | Rôle |
 |---|---|
 | `python3 tools/check-site.py` | contrôles avant déploiement (voir ci-dessous) |
-| `python3 tools/apply-fixes.py` | réinjecte les correctifs dans les pages Astro (et régénère la section `#preuve`) |
+| `python3 tools/apply-fixes.py` | réinjecte les correctifs dans les pages Astro (menu déroulant, section `#preuve`, retouches de texte) |
 | `python3 tools/build-preuve-hebdo.py` | régénère la section « preuve hebdomadaire » de l'accueil depuis le journal |
 | `python3 tools/apply-fixes.py --check` | vérifie sans rien modifier |
 | `python3 tools/apply-fixes.py --remove` | retire les correctifs (après portage dans Astro) |
