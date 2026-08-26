@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>document.documentElement.className+=' js';</script>
+  <title>XAUUSD : le cours de l'or en direct, et comment le lire | Gold Strategies</title>
+  <meta name="description" content="Le cours du XAUUSD en direct, et surtout ce qu'il veut dire : pourquoi votre broker n'affiche pas le même prix, quand l'or bouge vraiment, et comment convertir l'once en euros et en grammes." />
+  <link rel="canonical" href="https://gold-strategies.com/xauusd-cours/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="xauusd cours, cours xauusd, cours de l'or en direct, xau usd, prix once d'or, xauusd temps réel" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Gold Strategies" />
+  <meta property="og:title" content="XAUUSD : le cours de l'or en direct, et comment le lire" />
+  <meta property="og:description" content="Le cours du XAUUSD en direct, et ce qu'il veut vraiment dire : écarts entre brokers, horaires, conversion en euros et en grammes." />
+  <meta property="og:url" content="https://gold-strategies.com/xauusd-cours/" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:image" content="https://gold-strategies.com/img/pages/xauusd-cours-1.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="/img/logo-gold-strategies.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/style.css?v=20260725" />
+  <style>
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    /* Cadre du cours en direct — le graphique est fourni par TradingView, le cadre est maison */
+    .live-box{background:var(--panel-2);border:1px solid var(--line);border-top:2px solid var(--gold);border-radius:14px;padding:16px 16px 12px;margin:0 0 1.4rem}
+    .live-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 12px}
+    .live-head h2{margin:0;font-size:1.15rem}
+    .live-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#22c55e;margin-right:8px;vertical-align:middle}
+    .live-chart{height:520px;width:100%;border-radius:10px;overflow:hidden}
+    .live-note{color:var(--muted-2);font-size:.84rem;margin:10px 0 0;line-height:1.5}
+    .live-note a{color:var(--gold-2)}
+    @media(max-width:760px){.live-chart{height:420px}.live-box{padding:12px 12px 10px}}
+    /* Bloc de repères chiffrés — valeurs statiques, aucune dépendance au JS */
+    .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:1.8rem 0 .6rem}
+    .kpi{background:var(--panel-2);border:1px solid var(--line);border-top:2px solid var(--gold);border-radius:12px;padding:20px 18px;text-align:center;transition:transform .3s,border-color .3s}
+    .kpi:hover{transform:translateY(-4px);border-color:rgba(202,138,4,.45)}
+    .kpi b{display:block;font-family:'Playfair Display',serif;font-size:1.6rem;line-height:1.1;color:var(--gold-2);font-variant-numeric:tabular-nums;margin-bottom:6px}
+    .kpi span{display:block;color:var(--muted-2);font-size:.82rem;line-height:1.35}
+    .kpi-note{color:var(--muted-2);font-size:.85rem;margin:0 0 1.6rem;font-style:italic}
+    @media(max-width:760px){.kpi-row{grid-template-columns:1fr 1fr}.kpi b{font-size:1.4rem}}
+    @media(max-width:340px){.kpi-row{grid-template-columns:1fr}}
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://gold-strategies.com/"},{"@type":"ListItem","position":2,"name":"Guide XAUUSD","item":"https://gold-strategies.com/xauusd/"},{"@type":"ListItem","position":3,"name":"Cours du XAUUSD","item":"https://gold-strategies.com/xauusd-cours/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"XAUUSD : le cours de l'or en direct, et comment le lire","description":"Le cours du XAUUSD en direct, et ce qu'il veut vraiment dire : écarts entre brokers, horaires, conversion en euros et en grammes.","image":"https://gold-strategies.com/img/pages/xauusd-cours-1.jpg","datePublished":"2026-08-25T08:00:00+02:00","dateModified":"2026-08-25T08:00:00+02:00","author":{"@type":"Person","name":"Oliver Sev","description":"Ancien conseiller financier inscrit à l'AMF pendant 27 ans","url":"https://gold-strategies.com/a-propos/"},"publisher":{"@type":"Organization","name":"Gold Strategies","logo":{"@type":"ImageObject","url":"https://gold-strategies.com/img/logo-gold-strategies.jpeg"}},"mainEntityOfPage":"https://gold-strategies.com/xauusd-cours/","inLanguage":"fr","about":"Le cours du XAUUSD (or spot en dollars américains)"}
+  </script>
+  <!-- PAS de schéma FAQPage : convention du site (cf. commentaire dans style.css) -->
+</head>
+<body>
+  <div class="scroll-progress" id="progress" aria-hidden="true"></div>
+  <header class="nav" id="nav">
+    <div class="wrap bar">
+      <a href="/" class="brand" aria-label="Gold Strategies — accueil"><img src="/img/logo-gold-strategies.jpeg" width="54" height="54" alt="Gold Strategies" class="logo-img" /></a>
+      <nav class="links" aria-label="Navigation principale">
+        <a href="/">Accueil</a>
+        <a href="/complement-revenu/">Complément de revenu</a>
+        <div class="nav-dropdown">
+          <button class="dd-trigger" aria-haspopup="true">Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd-panel">
+            <a href="/methode/">La méthode</a>
+            <a href="/trading-de-lor/">Trading de l'or</a>
+            <a href="/xauusd/">Guide XAUUSD</a>
+            <a href="/analyses/">Analyses</a>
+            <a href="/formation/">Formation</a>
+            <a href="/capital-finance-prop-firm/">Prop firm / Capital financé</a>
+            <a href="/communaute/">Communauté</a>
+          </div>
+        </div>
+        <a href="/resultats/">Résultats</a>
+        <a href="/blog/">Blog</a>
+        <a href="/a-propos/">À propos</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="/methode/" class="btn btn-ghost">Découvrir la méthode</a>
+        <a href="/communaute/" class="btn btn-gold">Rejoindre la communauté</a>
+        <button class="burger" aria-label="Ouvrir le menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:150px 0 30px">
+    <div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="center-glow" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow reveal">Cours en direct · XAU/USD</p>
+      <h1 class="sr-only">XAUUSD : le cours de l'or en direct, et comment le lire</h1>
+      <p class="lead reveal d2">Le cours de l'or en dollars, mis à jour en continu — et ce qu'il faut comprendre pour en faire autre chose qu'un chiffre qui clignote.</p>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:14px"><div class="wrap prose">
+
+    <div class="live-box reveal">
+      <div class="live-head">
+        <h2><span class="live-dot" aria-hidden="true"></span>Cours du XAUUSD en direct</h2>
+        <span style="color:var(--muted-2);font-size:.85rem">Or spot / dollar américain — once troy</span>
+      </div>
+      <div class="live-chart">
+        <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+        {
+          "autosize": true,
+          "symbol": "OANDA:XAUUSD",
+          "interval": "60",
+          "timezone": "Europe/Paris",
+          "theme": "dark",
+          "style": "1",
+          "locale": "fr",
+          "backgroundColor": "rgba(15, 17, 21, 1)",
+          "gridColor": "rgba(120, 123, 134, 0.12)",
+          "hide_side_toolbar": true,
+          "allow_symbol_change": false,
+          "save_image": false,
+          "withdateranges": true,
+          "support_host": "https://www.tradingview.com"
+        }
+        </script>
+        </div>
+      </div>
+      <noscript><p class="live-note">Le graphique en direct nécessite JavaScript. Le reste de cette page reste entièrement lisible sans.</p></noscript>
+      <p class="live-note">Graphique fourni par <a href="https://fr.tradingview.com/symbols/XAUUSD/" target="_blank" rel="noopener nofollow">TradingView</a>, flux OANDA à titre indicatif. Ce prix n'est pas une cotation officielle et ne correspond pas exactement à celui de votre courtier — j'explique pourquoi <a href="#ecarts">plus bas</a>.</p>
+    </div>
+
+    <figure style="margin:.4rem 0 2rem"><img src="/img/pages/xauusd-cours-1.jpg" alt="XAUUSD : le cours de l'or en direct et comment le lire — Gold Strategies" width="1600" height="840" style="border-radius:14px;width:100%;display:block;border:1px solid var(--line)" /></figure>
+
+    <p class="post-meta" style="color:var(--muted-2);font-size:.9rem;margin:0 0 1.8rem">Par <a href="/a-propos/" style="color:var(--gold-2);text-decoration:none">Oliver Sev</a> — ancien conseiller financier inscrit à l'AMF pendant 27 ans · Publié le <time datetime="2026-08-25">25 août 2026</time></p>
+
+    <p>
+      Regarder le cours du XAUUSD prend trois secondes. Le comprendre en prend un peu plus, et c'est
+      pourtant là que se joue la différence entre un chiffre qu'on consulte et une information dont on
+      fait quelque chose. La plupart des pages qui affichent ce cours s'arrêtent au chiffre. Celle-ci
+      part du principe que <strong>vous voulez savoir ce qu'il y a derrière</strong> : d'où vient ce
+      prix, pourquoi il diffère de celui de votre courtier, à quelles heures il signifie quelque chose,
+      et comment le convertir dans les unités qui vous parlent — l'euro, le gramme.
+    </p>
+    <p>
+      Je travaille cet instrument toutes les semaines depuis des années et je publie mes analyses en
+      les laissant en ligne, justes ou fausses. Ce qui suit vient de cette pratique, pas d'une fiche
+      produit.
+    </p>
+
+    <div class="stat-card reveal">
+      <h3>📌 L'essentiel en 30 secondes</h3>
+      <ul>
+        <li><strong>XAUUSD = le prix d'une once troy d'or en dollars américains.</strong> XAU est le code ISO de l'once d'or, USD celui du dollar.</li>
+        <li>Une once troy pèse <strong>31,1035 grammes</strong> — ce n'est pas l'once du commerce courant (28,35 g).</li>
+        <li>L'or spot se traite <strong>de gré à gré, sans bourse centrale</strong> : il n'existe donc <em>aucun</em> prix officiel unique à un instant donné.</li>
+        <li>Le marché est ouvert <strong>du dimanche soir au vendredi soir</strong>, avec une courte coupure quotidienne en fin de soirée.</li>
+        <li>Les vrais créneaux de mouvement : <strong>l'ouverture de Londres vers 9 h</strong> et le <strong>recouvrement Londres–New York, 14 h 30–17 h 30</strong> (heure de Paris).</li>
+        <li>Un contrat standard porte sur <strong>100 onces</strong> : 1 dollar de variation du cours vaut 100 dollars de résultat.</li>
+      </ul>
+    </div>
+
+    <h2 class="reveal">Ce que vous regardez exactement</h2>
+    <p class="bluf">Le XAUUSD n'est pas le prix d'un lingot chez votre bijoutier : c'est le prix de gros d'une once troy d'or livrable immédiatement, libellé en dollars.</p>
+    <p>
+      Le sigle se décompose sans mystère. <strong>XAU</strong> est le code ISO 4217 attribué à une once
+      troy d'or — la même norme qui donne EUR à l'euro et JPY au yen. <strong>USD</strong> est le
+      dollar américain. Lire « XAUUSD à 4 600 » signifie donc : il faut 4 600 dollars pour acheter une
+      once troy d'or sur le marché de gros.
+    </p>
+    <p>
+      Deux précisions comptent. D'abord, l'unité : <strong>l'once troy vaut 31,1035 grammes</strong>,
+      pas 28,35 comme l'once avoirdupois utilisée pour peser des aliments. Un facteur de 10 % d'écart
+      qui suffit à fausser toutes vos conversions si vous prenez le mauvais chiffre.
+    </p>
+    <p>
+      Ensuite, la nature du prix : il s'agit du cours <em>spot</em>, c'est-à-dire d'un or livrable
+      quasi immédiatement, par opposition aux contrats à terme dont l'échéance est future. Ce marché
+      spot est <strong>de gré à gré</strong> : les transactions se nouent entre banques, courtiers et
+      institutions, sans passer par une bourse centralisée. Conséquence directe, et c'est le point que
+      presque personne n'explique : il n'existe pas de prix officiel unique de l'or à un instant T. Il
+      existe autant de prix que de fournisseurs de liquidité, tous très proches, aucun identique.
+    </p>
+    <p>
+      Le seul repère centralisé du marché est le <em>LBMA Gold Price</em>, établi deux fois par jour
+      par enchères à Londres — le matin et l'après-midi. C'est la référence utilisée pour les contrats
+      professionnels et les valorisations comptables. Ce n'est pas le prix auquel vous traitez : c'est
+      une photographie, pas un flux.
+    </p>
+
+    <h2 id="ecarts" class="kin reveal">Pourquoi votre courtier n'affiche <span class="shine">pas le même prix</span></h2>
+    <p class="bluf">Trois écarts se superposent : le spread, la source de liquidité et le décalage d'horodatage. Aucun n'est anormal — mais les ignorer coûte cher.</p>
+    <p>
+      C'est la question que je reçois le plus au sujet des cours en direct : « pourquoi TradingView
+      affiche 4 612 et mon compte 4 611,70 ? » Trois raisons se cumulent.
+    </p>
+    <p>
+      <strong>1. Il n'y a pas un prix, il y en a deux.</strong> À tout instant coexistent un prix
+      d'achat (<em>ask</em>) et un prix de vente (<em>bid</em>). L'écart entre les deux, le
+      <strong>spread</strong>, est la rémunération de l'intermédiaire. Les graphiques affichent presque
+      toujours le bid : si vous comparez votre prix d'achat au graphique, vous comparez deux choses
+      différentes. Sur l'or, un spread typique va de 20 à 40 cents en conditions normales, et peut
+      décupler à l'ouverture du dimanche soir ou au moment d'une publication macroéconomique.
+    </p>
+    <p>
+      <strong>2. Les flux ne viennent pas du même endroit.</strong> Chaque plateforme agrège les
+      cotations d'un panier de fournisseurs de liquidité qui lui est propre. Deux paniers différents
+      donnent deux prix légèrement différents. Un écart de quelques dizaines de cents est structurel,
+      pas suspect.
+    </p>
+    <p>
+      <strong>3. Le fuseau et l'horodatage.</strong> Une bougie journalière ne commence pas à la même
+      heure chez tous les courtiers : certains clôturent leur journée à minuit heure de New York,
+      d'autres à minuit heure de Londres ou de Chypre. Résultat, <strong>le plus haut et le plus bas
+      du jour ne sont pas les mêmes d'une plateforme à l'autre</strong> — et un niveau technique
+      dessiné sur une plateforme peut ne pas exister sur une autre. C'est une source d'erreur
+      classique quand on suit l'analyse de quelqu'un d'autre sans vérifier sa source.
+    </p>
+
+    <div class="vigilance-box reveal">
+      <h3>⚠️ Ce que l'écart implique concrètement</h3>
+      <p>
+        Un ordre placé exactement sur un niveau vu ailleurs peut ne jamais se déclencher, ou se
+        déclencher trente cents plus loin. On ne travaille donc pas sur le prix du graphique d'un
+        tiers : on travaille sur <strong>son propre flux</strong>, et on garde une marge autour des
+        niveaux plutôt que de les traiter comme des lignes exactes. C'est aussi pour cela que je
+        raisonne en <em>zones</em>, jamais en prix uniques.
+      </p>
+    </div>
+
+    <h2 class="reveal">Quand le cours bouge vraiment</h2>
+    <p class="bluf">Le marché est ouvert presque 24 heures sur 24, mais l'or n'est réellement exploitable que sur deux créneaux.</p>
+    <p>
+      L'or se traite en continu du dimanche soir au vendredi soir, avec une brève interruption
+      quotidienne en fin de soirée — le moment où les courtiers appliquent le report de position au
+      lendemain. Autour de cette coupure, le spread s'élargit fortement et les mouvements observés
+      n'ont aucune signification technique.
+    </p>
+    <p>
+      Ouverture permanente ne veut pas dire activité permanente. Dans les faits, l'amplitude se
+      concentre sur deux fenêtres, en heure de Paris :
+    </p>
+
+    <div class="tableau-wrapper reveal">
+      <table>
+        <thead><tr><th>Créneau (heure de Paris)</th><th>Ce qui s'y passe</th><th>Utilité</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1 h – 8 h</strong> — session asiatique</td><td>Volume faible, dérive lente, fourchettes étroites</td><td>Faible. Le spread coûte souvent plus que l'amplitude ne rapporte.</td></tr>
+          <tr><td><strong>9 h – 12 h</strong> — ouverture de Londres</td><td>Premier vrai afflux de volume de la journée, sortie fréquente de la fourchette asiatique</td><td>Bonne. C'est là que la journée prend souvent sa direction.</td></tr>
+          <tr><td><strong>14 h 30 – 17 h 30</strong> — recouvrement Londres–New York</td><td>Volume maximal, publications américaines, mouvements les plus larges</td><td>Maximale — et c'est aussi le créneau le plus dangereux.</td></tr>
+          <tr><td><strong>Après 20 h</strong></td><td>Reflux progressif, spread qui s'élargit</td><td>Faible. Ce qui se dessine tard se défait souvent le lendemain.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Deux moments méritent une vigilance particulière. <strong>L'ouverture du dimanche soir</strong>
+      produit régulièrement un écart de cotation : le prix rouvre à un niveau différent de la clôture
+      du vendredi, sans qu'aucune transaction n'ait eu lieu entre les deux. Un ordre stop placé dans
+      cet intervalle est exécuté au premier prix disponible, pas au prix demandé.
+      <strong>Les publications macroéconomiques</strong> — inflation américaine, décision de banque
+      centrale, emploi — produisent le même phénomène en pleine séance, en quelques secondes.
+    </p>
+
+    <h2 class="reveal">Convertir le cours : en euros, au gramme, en résultat</h2>
+    <p class="bluf">Trois calculs suffisent pour traduire le XAUUSD dans les unités qui vous concernent.</p>
+    <p>
+      <strong>Passer en euros.</strong> Le XAUUSD est en dollars. Pour obtenir le prix de l'once en
+      euros, on divise par le taux EUR/USD : une once à 4 600 dollars avec un euro à 1,15 dollar vaut
+      environ 4 000 euros. Ce détour a une conséquence sous-estimée : <strong>un investisseur en euros
+      subit deux variations, celle de l'or et celle du dollar</strong>. L'or peut monter en dollars et
+      stagner en euros si le dollar recule en même temps. C'est arrivé plusieurs fois cette année.
+    </p>
+    <p>
+      <strong>Passer au gramme.</strong> On divise le prix de l'once par 31,1035. Une once à
+      4 000 euros donne un gramme à environ 128,60 euros. C'est le calcul à faire avant de comparer
+      avec le prix affiché par un négociant en métaux : l'écart restant correspond à sa marge, à la
+      prime de la pièce ou du lingot et aux frais de fabrication — pas au cours de l'or.
+    </p>
+    <p>
+      <strong>Passer en résultat.</strong> Un contrat standard porte sur 100 onces. Un mouvement d'un
+      dollar sur le cours vaut donc 100 dollars pour un lot entier, 10 dollars pour un dixième de lot,
+      1 dollar pour un centième. L'or parcourant fréquemment 40 à 60 dollars dans une journée agitée,
+      la même position peut produire plusieurs milliers d'euros de gain ou de perte. Le
+      dimensionnement se calcule <em>avant</em> l'entrée, à partir de la distance jusqu'au stop — la
+      mécanique complète du contrat est détaillée dans mon
+      <a href="/xauusd/">guide complet du XAUUSD</a>.
+    </p>
+
+    <div class="kpi-row reveal">
+      <div class="kpi"><b>31,1035 g</b><span>Une once troy</span></div>
+      <div class="kpi"><b>100 onces</b><span>Un contrat standard</span></div>
+      <div class="kpi"><b>100 $</b><span>Valeur d'1 $ de variation, pour 1 lot</span></div>
+      <div class="kpi"><b>20:1</b><span>Levier maximal, particulier UE</span></div>
+    </div>
+    <p class="kpi-note">Le plafond de levier est une limite réglementaire haute, jamais un objectif à atteindre.</p>
+
+    <h2 class="reveal">Ce qui fait bouger ce cours</h2>
+    <p class="bluf">Quatre moteurs expliquent l'essentiel des mouvements de l'or. Aucun n'est mécanique, mais les ignorer revient à lire un graphique sans le son.</p>
+    <p>
+      <strong>Les taux réels américains.</strong> C'est le moteur dominant. L'or ne verse aucun
+      revenu : quand les obligations d'État rapportent beaucoup après inflation, le détenir coûte cher
+      en manque à gagner, et il tend à baisser. Quand ces mêmes taux réels reculent, l'argument
+      s'inverse. La relation est généralement inverse, mais elle n'est ni immédiate ni parfaite — elle
+      se rompt notamment lors des épisodes de défiance sur la dette souveraine.
+    </p>
+    <p>
+      <strong>Le dollar.</strong> L'or est libellé en dollars : mécaniquement, un dollar plus fort
+      renchérit l'or pour tous les acheteurs hors zone dollar, ce qui pèse sur la demande. Là encore,
+      la corrélation est une tendance de fond, pas une loi de tous les jours.
+    </p>
+    <p>
+      <strong>La demande des banques centrales.</strong> Elle est devenue déterminante ces dernières
+      années. C'est une demande insensible au prix, qui achète parce qu'elle veut diversifier ses
+      réserves, pas parce qu'elle trouve le cours attractif. Elle installe des planchers durables.
+    </p>
+    <p>
+      <strong>La défiance.</strong> Crise géopolitique, doute sur la solvabilité d'un État, tension
+      sur le marché obligataire : l'or capte les flux qui quittent le papier. C'est le moteur le plus
+      brutal et le plus difficile à anticiper — mais c'est aussi celui qui produit les mouvements les
+      plus larges.
+    </p>
+
+    <h2 class="reveal">Ce que le cours en direct ne vous dira jamais</h2>
+    <p class="bluf">Un prix instantané ne contient aucune information sur la structure du marché. C'est la lecture multi-horizons qui la donne.</p>
+    <p>
+      Le chiffre affiché en haut de cette page vous dit où est l'or maintenant. Il ne vous dit ni d'où
+      il vient, ni ce qu'il est en train de faire. Deux marchés au même prix peuvent raconter deux
+      histoires opposées : un qui s'y installe après une montée régulière, un autre qui le traverse en
+      chute libre. Rien dans le nombre ne les distingue.
+    </p>
+    <p>
+      La méthode que j'applique consiste à lire de haut en bas : le journalier donne le contexte, le
+      4 heures la structure de la semaine, le 1 heure le point d'entrée éventuel. Une même bougie n'a
+      pas le même sens selon l'étage où on la regarde — c'est tout l'objet de ma
+      <a href="/methode/">page méthode</a>, et c'est ce que je détaille dans la
+      <a href="/formation/">formation</a>.
+    </p>
+
+    <h2 class="reveal">Trois semaines d'août 2026, en guise de démonstration</h2>
+    <p class="bluf">Trois séquences consécutives où le même chiffre affiché à l'écran signifiait trois choses différentes.</p>
+    <p>
+      Je publie une analyse de l'or chaque samedi et je la laisse en ligne, quelle qu'ait été son
+      issue. Ces trois-là illustrent bien pourquoi un cours instantané ne suffit pas.
+    </p>
+    <p>
+      <strong>Le 8 août</strong>, l'or a repris plus de 7 % sur la semaine pour revenir au contact des
+      4 400 dollars — non pas à cause d'une configuration technique, mais parce qu'un chiffre d'emploi
+      américain catastrophique, 23 000 destructions de postes contre 83 000 créations attendues, a
+      renversé les anticipations de taux en une séance
+      (<a href="/blog/analyse-hebdo-or-4400-sp500-record-8-aout-2026/">l'analyse du 8 août</a>). Un
+      cours consulté le vendredi soir montrait une hausse. Il ne montrait pas que sa cause était
+      macroéconomique, donc réversible au chiffre suivant.
+    </p>
+    <p>
+      <strong>Le 15 août</strong>, l'or est monté chercher 4 440 dollars après une inflation
+      américaine plus douce que prévu, s'est fait vendre jusqu'à 4 311, puis a rebondi vers 4 380. Une
+      semaine légèrement négative en apparence — mais rien de cassé dans la structure
+      (<a href="/blog/analyse-hebdo-or-4380-vix-14-15-aout-2026/">l'analyse du 15 août</a>). Le cours
+      seul disait « baisse ». La structure disait « respiration ».
+    </p>
+    <p>
+      <strong>Le 22 août</strong>, l'or a pris 5,6 % sur la semaine pour finir à 4 624 dollars, soit
+      +14,2 % en trois semaines, pendant que le 30 ans américain touchait son plus haut depuis
+      dix-neuf ans et que la dette fédérale franchissait les 40 000 milliards de dollars
+      (<a href="/blog/analyse-hebdo-or-4624-dette-us-40000-milliards-22-aout-2026/">l'analyse du
+      22 août</a>). Là, le moteur n'était plus un chiffre isolé : c'était de la défiance sur le
+      papier. Ce n'est pas le cours qui le disait, c'est le contexte obligataire.
+    </p>
+    <p>
+      Trois semaines, trois lectures. Le même écran, la même paire, et trois raisons de faire trois
+      choses différentes.
+    </p>
+
+    <h2 class="reveal">Passer du cours à la décision</h2>
+    <p class="bluf">Consulter un prix ne coûte rien. Prendre position engage du capital : ce sont deux activités distinctes.</p>
+    <p>
+      Si vous êtes arrivé ici pour vérifier un cours, vous avez ce qu'il vous faut en haut de page.
+      Si vous êtes ici parce que vous envisagez de travailler cet instrument, l'ordre de marche est le
+      suivant : comprendre le contrat avant de le traiter — c'est le rôle du
+      <a href="/xauusd/">guide XAUUSD</a> ; choisir une approche adaptée au régime de marché plutôt
+      qu'à votre humeur — c'est l'objet de la page
+      <a href="/comment-trader-lor/">comment trader l'or</a> ; puis, seulement ensuite, dimensionner
+      vos positions.
+    </p>
+    <p>
+      Et si la contrainte est le capital plutôt que la méthode, le passage par un
+      <a href="/capital-finance-prop-firm/">financement en prop firm</a> permet de travailler sur un
+      capital confié après évaluation — avec ses propres règles, que j'explique sans les enjoliver.
+      Mes <a href="/blog/">analyses hebdomadaires</a> restent en ligne, datées, comme point de
+      comparaison entre ce que j'annonce et ce que le marché fait.
+    </p>
+
+    <h2 class="reveal">Questions fréquentes sur le cours du XAUUSD</h2>
+    <div class="faq-list reveal">
+      <details class="qa reveal">
+        <summary>Que signifie XAUUSD ? <span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">C'est le prix d'une once troy d'or exprimé en dollars américains. XAU est le code ISO 4217 de l'once d'or, USD celui du dollar. Un cours de 4 600 signifie qu'il faut 4 600 dollars pour acheter une once sur le marché de gros.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Pourquoi le cours affiché n'est-il pas le même que celui de mon courtier ? <span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Parce que l'or spot se traite de gré à gré : chaque plateforme agrège son propre panier de fournisseurs de liquidité, et l'écart d'achat-vente s'ajoute à cela. Un écart de quelques dizaines de cents est normal. Les horaires de clôture des bougies diffèrent aussi d'un courtier à l'autre, ce qui décale les plus hauts et plus bas de la journée.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Quels sont les horaires du marché XAUUSD ? <span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Il est ouvert du dimanche soir au vendredi soir, avec une courte coupure quotidienne en fin de soirée pour le report des positions. Mais l'activité réelle se concentre sur l'ouverture de Londres, vers 9 h, et surtout le recouvrement Londres–New York, entre 14 h 30 et 17 h 30 heure de Paris.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Comment convertir le cours de l'once en prix au gramme ? <span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">On convertit d'abord en euros en divisant par le taux EUR/USD, puis on divise par 31,1035 — le poids en grammes d'une once troy. L'écart avec le prix d'un négociant correspond à sa marge et à la prime de la pièce ou du lingot, pas au cours de l'or.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Existe-t-il un cours officiel de l'or ? <span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Pas en continu. Le seul repère centralisé est le LBMA Gold Price, fixé deux fois par jour par enchères à Londres et utilisé comme référence pour les contrats professionnels. Le reste du temps, il existe autant de prix que de fournisseurs de liquidité — tous très proches, aucun identique.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Combien vaut un point sur le XAUUSD ? <span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Un contrat standard porte sur 100 onces : un mouvement de 1 dollar sur le cours vaut 100 dollars de résultat. En micro-lot, soit un centième de contrat, le même mouvement vaut 1 dollar. C'est ce rapport qui doit servir de base au calcul de la taille de position, jamais le levier disponible.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Le cours peut-il ouvrir avec un écart le dimanche soir ? <span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Oui, régulièrement. Aucune transaction n'a lieu pendant la fermeture du week-end : si une information importante tombe entre-temps, le marché rouvre directement à un autre niveau. Un ordre stop situé dans cet intervalle est exécuté au premier prix disponible, qui peut être nettement moins favorable que le prix demandé.</div>
+      </details>
+    </div>
+
+    <div class="hero-cta" style="justify-content:center;margin-top:2.4rem"><a href="/formation/" class="btn btn-gold">Apprendre à lire ce marché avec méthode</a><a href="/xauusd/" class="btn btn-ghost">Le guide complet du XAUUSD</a></div>
+
+    <p style="margin-top:2.5rem;color:var(--muted-2);font-size:.9rem;border-top:1px solid var(--line);padding-top:1.2rem"><em>Contenu pédagogique et informatif — ne constitue pas un conseil en investissement personnalisé. Les cours affichés sont fournis à titre indicatif et ne constituent pas une cotation ferme. Le trading de l'or à effet de levier comporte un risque élevé de perte en capital. <a href="/disclaimer-risque/" style="color:var(--gold-2)">Voir l'avertissement sur les risques</a>.</em></p>
+  </div></section>
+
+  <section class="sec ctaband"><div class="wrap"><h2 class="reveal">Le cours, c'est le point de départ. Pas la décision.</h2>
+  <p class="reveal d1">Chaque samedi, je publie ma lecture de l'or — datée, argumentée, et laissée en ligne qu'elle ait eu raison ou tort.</p>
+  <div class="hero-cta reveal d2" style="justify-content:center"><a href="/blog/" class="btn btn-gold">Lire les analyses</a><a href="/comment-trader-lor/" class="btn btn-ghost">Comment trader l'or</a></div></div></section>
+
+  <footer>
+    <div class="wrap">
+      <div class="disclaimer"><strong>Avertissement sur les risques.</strong> Le trading et l'investissement sur les marchés financiers (or, indices, cryptomonnaies, CFD…) comportent un risque élevé de perte en capital et ne conviennent pas à tout le monde. La majorité des investisseurs particuliers perdent de l'argent. Les performances passées ne préjugent pas des performances futures. Les contenus publiés par Gold Strategies ont une vocation <strong>pédagogique et informative</strong> et ne constituent pas un conseil en investissement personnalisé. Toute analyse partagée reflète une opinion, susceptible de porter sur des positions détenues par l'auteur (divulgation de conflit d'intérêts). Vous restez seul responsable de vos décisions ; au besoin, consultez un conseiller financier agréé.</div>
+      <div class="foot-grid">
+        <div><a href="/" class="brand" aria-label="Gold Strategies — accueil"><img src="/img/logo-gold-strategies.jpeg" width="46" height="46" alt="Gold Strategies" class="logo-img" /></a><p style="color:var(--muted-2);max-width:38ch">Éducation financière et accompagnement pour développer son pouvoir d'achat et construire un complément de revenu, avec méthode et prudence.</p></div>
+        <div><h4>Explorer</h4><a href="/complement-revenu/">Complément de revenu</a><a href="/methode/">La méthode</a><a href="/trading-de-lor/">Trading de l'or</a><a href="/xauusd/">Guide XAUUSD</a><a href="/xauusd-cours/" aria-current="page">Cours du XAUUSD</a><a href="/comment-trader-lor/">Comment trader l'or</a><a href="/trading-crypto/">Trading crypto</a><a href="/trading-indices/">Trading indices</a><a href="/capital-finance-prop-firm/">Capital financé</a><a href="/augmenter-pouvoir-achat/">Augmenter son pouvoir d'achat</a><a href="/resultats/">Résultats</a><a href="/blog/">Blog</a></div>
+        <div><h4>Gold Strategies</h4><a href="/a-propos/">À propos</a><a href="/communaute/">Communauté Telegram</a><a href="/contact/">Contact</a><a href="/mentions-legales/">Mentions légales</a><a href="/disclaimer-risque/">Avertissement sur les risques</a><a href="/politique-conflits-interets/">Politique de conflits d'intérêts</a></div>
+      </div>
+      <div class="foot-bottom"><span>© 2026 Gold Strategies. Tous droits réservés.</span><span>Contenu pédagogique — ne constitue pas un conseil en investissement.</span></div>
+    </div>
+  </footer>
+  <script src="/assets/main.js" defer></script>
+</body>
+</html>
