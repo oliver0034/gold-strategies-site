@@ -103,7 +103,6 @@ PERSON_OLD = ('{"@context":"https://schema.org","@type":"Person","name":"Oliver 
               '"description":"Ancien conseiller financier, fondateur de Gold Strategies."}')
 PERSON_NEW = ('{"@context":"https://schema.org","@type":"Person",'
               '"@id":"https://gold-strategies.com/a-propos/#oliver-sev","name":"Oliver Sev",'
-              '"alternateName":"Olivier Sevillano",'
               '"jobTitle":"Fondateur de Gold Strategies",'
               '"worksFor":{"@id":"https://gold-strategies.com/#organization"},'
               '"url":"https://gold-strategies.com/a-propos/",'
@@ -114,6 +113,14 @@ PERSON_NEW = ('{"@context":"https://schema.org","@type":"Person",'
               '"Éducation financière","Gestion du risque"],"knowsLanguage":"fr"}')
 
 TEXT_PATCHES = {
+    "capital-finance-prop-firm/index.html": [
+        ("Prop firm : devenir trader financé | Gold Strategies",
+         "Prop firm : comment \u00e7a marche vraiment | Gold Strategies"),
+        ("Le capital financé (prop firm) expliqué : accéder à un capital de trading sans "
+         "immobiliser vos économies. À condition d'avoir d'abord la méthode.",
+         "Modèle économique, CFD ou futures, perte maximale suiveuse, cadre AMF et fiscal "
+         "français : le capital financé expliqué sans lien d'affiliation."),
+    ],
     # trading-de-lor — ce H3 faisait doublon avec la section « Quand l'or se trade vraiment »
     # de build-guide-trading-or.py, qui traite le sujet en détail (tableau des créneaux,
     # écart de cotation du dimanche). On retire donc celui du build.
@@ -305,6 +312,8 @@ def main():
             missing.append((pathlib.Path("index.html"), "section #preuve (build-preuve-hebdo.py)"))
         if subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-trading-or.py"), "--check"]).returncode:
             missing.append((pathlib.Path("trading-de-lor/index.html"), "contenu long (build-guide-trading-or.py)"))
+        if subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-prop-firm.py"), "--check"]).returncode:
+            missing.append((pathlib.Path("capital-finance-prop-firm/index.html"), "contenu long (build-guide-prop-firm.py)"))
         for p in pages:
             s = p.read_text(encoding="utf-8")
             if not (CSS_RE.search(s) and JS_RE.search(s)):
@@ -324,6 +333,7 @@ def main():
     # build : un rebuild l'efface. On la régénère depuis le journal de trades.
     subprocess.run([sys.executable, str(ROOT / "tools" / "build-preuve-hebdo.py")])
     subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-trading-or.py")])
+    subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-prop-firm.py")])
 
     touched = [p for p in pages if apply(p)]
     for p in touched:
