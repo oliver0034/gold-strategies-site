@@ -19,11 +19,19 @@
         '<div class="nav-dropdown">' +
           '<button class="dd-trigger" aria-haspopup="true">Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>' +
           '<div class="dd-panel">' +
-            '<a href="/methode/">La m\u00e9thode</a>' +
+            '<span class="dd-group">L\'or</span>' +
             '<a href="/trading-de-lor/">Trading de l\'or</a>' +
-            '<a href="/analyses/">Analyses</a>' +
+            '<a href="/xauusd/">Guide XAUUSD</a>' +
+            '<a href="/xauusd-cours/">Cours du XAUUSD</a>' +
+            '<a href="/comment-trader-lor/">Comment trader l\'or</a>' +
+            '<span class="dd-group">Autres march\u00e9s</span>' +
+            '<a href="/trading-crypto/">Trading crypto</a>' +
+            '<a href="/trading-indices/">Trading indices</a>' +
+            '<span class="dd-group">Se former</span>' +
+            '<a href="/methode/">La m\u00e9thode</a>' +
             '<a href="/formation/">Formation</a>' +
             '<a href="/capital-finance-prop-firm/">Prop firm / Capital financ\u00e9</a>' +
+            '<a href="/analyses/">Analyses</a>' +
             '<a href="/communaute/">Communaut\u00e9</a>' +
           '</div>' +
         '</div>' +
@@ -64,7 +72,7 @@
           var trig = el.querySelector('.dd-trigger');
           lbl.textContent = trig ? trig.textContent.trim() : 'Services';
           grp.appendChild(lbl);
-          el.querySelectorAll('.dd-panel a').forEach(function(a){ grp.appendChild(a.cloneNode(true)); });
+          el.querySelectorAll('.dd-panel a, .dd-panel .dd-group').forEach(function(n){ grp.appendChild(n.cloneNode(true)); });
           navList.appendChild(grp);
         }
       });

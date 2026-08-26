@@ -330,6 +330,8 @@
 .mobile-menu .mm-group{display:flex;flex-direction:column;border-bottom:1px solid var(--line);padding-bottom:6px}
 .mobile-menu .mm-group-label{color:var(--gold-2);font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:14px 4px 4px}
 .mobile-menu .mm-group a{padding:10px 4px 10px 18px;border-bottom:0;font-size:1.02rem}
+.mobile-menu .mm-group .dd-group{display:block;color:var(--muted-2);font-size:.66rem;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;padding:12px 4px 2px 18px;opacity:.75}
 .mobile-menu .mm-cta{display:flex;flex-direction:column;gap:12px}
 .mobile-backdrop{position:fixed;inset:0;z-index:65;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .3s}
 .mobile-backdrop.open{opacity:1;pointer-events:auto}
@@ -354,6 +356,20 @@ body.menu-open{overflow:hidden}
 .dd-panel a:hover{background:rgba(255,255,255,.05);color:var(--gold-2)}
 @media(max-width:900px){nav.links{gap:22px}}
 @media(max-width:640px){.nav-dropdown{display:none}}
+
+/* ---- menu deroulant : pont de survol + groupes ----
+   Le panneau est detache du bouton de 18px. Sans ce pont invisible, la souris
+   qui descend traverse une zone morte, le :hover se perd et le menu se referme
+   avant d'etre atteint. Corrige le 26/08/2026. */
+/* Le pont est porte par le PARENT : sur le panneau, `overflow-y:auto` le rognait. */
+.nav-dropdown::after{content:"";position:absolute;left:50%;top:100%;width:246px;height:26px;
+  transform:translateX(-50%);pointer-events:none}
+.nav-dropdown:hover::after,.nav-dropdown:focus-within::after{pointer-events:auto}
+.dd-panel{max-height:calc(100vh - 130px);overflow-y:auto;min-width:246px}
+.dd-panel a{padding:8px 14px}
+.dd-group{display:block;margin:12px 14px 3px;font-size:.68rem;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--gold-2);opacity:.7}
+.dd-panel>.dd-group:first-child{margin-top:2px}
 
 /* ---- portrait fondateur (a-propos) ---- */
 .founder-intro{display:grid;grid-template-columns:220px 1fr;gap:36px;align-items:start;margin-bottom:2.4rem}

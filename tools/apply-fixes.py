@@ -27,8 +27,8 @@ import sys
 # en ligne : le script REMPLACE le `?v=` existant, donc une constante en retard
 # rétrograde silencieusement la version et fait resservir une feuille en cache.
 # Les deux fichiers évoluant séparément, ils ont leur propre version.
-CSS_VERSION = "20260818"    # assets/site-fixes.css — bumpé le 18/08/2026 (section #preuve)
-JS_VERSION = "20260725"     # assets/nav-mobile.js
+CSS_VERSION = "20260826"    # assets/site-fixes.css — bumpé le 26/08/2026 (pont de survol du menu)
+JS_VERSION = "20260826"     # assets/nav-mobile.js — bumpé le 26/08/2026 (groupes du menu)
 SITEJS_VERSION = "20260818"  # assets/site-fixes.js — bumpé le 18/08/2026 (tracé de #preuve)
 CSS_TAG = '<link rel="stylesheet" href="/assets/site-fixes.css?v=%s">' % CSS_VERSION
 JS_TAG = '<script src="/assets/nav-mobile.js?v=%s" defer></script>' % JS_VERSION
@@ -49,7 +49,78 @@ SITEJS_RE = re.compile(r'<script[^>]+assets/site-fixes\.js[^>]*></script>')
 # formation/index.html — plan éditorial du 03/08/2026, page 10 du backlog :
 # la page est à 100 % une formation sur l'or et ni « or » ni « XAUUSD »
 # n'apparaissait dans son title, son H1 ou sa meta. Voir plan-editorial-seo.md.
+# --- graphe d'entité (JSON-LD) — ajouté le 26/08/2026 -------------------------
+# Gold Strategies n'est PAS une entreprise locale : pas d'accueil de public, pas de
+# déplacement chez le client, donc pas de fiche Google Business Profile possible
+# (analyse `seo-local` du 24/08/2026, LOCAL-SEO-ANALYSIS-gold-strategies.com.md).
+# Le levier d'entité passe donc entièrement par le JSON-LD et les mentions de marque.
+# NE JAMAIS transformer ces blocs en LocalBusiness : ce serait déclarer un
+# établissement qui n'existe pas.
+#
+# Le graphe repose sur trois @id stables, référencés depuis les 84 articles du blog :
+#   https://gold-strategies.com/#organization        — Gold Strategies (accueil)
+#   https://gold-strategies.com/a-propos/#oliver-sev — l'auteur (page à propos)
+#   https://gold-strategies.com/#fiducia-conseils    — l'éditeur légal (EURL)
+ORG_OLD = ('{"@context":"https://schema.org","@type":"Organization","name":"Gold Strategies",'
+           '"url":"https://gold-strategies.com/","description":"Éducation financière et '
+           "accompagnement pour développer son pouvoir d'achat et construire un complément de "
+           'revenu de façon prudente et progressive.","logo":"https://gold-strategies.com/img/'
+           'logo-gold-strategies.png","sameAs":["https://t.me/objectifsetstrategie",'
+           '"https://www.tiktok.com/@gold.strategies"]}')
+ORG_NEW = ('{"@context":"https://schema.org","@type":"Organization",'
+           '"@id":"https://gold-strategies.com/#organization","name":"Gold Strategies",'
+           '"url":"https://gold-strategies.com/","description":"Éducation financière et '
+           "accompagnement pour développer son pouvoir d'achat et construire un complément de "
+           'revenu de façon prudente et progressive.","logo":{"@type":"ImageObject",'
+           '"url":"https://gold-strategies.com/img/logo-gold-strategies.png"},'
+           '"founder":{"@id":"https://gold-strategies.com/a-propos/#oliver-sev"},'
+           '"parentOrganization":{"@type":"Organization",'
+           '"@id":"https://gold-strategies.com/#fiducia-conseils","name":"Fiducia Conseils",'
+           '"legalName":"Fiducia Conseils","identifier":[{"@type":"PropertyValue",'
+           '"propertyID":"SIREN","value":"529090565"}],"address":{"@type":"PostalAddress",'
+           '"streetAddress":"8 rue du Huit Mai 1945, Jardin de l\'Esplanade",'
+           '"postalCode":"34530","addressLocality":"Montagnac","addressCountry":"FR"}},'
+           '"email":"goldstrategiesvip@gmail.com","contactPoint":{"@type":"ContactPoint",'
+           '"contactType":"customer support","email":"goldstrategiesvip@gmail.com",'
+           '"availableLanguage":["fr"]},"publishingPrinciples":'
+           '"https://gold-strategies.com/politique-conflits-interets/",'
+           '"knowsAbout":["Trading de l\'or","XAUUSD","Analyse technique des marchés",'
+           '"Éducation financière","Gestion du risque","Complément de revenu"],'
+           '"knowsLanguage":"fr","sameAs":["https://t.me/objectifsetstrategie",'
+           '"https://www.tiktok.com/@gold.strategies"]}')
+
+SITE_OLD = ('{"@context":"https://schema.org","@type":"WebSite","name":"Gold Strategies",'
+            '"url":"https://gold-strategies.com/","inLanguage":"fr"}')
+SITE_NEW = ('{"@context":"https://schema.org","@type":"WebSite",'
+            '"@id":"https://gold-strategies.com/#website","name":"Gold Strategies",'
+            '"url":"https://gold-strategies.com/","inLanguage":"fr",'
+            '"publisher":{"@id":"https://gold-strategies.com/#organization"}}')
+
+PERSON_OLD = ('{"@context":"https://schema.org","@type":"Person","name":"Oliver Sev",'
+              '"jobTitle":"Fondateur de Gold Strategies","worksFor":{"@type":"Organization",'
+              '"name":"Gold Strategies","url":"https://gold-strategies.com/"},'
+              '"url":"https://gold-strategies.com/a-propos/",'
+              '"description":"Ancien conseiller financier, fondateur de Gold Strategies."}')
+PERSON_NEW = ('{"@context":"https://schema.org","@type":"Person",'
+              '"@id":"https://gold-strategies.com/a-propos/#oliver-sev","name":"Oliver Sev",'
+              '"alternateName":"Olivier Sevillano",'
+              '"jobTitle":"Fondateur de Gold Strategies",'
+              '"worksFor":{"@id":"https://gold-strategies.com/#organization"},'
+              '"url":"https://gold-strategies.com/a-propos/",'
+              '"mainEntityOfPage":"https://gold-strategies.com/a-propos/",'
+              '"description":"Ancien conseiller financier, inscrit à l\'AMF pendant près de '
+              '27 ans. Fondateur de Gold Strategies.",'
+              '"knowsAbout":["Trading de l\'or","XAUUSD","Analyse technique des marchés",'
+              '"Éducation financière","Gestion du risque"],"knowsLanguage":"fr"}')
+
 TEXT_PATCHES = {
+    "index.html": [
+        (ORG_OLD, ORG_NEW),
+        (SITE_OLD, SITE_NEW),
+    ],
+    "a-propos/index.html": [
+        (PERSON_OLD, PERSON_NEW),
+    ],
     "formation/index.html": [
         ("Formation trading : apprendre de zéro | Gold Strategies",
          "Formation trading sur l'or (XAUUSD), de zéro | Gold Strategies"),
@@ -61,6 +132,56 @@ TEXT_PATCHES = {
          "Vous ne deviendrez pas régulier sur le XAUUSD avec des intuitions."),
     ],
 }
+
+# --- menu déroulant « Services » -------------------------------------------
+# Le build Astro sert un menu figé (ni Guide XAUUSD, ni Cours du XAUUSD, aucun
+# groupe) : un rebuild reviendrait donc en arrière en silence, comme pour les
+# retouches de texte ci-dessus. On régénère le contenu du panneau à partir de
+# la liste ci-dessous, seule source de vérité. Les intitulés .dd-group sont
+# stylés par assets/site-fixes.css. Harmonisé le 26/08/2026 sur les 105 pages.
+DROPDOWN = [
+    ("group", None, "L'or"),
+    ("link", "/trading-de-lor/", "Trading de l'or"),
+    ("link", "/xauusd/", "Guide XAUUSD"),
+    ("link", "/xauusd-cours/", "Cours du XAUUSD"),
+    ("link", "/comment-trader-lor/", "Comment trader l'or"),
+    ("group", None, "Autres marchés"),
+    ("link", "/trading-crypto/", "Trading crypto"),
+    ("link", "/trading-indices/", "Trading indices"),
+    ("group", None, "Se former"),
+    ("link", "/methode/", "La méthode"),
+    ("link", "/formation/", "Formation"),
+    ("link", "/capital-finance-prop-firm/", "Prop firm / Capital financé"),
+    ("link", "/analyses/", "Analyses"),
+    ("link", "/communaute/", "Communauté"),
+]
+DROPDOWN_RE = re.compile(r'(<div class="dd-panel">)(.*?)(</div>)', re.S)
+
+
+def dropdown_html(path):
+    """Panneau attendu pour cette page. L'apostrophe suit l'échappement du build."""
+    rel = path.relative_to(ROOT).as_posix()
+    current = "/" if rel == "index.html" else "/" + rel[: -len("index.html")]
+    out = []
+    for kind, href, label in DROPDOWN:
+        label = label.replace("'", "&#39;")
+        if kind == "group":
+            out.append('<span class="dd-group">%s</span>' % label)
+        else:
+            cur = ' aria-current="page"' if href == current else ""
+            out.append('<a href="%s"%s>%s</a>' % (href, cur, label))
+    return "".join(out)
+
+
+def fix_dropdown(text, path):
+    m = DROPDOWN_RE.search(text)
+    if not m:
+        return text
+    wanted = dropdown_html(path)
+    if m.group(2) == wanted:
+        return text
+    return text[: m.start(2)] + wanted + text[m.end(2):]
+
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SKIP_DIRS = {"_astro", "img", "assets", "tools", "astro-patch", ".git", "blog"}
@@ -101,6 +222,8 @@ def apply(path):
 
     for old, new in missing_text_patches(path, out):
         out = out.replace(old, new)
+
+    out = fix_dropdown(out, path)
 
     if CSS_RE.search(out):
         out = CSS_RE.sub(CSS_TAG, out, count=1)   # remet la bonne version si elle a dérivé

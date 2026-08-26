@@ -32,8 +32,15 @@
         label.className = 'mn-group';
         label.textContent = trigger ? trigger.textContent.trim() : 'Services';
         panel.appendChild(label);
-        Array.prototype.forEach.call(dd.querySelectorAll('a'), function (a) {
-          panel.appendChild(cloneLink(a));
+        Array.prototype.forEach.call(dd.querySelectorAll('a, .dd-group'), function (n) {
+          if (n.classList && n.classList.contains('dd-group')) {
+            var sub = document.createElement('span');
+            sub.className = 'mn-subgroup';
+            sub.textContent = n.textContent.trim();
+            panel.appendChild(sub);
+            return;
+          }
+          panel.appendChild(cloneLink(n));
         });
         return;
       }

@@ -384,3 +384,53 @@ body.mobile-nav-open { overflow: hidden; }
   font-family: 'IBM Plex Mono', ui-monospace, monospace;
 }
 @media (max-width: 700px) { .ph-neg-lbl { font-size: 14px; } }
+
+/* ---------- 3. Menu déroulant « Services » (ajouté le 26/08/2026) ----------
+   Le build Astro detache le panneau du bouton par `margin-top:.9rem`. La souris
+   qui descend traverse cette zone morte : le :hover se perd et le menu se
+   referme avant d'etre atteint. Le pseudo-element ci-dessous fait le pont.
+   Les intitules de groupe (.dd-group) n'existent pas dans le build : ils sont
+   injectes par tools/apply-fixes.py, leur style vit donc ici. */
+
+/* Le pont est porté par le PARENT (li.nav-dd) : posé sur le panneau,
+   `overflow-y:auto` le rognait et il ne captait plus rien. */
+.nav-dd { position: relative; }
+.nav-dd::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 16rem;
+  height: 28px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.nav-dd:hover::after,
+.nav-dd:focus-within::after { pointer-events: auto; }
+.dd-panel {
+  max-height: calc(100vh - 130px);
+  overflow-y: auto;
+  min-width: 16rem;
+}
+.dd-group {
+  display: block;
+  margin: .7rem .9rem .2rem;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold-light, #f2dfa8);
+  opacity: .7;
+}
+.dd-panel > .dd-group:first-child { margin-top: .15rem; }
+
+.mobile-nav .mn-subgroup {
+  display: block;
+  margin: 1.1rem 0 .1rem;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold-light, #f2dfa8);
+  opacity: .55;
+}
