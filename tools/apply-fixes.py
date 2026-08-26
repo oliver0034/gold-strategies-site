@@ -114,6 +114,27 @@ PERSON_NEW = ('{"@context":"https://schema.org","@type":"Person",'
               '"Éducation financière","Gestion du risque"],"knowsLanguage":"fr"}')
 
 TEXT_PATCHES = {
+    # trading-de-lor — ce H3 faisait doublon avec la section « Quand l'or se trade vraiment »
+    # de build-guide-trading-or.py, qui traite le sujet en détail (tableau des créneaux,
+    # écart de cotation du dimanche). On retire donc celui du build.
+    "trading-de-lor/index.html": [
+        # Title (56 car.) et meta (152 car.) recentrés sur l'intention réelle : un débutant
+        # qui cherche par où commencer, pas une plaquette de méthode.
+        ("Trading de l&#39;or (XAUUSD) : le guide | Gold Strategies",
+         "Trading de l&#39;or (XAUUSD) : par o\u00f9 commencer | Gold Strategies"),
+        ("Comprendre et trader l'or (XAUUSD) avec méthode et gestion du risque. Une approche "
+         "pédagogique, transversale et prudente — pas des signaux à copier.",
+         "Support, taille de position, horaires, coûts : les bases du trading de l'or (XAUUSD) "
+         "pour débuter, par un ancien conseiller inscrit à l'AMF."),
+        ("<h3>Quand et comment se trade l'or</h3><p>Le marché de l'or fonctionne quasiment en "
+         "continu du dimanche soir au vendredi soir, porté par le relais des places financières "
+         "mondiales (Sydney, Tokyo, Londres, New York). Contrairement à une action ou un indice, "
+         "il n'y a pas de véritable « cloche de clôture » quotidienne — la liquidité varie selon "
+         "les sessions, avec des pics d'activité au croisement des séances européenne et "
+         "américaine. Comprendre ces horaires fait partie de la méthode : trader hors des heures "
+         "actives expose à des écarts de prix plus larges et moins prévisibles.</p>",
+         ""),
+    ],
     "index.html": [
         (ORG_OLD, ORG_NEW),
         (SITE_OLD, SITE_NEW),
@@ -209,10 +230,15 @@ def text_patches(path):
 
 
 def missing_text_patches(path, src=None):
-    """Retouches encore à appliquer : l'ancien texte est là, le nouveau non."""
+    """Retouches encore à appliquer : l'ancien texte est là, le nouveau non.
+
+    Cas particulier de la SUPPRESSION (`new` vide) : la chaîne vide est toujours
+    « déjà présente », donc le test habituel ne déclencherait jamais. Seule la
+    présence de l'ancien texte compte alors.
+    """
     src = src if src is not None else path.read_text(encoding="utf-8")
     return [(old, new) for old, new in text_patches(path)
-            if new not in src and old in src]
+            if old in src and (not new or new not in src)]
 
 
 def apply(path):
@@ -277,6 +303,8 @@ def main():
         missing = []
         if subprocess.run([sys.executable, str(ROOT / "tools" / "build-preuve-hebdo.py"), "--check"]).returncode:
             missing.append((pathlib.Path("index.html"), "section #preuve (build-preuve-hebdo.py)"))
+        if subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-trading-or.py"), "--check"]).returncode:
+            missing.append((pathlib.Path("trading-de-lor/index.html"), "contenu long (build-guide-trading-or.py)"))
         for p in pages:
             s = p.read_text(encoding="utf-8")
             if not (CSS_RE.search(s) and JS_RE.search(s)):
@@ -295,6 +323,7 @@ def main():
     # La section « preuve hebdomadaire » de l'accueil est du contenu ajouté par-dessus le
     # build : un rebuild l'efface. On la régénère depuis le journal de trades.
     subprocess.run([sys.executable, str(ROOT / "tools" / "build-preuve-hebdo.py")])
+    subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-trading-or.py")])
 
     touched = [p for p in pages if apply(p)]
     for p in touched:
