@@ -138,6 +138,27 @@ for src in re.findall(r'<img src="(/img/blog/[^"]+)"', home):
                 % (src, dims[0], dims[1], ratio, BANNER_RATIO)
             )
 
+# --- aurore WebGL des pages piliers -------------------------------------------
+# Les 4 pages piliers legacy embarquent le composant GoldAurora de l'accueil en
+# le referencant par son nom de fichier HASHE (/_astro/GoldAurora.<hash>.js et
+# /_astro/client.<hash>.js). Un rebuild Astro change ces hashs : sans ce controle,
+# l'aurore disparaitrait en silence et le hero redeviendrait un fond plat.
+for page in sorted(ROOT.glob("*/index.html")):
+    html = page.read_text(encoding="utf-8")
+    if 'class="hero hero-webgl"' not in html:
+        continue
+    for attr in ("component-url", "renderer-url"):
+        m = re.search(attr + r'="(/_astro/[^"]+)"', html)
+        if not m:
+            errors.append("%s : attribut %s absent du bloc hero-bg" % (page.parent.name, attr))
+            continue
+        if not (ROOT / m.group(1).lstrip("/")).exists():
+            errors.append(
+                "%s : l'aurore WebGL pointe sur %s, qui n'existe plus - un rebuild "
+                "Astro a change le hash. Recopier le bloc hero-bg depuis index.html "
+                "dans les pages .hero-webgl." % (page.parent.name, m.group(1))
+            )
+
 # --- rapport ------------------------------------------------------------------
 for w in warnings:
     print("⚠  %s" % w)
