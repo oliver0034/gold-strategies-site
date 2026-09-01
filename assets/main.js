@@ -169,7 +169,13 @@
     if(h1){
       var ws=h1.querySelectorAll('.w');
       ws.forEach(function(w,i){ w.style.transitionDelay=(0.15+i*0.06).toFixed(2)+'s'; });
-      requestAnimationFrame(function(){ h1.classList.add('animate'); });
+      var go=function(){ h1.classList.add('animate'); };
+      requestAnimationFrame(go);
+      // Filet de securite : requestAnimationFrame ne se declenche PAS dans un onglet
+      // ouvert en arriere-plan (cmd-clic, restauration de session). Sans ce repli, les
+      // mots du titre restent a opacity:0 et le hero apparait vide. setTimeout, lui,
+      // se declenche meme onglet cache.
+      setTimeout(go, 1200);
     }
 
     // Barre de progression au scroll
