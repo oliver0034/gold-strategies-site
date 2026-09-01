@@ -24,6 +24,7 @@
             '<a href="/xauusd/">Guide XAUUSD</a>' +
             '<a href="/xauusd-cours/">Cours du XAUUSD</a>' +
             '<a href="/comment-trader-lor/">Comment trader l\'or</a>' +
+            '<a href="/investir-dans-lor/">Investir dans l\'or</a>' +
             '<span class="dd-group">Autres march\u00e9s</span>' +
             '<a href="/trading-crypto/">Trading crypto</a>' +
             '<a href="/trading-indices/">Trading indices</a>' +

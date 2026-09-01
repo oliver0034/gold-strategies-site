@@ -9,7 +9,8 @@ Usage :
     python3 tools/build-preuve-hebdo.py            # régénère depuis le journal
     python3 tools/build-preuve-hebdo.py --check    # vérifie sans écrire (code 1 si absent/périmé)
 
-Source des données : ~/Desktop/GOLD STRATEGIES TRADING 2/journal trades/journal_master.csv
+Source des données : ~/claude/gold-strategies/trading/journal trades/journal_master.csv
+(ancien emplacement ~/Desktop/GOLD STRATEGIES TRADING 2/ conservé en repli — rapatriement du 28/08/2026)
 Les montants du journal sont en euros (compte libellé en EUR, positions de 0,01 lot).
 """
 
@@ -22,7 +23,13 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 INDEX = ROOT / "index.html"
-JOURNAL = pathlib.Path.home() / "Desktop" / "GOLD STRATEGIES TRADING 2" / "journal trades" / "journal_master.csv"
+# Le dossier de trading a été rapatrié du Bureau vers ~/claude le 28/08/2026 : on cherche
+# le nouvel emplacement d'abord, l'ancien en repli, pour ne pas casser une copie non migrée.
+_JOURNAUX = [
+    pathlib.Path.home() / "claude" / "gold-strategies" / "trading" / "journal trades" / "journal_master.csv",
+    pathlib.Path.home() / "Desktop" / "GOLD STRATEGIES TRADING 2" / "journal trades" / "journal_master.csv",
+]
+JOURNAL = next((p for p in _JOURNAUX if p.exists()), _JOURNAUX[0])
 
 START = "<!-- PREUVE-HEBDO:START (généré par tools/build-preuve-hebdo.py — ne pas éditer à la main) -->"
 END = "<!-- PREUVE-HEBDO:END -->"

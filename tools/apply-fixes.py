@@ -173,6 +173,7 @@ DROPDOWN = [
     ("link", "/xauusd/", "Guide XAUUSD"),
     ("link", "/xauusd-cours/", "Cours du XAUUSD"),
     ("link", "/comment-trader-lor/", "Comment trader l'or"),
+    ("link", "/investir-dans-lor/", "Investir dans l'or"),
     ("group", None, "Autres marchés"),
     ("link", "/trading-crypto/", "Trading crypto"),
     ("link", "/trading-indices/", "Trading indices"),
