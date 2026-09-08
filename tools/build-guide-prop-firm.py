@@ -211,6 +211,11 @@ CADRE = section(
         "genre de sujet où une réponse générale trouvée sur un forum coûte cher. "
         "<strong>Faites-le trancher par un expert-comptable avant votre premier retrait</strong>, "
         "pas après.</p>",
+        "<p>Le détail du cadre français — absence d'agrément et protections inexistantes, "
+        "imposition en bénéfices non commerciaux plutôt qu'en plus-values, micro-BNC, TVA "
+        "autoliquidée sur les frais de challenge et déclaration de compte à l'étranger — est "
+        'traité dans une page à part : <a href="/prop-firm-france/" style="%s">prop firm en '
+        "France, légalité et fiscalité</a>.</p>" % L,
         "<p>Un mot sur ma position : j'ai été conseiller financier inscrit à l'AMF pendant "
         "27 ans, ce qui me rend attentif à ces distinctions — et Fiducia Conseils n'est plus "
         "agréée aujourd'hui. Ce que vous lisez ici est de l'information pédagogique, pas un "
