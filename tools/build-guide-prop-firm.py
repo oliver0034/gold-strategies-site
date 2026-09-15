@@ -178,6 +178,10 @@ DRAWDOWN = section(
         "avant d'avoir une méthode stable et un historique à soi. Le mien est public, pertes "
         'comprises : <a href="/resultats/" style="%s">le journal de trades</a>. Sans ce '
         "préalable, payer une évaluation revient à acheter un billet de loterie un peu cher.</p>" % L,
+        "<p>Le calcul concret — combien de pertes consécutives votre taille de position vous laisse "
+        "encaisser avant la perte journalière, comment dimensionner une position sur l'or et "
+        "comment conduire chaque phase — est détaillé dans "
+        '<a href="/reussir-challenge-prop-firm/" style="%s">réussir son challenge prop firm</a>.</p>' % L,
     ),
 )
 
