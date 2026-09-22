@@ -182,6 +182,9 @@ DRAWDOWN = section(
         "encaisser avant la perte journalière, comment dimensionner une position sur l'or et "
         "comment conduire chaque phase — est détaillé dans "
         '<a href="/reussir-challenge-prop-firm/" style="%s">réussir son challenge prop firm</a>.</p>' % L,
+        "<p>Sur les cryptomonnaies, le mécanisme est le même mais la volatilité change tout : levier "
+        "bridé, marché ouvert le week-end, taille de position sans commune mesure avec celle de l'or. "
+        'C\'est le sujet de <a href="/prop-firm-crypto/" style="%s">prop firm crypto</a>.</p>' % L,
     ),
 )
 

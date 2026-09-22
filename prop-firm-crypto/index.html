@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>document.documentElement.className+=' js';</script>
+  <title>Prop firm crypto : fonctionnement, règles et budget de risque sur le Bitcoin | Gold Strategies</title>
+  <meta name="description" content="Prop firm crypto : CFD ou contrats perpétuels, levier bridé à 1:3,33, marché ouvert le week-end, volatilité du Bitcoin. Comment dimensionner une position pour ne pas se faire éliminer, et le cadre fiscal français." />
+  <link rel="canonical" href="https://gold-strategies.com/prop-firm-crypto/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="prop firm crypto, crypto prop firm, prop firm bitcoin, challenge prop firm crypto, trader financé crypto, levier crypto prop firm" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Gold Strategies" />
+  <meta property="og:title" content="Prop firm crypto : ce que change un marché qui ne ferme jamais" />
+  <meta property="og:description" content="Levier bridé, week-end ouvert, volatilité du Bitcoin : pourquoi une évaluation crypto se perd autrement qu'une évaluation sur l'or, et comment calculer sa taille de position." />
+  <meta property="og:url" content="https://gold-strategies.com/prop-firm-crypto/" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:image" content="https://gold-strategies.com/img/pages/prop-firm-crypto-1.jpg?v=20260922" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="/img/logo-gold-strategies.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/style.css?v=20260901" />
+  <style>
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://gold-strategies.com/"},{"@type":"ListItem","position":2,"name":"Capital financé","item":"https://gold-strategies.com/capital-finance-prop-firm/"},{"@type":"ListItem","position":3,"name":"Prop firm crypto","item":"https://gold-strategies.com/prop-firm-crypto/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Prop firm crypto : fonctionnement, règles et budget de risque sur le Bitcoin","description":"Les trois familles de prop firms crypto, ce que changent le levier bridé, l'ouverture le week-end et la volatilité du Bitcoin, le calcul de la taille de position et le cadre fiscal français.","image":"https://gold-strategies.com/img/pages/prop-firm-crypto-1.jpg?v=20260922","datePublished":"2026-09-22T08:00:00+02:00","dateModified":"2026-09-22T08:00:00+02:00","author":{"@type":"Person","name":"Oliver Sev","description":"Ancien conseiller financier inscrit à l'AMF pendant 27 ans","url":"https://gold-strategies.com/a-propos/"},"publisher":{"@type":"Organization","name":"Gold Strategies","logo":{"@type":"ImageObject","url":"https://gold-strategies.com/img/logo-gold-strategies.jpeg"}},"mainEntityOfPage":"https://gold-strategies.com/prop-firm-crypto/","inLanguage":"fr","about":"Fonctionnement et gestion du risque d'une évaluation de prop firm sur les cryptomonnaies"}
+  </script>
+  <!-- PAS de schéma FAQPage : convention du site (cf. commentaire dans style.css) -->
+</head>
+<body>
+  <div class="scroll-progress" id="progress" aria-hidden="true"></div>
+  <header class="nav" id="nav">
+    <div class="wrap bar">
+      <a href="/" class="brand" aria-label="Gold Strategies — accueil"><img src="/img/logo-gold-strategies.jpeg" width="54" height="54" alt="Gold Strategies" class="logo-img" /></a>
+      <nav class="links" aria-label="Navigation principale">
+        <a href="/">Accueil</a>
+        <a href="/complement-revenu/">Complément de revenu</a>
+        <div class="nav-dropdown">
+          <button class="dd-trigger" aria-haspopup="true">Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd-panel">
+            <span class="dd-group">L'or</span>
+            <a href="/trading-de-lor/">Trading de l'or</a>
+            <a href="/xauusd/">Guide XAUUSD</a>
+            <a href="/xauusd-cours/">Cours du XAUUSD</a>
+            <a href="/comment-trader-lor/">Comment trader l'or</a>
+            <a href="/investir-dans-lor/">Investir dans l'or</a>
+            <span class="dd-group">Autres marchés</span>
+            <a href="/trading-crypto/">Trading crypto</a>
+            <a href="/trading-indices/">Trading indices</a>
+            <span class="dd-group">Se former</span>
+            <a href="/methode/">La méthode</a>
+            <a href="/formation/">Formation</a>
+            <a href="/capital-finance-prop-firm/">Prop firm / Capital financé</a>
+            <a href="/analyses/">Analyses</a>
+            <a href="/communaute/">Communauté</a>
+          </div>
+        </div>
+        <a href="/resultats/">Résultats</a>
+        <a href="/blog/">Blog</a>
+        <a href="/a-propos/">À propos</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="/methode/" class="btn btn-ghost">Découvrir la méthode</a>
+        <a href="/communaute/" class="btn btn-gold">Rejoindre la communauté</a>
+        <button class="burger" aria-label="Ouvrir le menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero hero-webgl" style="padding:150px 0 36px">
+    <div class="hero-bg" aria-hidden="true"><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="11okDb" prefix="r1" component-url="/_astro/GoldAurora.BBjvRH8r.js" component-export="default" renderer-url="/_astro/client.bxcwkfp-.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;GoldAurora&quot;,&quot;value&quot;:true}" await-children><div style="position:relative;width:100%;height:100%"><div style="position:absolute;inset:0;width:100%;height:100%"><div class="w-full h-full"></div></div><div style="position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:screen;opacity:0.85"><div class="w-full h-full pointer-events-none z-[3] overflow-hidden relative"></div></div></div><!--astro:end--></astro-island></div>
+        <div class="wrap">
+      <p class="eyebrow reveal">Guide · Capital financé</p>
+      <h1 id="heroH1" style="max-width:20ch"><span class="w">Prop firm</span> <span class="w">crypto :</span> <br/><span class="w">ce que change</span> <span class="w shine">un marché</span> <span class="w shine">qui ne ferme jamais.</span></h1>
+      <p class="lead reveal d2">Levier bridé, cotation le samedi et le dimanche, mouvements de 5 % en une séance : une évaluation sur le Bitcoin ne se perd pas comme une évaluation sur l'or. Voici comment elle fonctionne, et comment dimensionner une position pour rester en jeu.</p>
+      <div class="hero-cta reveal d3">
+        <a href="/formation/" class="btn btn-gold">Préparer l'évaluation avec une méthode</a>
+        <a href="/capital-finance-prop-firm/" class="btn btn-ghost">Comment fonctionne une prop firm</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:28px"><div class="wrap prose">
+
+    <figure style="margin:0 0 2.2rem"><img src="/img/pages/prop-firm-crypto-1.jpg?v=20260922" alt="Graphique du Bitcoin en chandeliers sur un écran de trading, et deux jauges évoquant les limites de perte d'un compte de prop firm — trader la crypto avec un capital financé" width="1600" height="840" style="border-radius:14px;width:100%;display:block;border:1px solid var(--line)" /></figure>
+
+    <p class="post-meta" style="color:var(--muted-2);font-size:.9rem;margin:0 0 1.8rem">Par <a href="/a-propos/" style="color:var(--gold-2);text-decoration:none">Oliver Sev</a> — ancien conseiller financier inscrit à l'AMF pendant 27 ans · Publié le <time datetime="2026-09-22">22 septembre 2026</time></p>
+
+    <p>
+      Une prop firm crypto vous vend la même promesse qu'une prop firm classique : passer une
+      évaluation payante, puis trader un compte financé et toucher une part des gains. Ce qui change,
+      c'est le marché. Le Bitcoin cote le samedi et le dimanche, il parcourt en une séance ce que l'or
+      parcourt en une semaine, et les sociétés le savent : elles brident le levier, facturent la
+      détention de position et écrivent des règles de week-end que la plupart des candidats découvrent
+      trop tard. Un trader qui aborde un challenge crypto avec les réflexes du forex se fait éliminer
+      sur un mouvement qui, pour ce marché, est parfaitement ordinaire.
+    </p>
+    <p>
+      Je précise d'où je parle. Je n'ai aucun partenariat avec une prop firm, aucun lien
+      d'affiliation, et je ne touche rien si vous achetez une évaluation. J'ai été inscrit à l'AMF
+      pendant 27 ans comme conseiller financier ; <strong>Fiducia Conseils n'est plus agréée
+      aujourd'hui</strong>, et cette page est un contenu pédagogique, pas un conseil en investissement
+      personnalisé. Je suis le Bitcoin chaque semaine dans mes analyses, à côté de l'or et des indices.
+      Je ne vous dirai pas quelle société choisir. Je vais vous montrer comment lire leurs règles et
+      faire le calcul qui décide de tout.
+    </p>
+
+    <div class="stat-card reveal">
+      <h3>📌 L'essentiel en 30 secondes</h3>
+      <ul>
+        <li>Une prop firm crypto ne vous fait <strong>jamais détenir de cryptomonnaie</strong>. Vous tradez un CFD ou un contrat perpétuel, sur un compte évalué puis financé.</li>
+        <li>Chez FTMO, relevé le 22 septembre 2026 : Bitcoin en CFD avec un levier de <strong>1:3,33</strong> (1:1 sur le compte Swing), une commission de <strong>0,065 %</strong> du volume et une cotation <strong>sept jours sur sept</strong>.</li>
+        <li>Le levier bridé ne protège que ceux qui l'utilisent à plein. À levier maximal, un mouvement de <strong>1,5 %</strong> contre vous suffit à consommer une perte journalière de 5 %.</li>
+        <li>À risque égal, une position sur le Bitcoin est <strong>plus de dix fois plus petite</strong> en montant exposé qu'une position sur l'or. C'est normal, et c'est ce qui trompe les débutants.</li>
+        <li>Le week-end n'est pas une pause : la perte journalière continue de courir sur toute position ouverte, et certaines formules interdisent d'ailleurs de garder une position pendant le week-end.</li>
+        <li>En France, vos payouts restent des <strong>revenus d'activité</strong>, pas des plus-values sur actifs numériques — même s'ils vous sont versés en stablecoin.</li>
+      </ul>
+    </div>
+
+    <h2 class="reveal">Ce qu'est vraiment une prop firm crypto</h2>
+    <p>
+      Le terme recouvre trois modèles qui n'ont pas grand-chose en commun, sinon l'évaluation payante
+      à l'entrée. Savoir dans lequel vous mettez les pieds est la première question à trancher, parce
+      que les règles, les coûts et le cadre juridique en découlent.
+    </p>
+    <p>
+      <strong>1. Les prop firms multi-actifs qui proposent aussi de la crypto.</strong> C'est le cas
+      de FTMO. Le Bitcoin, l'Ethereum et une poignée d'autres cryptomonnaies y sont des CFD parmi
+      d'autres, sur le même compte que l'or, le forex ou les indices. Les limites de perte sont celles
+      du compte, pas celles de l'actif. C'est le modèle le plus lisible, et le seul dans lequel vous
+      pouvez passer d'un marché à l'autre sans changer de société.
+    </p>
+    <p>
+      <strong>2. Les sociétés spécialisées dans la crypto.</strong> Elles ne proposent que des
+      cryptomonnaies, souvent sous forme de <strong>contrats perpétuels</strong>, et certaines vous
+      font trader sur un compte ou un sous-compte ouvert chez un exchange partenaire plutôt que sur une
+      plateforme de CFD. Le choix d'actifs est plus large, le carnet d'ordres est celui d'un vrai
+      marché, mais un coût nouveau apparaît : le <strong>taux de financement</strong> des perpétuels,
+      prélevé ou versé à intervalles réguliers selon l'écart entre le contrat et le prix au comptant.
+    </p>
+    <p>
+      <strong>3. Les programmes lancés par les exchanges eux-mêmes.</strong> Des plateformes
+      d'échange de cryptomonnaies ont commencé à ouvrir leur propre offre de capital financé. L'évaluation
+      ressemble à celle des prop firms, mais la société qui vous évalue est aussi celle qui tient le
+      marché. Ce n'est pas un défaut en soi ; c'est une configuration à comprendre avant d'y entrer.
+    </p>
+    <p>
+      Dans les trois cas, un point ne change pas : <strong>vous ne possédez aucun bitcoin</strong>. Vous
+      prenez une position sur son prix, avec le capital — le plus souvent simulé — de la société. Ce
+      détail paraît théorique. Il ne l'est pas du tout, ni pour votre gestion du risque, ni pour votre
+      déclaration d'impôts.
+    </p>
+
+    <h2 class="reveal">Ce que la crypto change par rapport à l'or</h2>
+    <p>
+      J'ai détaillé sur la page <a href="/reussir-challenge-prop-firm/">réussir son challenge prop
+      firm</a> la méthode du budget de risque appliquée à l'or. Elle reste valable ici. Mais quatre
+      différences de marché en modifient l'application, et chacune a déjà éliminé des candidats qui
+      savaient lire un graphique.
+    </p>
+    <p>
+      <strong>La volatilité.</strong> Sur la semaine du 15 août 2026, l'or a parcouru 129 $ en deux
+      séances, soit un peu moins de 3 %. Le même mois, le Bitcoin a pris environ 20 % en trois jours.
+      Ce n'est pas une anomalie : c'est l'ordre de grandeur normal de cet actif. Un stop placé à la même
+      distance en pourcentage que sur l'or sera touché par le simple bruit du marché.
+    </p>
+    <p>
+      <strong>Le levier bridé.</strong> Les prop firms plafonnent le levier sur la crypto bien plus bas
+      que sur le forex ou l'or. Ce n'est pas de la prudence gratuite : un levier de 1:100 sur un actif
+      qui peut bouger de 10 % dans la journée rendrait l'évaluation ingagnable. Beaucoup de candidats
+      lisent ce plafond comme une gêne. C'est en réalité le seul garde-fou que la société vous impose,
+      et il est encore trop large pour trader sereinement.
+    </p>
+    <p>
+      <strong>Le week-end.</strong> Le marché ne ferme pas. Pas de gap du lundi matin comme sur l'or,
+      mais pas de répit non plus : une position oubliée le vendredi soir est exposée soixante heures
+      d'affilée, et la perte journalière continue de se calculer. Sur un compte qui interdit de garder
+      une position pendant le week-end, la règle s'applique aussi à la crypto, même si son marché,
+      lui, reste ouvert.
+    </p>
+    <p>
+      <strong>Le coût de détention.</strong> Sur un CFD crypto, le financement de nuit se paie en
+      général à l'achat comme à la vente. Sur un perpétuel, le taux de financement peut vous coûter
+      plusieurs fois par jour quand le marché est euphorique et que tout le monde est acheteur. Dans les
+      deux cas, garder une position plusieurs jours a un prix, qui ronge lentement une évaluation gagnée
+      sur le papier.
+    </p>
+
+    <h2 class="reveal">Les conditions de FTMO sur le Bitcoin, lues ligne à ligne</h2>
+    <p>
+      Je prends FTMO comme exemple parce que c'est la société dont le challenge est le plus recherché
+      en France et dont les spécifications sont publiées symbole par symbole. Relevé le 22 septembre
+      2026 sur sa page des symboles : <strong>ces conditions évoluent, vérifiez-les dans la plateforme
+      au moment de trader</strong>, et lisez les conditions générales, pas seulement la page
+      commerciale.
+    </p>
+
+    <div class="tableau-wrapper reveal">
+      <table>
+        <thead><tr><th>Paramètre</th><th>BTCUSD chez FTMO</th><th>Ce que ça signifie pour vous</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Taille du contrat</strong></td><td>1 lot = 1 bitcoin</td><td>À 80 000 $, un lot représente 80 000 $ d'exposition. On trade donc en fractions de lot.</td></tr>
+          <tr><td><strong>Levier</strong></td><td>1:3,33 (marge de 30 %)</td><td>Sur un compte de 100 000 $, l'exposition maximale est d'environ 333 000 $, soit un peu plus de 4 bitcoins.</td></tr>
+          <tr><td><strong>Levier du compte Swing</strong></td><td>1:1</td><td>La formule qui autorise davantage de souplesse sur la détention bride la crypto encore plus fort.</td></tr>
+          <tr><td><strong>Commission</strong></td><td>0,065 % du volume</td><td>Sur une position de 20 000 $, environ 13 $ par passage d'ordre. À intégrer dans le calcul du stop.</td></tr>
+          <tr><td><strong>Financement de nuit</strong></td><td>Négatif à l'achat comme à la vente</td><td>Garder une position coûte, quel que soit son sens. Convertissez-le en coût par nuit dans la plateforme avant de viser un trade de plusieurs jours.</td></tr>
+          <tr><td><strong>Horaires</strong></td><td>Sept jours sur sept, avec une courte pause quotidienne et une ouverture décalée le dimanche</td><td>Les horaires du week-end peuvent varier selon la plateforme, à cause des maintenances. Pas de gap hebdomadaire, mais de petites pauses.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Les limites de perte, elles, sont celles du compte, et elles ne dépendent pas de l'actif tradé :
+      sur la formule en deux phases, <strong>perte journalière de 5 % et perte maximale de 10 %</strong>,
+      avec des objectifs de 10 % puis 5 %. Autrement dit, le Bitcoin se trade avec exactement les mêmes
+      garde-fous que l'or, alors qu'il bouge plusieurs fois plus. Tout le problème est là.
+    </p>
+    <p>
+      Pour Topstep et Taurus Arena, qui fonctionnent sur les marchés à terme, la question est
+      différente : ce n'est pas le levier qui compte mais la liste des contrats autorisés et leur taille.
+      Vérifiez avant de payer que le contrat crypto que vous visez y figure, et sous quelle forme.
+      J'ai résumé les différences de structure entre ces trois sociétés sur la page
+      <a href="/capital-finance-prop-firm/">capital financé et prop firm</a>.
+    </p>
+
+    <h2 class="reveal">Le calcul qui décide de tout : taille de position et volatilité</h2>
+    <p>
+      La méthode ne change pas : on part du risque par trade, pas de l'objectif. Sur un compte de
+      100 000 $, un risque de 0,5 % par trade — celui que je recommande pendant une évaluation, parce
+      qu'il laisse encaisser neuf pertes dans la journée sans toucher la limite de 5 % — représente
+      <strong>500 $</strong>. La question devient : quelle taille me fait perdre 500 $ si mon stop est
+      touché ?
+    </p>
+    <p>
+      Sur le Bitcoin, la réponse dépend entièrement de la distance du stop, et cette distance doit être
+      dictée par la structure du marché, pas par le confort. Voici les tailles correspondantes avec un
+      Bitcoin à 80 000 $, comparées à une position sur l'or qui risque la même somme.
+    </p>
+
+    <div class="tableau-wrapper reveal">
+      <table>
+        <thead><tr><th>Actif et stop</th><th>Distance du stop</th><th>Taille pour 500 $ de risque</th><th>Montant exposé</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Bitcoin, stop serré</strong></td><td>1 % (800 $)</td><td>0,62 BTC</td><td>≈ 50 000 $</td></tr>
+          <tr><td><strong>Bitcoin, stop structurel</strong></td><td>2,5 % (2 000 $)</td><td>0,25 BTC</td><td>≈ 20 000 $</td></tr>
+          <tr><td><strong>Bitcoin, stop large</strong></td><td>5 % (4 000 $)</td><td>0,125 BTC</td><td>≈ 10 000 $</td></tr>
+          <tr><td><strong>Or, pour comparaison</strong></td><td>8 $ (≈ 0,2 %)</td><td>0,62 lot</td><td>≈ 270 000 $</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      La dernière ligne est celle qui surprend. Pour un même risque de 500 $, la position sur l'or
+      expose plus de dix fois plus de capital que la position sur le Bitcoin avec un stop structurel.
+      Rien d'illogique : l'or bouge peu, on peut donc porter beaucoup ; le Bitcoin bouge beaucoup, on
+      doit donc porter peu. Mais un trader habitué à l'or qui ouvre un lot de Bitcoin parce que 80 000 $
+      d'exposition lui paraissent modestes prend, avec un stop à 2,5 %, un risque de 2 000 $ : quatre
+      fois son budget.
+    </p>
+    <p>
+      Regardez maintenant ce que fait le levier maximal. À 1:3,33, vous pouvez exposer 333 000 $. Une
+      perte journalière de 5 % représente 5 000 $, soit <strong>un mouvement de 1,5 % à peine</strong>
+      contre une position ouverte à plein levier. Sur le Bitcoin, 1,5 % n'est pas un événement, c'est
+      une heure agitée. Le plafond de levier ne vous protège donc que de l'élimination instantanée ; il
+      ne vous protège pas de l'élimination tout court. <strong>Votre vraie limite, c'est votre taille
+      calculée, qui doit rester très loin du plafond.</strong>
+    </p>
+    <p>
+      Deux ajustements, enfin, propres à ce marché. Intégrez la commission dans le risque : sur une
+      position de 20 000 $, un aller-retour coûte de l'ordre de 26 $, soit plus de 5 % de votre risque
+      de 500 $. Et réduisez le risque par trade si vous comptez garder la position au-delà de la
+      journée : le financement de nuit et l'absence de fermeture du marché augmentent le coût réel de
+      chaque trade, y compris quand il est gagnant.
+    </p>
+
+    <h2 class="reveal">Trois semaines de Bitcoin qui montrent le piège</h2>
+    <p>
+      Je suis le Bitcoin chaque samedi dans mes analyses, avec des niveaux datés et laissés en ligne.
+      Trois semaines récentes résument, mieux que n'importe quelle théorie, ce qu'une évaluation crypto
+      demande.
+    </p>
+    <p>
+      <strong>La semaine du 15 août 2026</strong>, le Bitcoin terminait à 62 875 $, en baisse de 2 %,
+      enfermé depuis trois semaines entre 60 000 et 65 000 $. Ma position était de ne pas anticiper la
+      sortie du range. Dans un challenge, c'est exactement la configuration qui use les candidats : un
+      range de 8 % où chaque cassure apparente se retourne, et où un stop trop serré est touché des deux
+      côtés dans la même semaine (<a href="/blog/analyse-hebdo-or-4380-vix-14-15-aout-2026/">l'analyse
+      complète</a>).
+    </p>
+    <p>
+      <strong>La semaine suivante</strong>, il a pris environ 20 % en trois jours et cassé la ligne de
+      tendance baissière qui le plafonnait depuis des mois. Un vendeur d'un bitcoin entier vers
+      63 000 $, sans stop, aurait perdu autour de 12 600 $ : <strong>plus de 12 % d'un compte de
+      100 000 $</strong>, au-delà de la perte maximale, en trois séances. Et une partie de l'accélération
+      s'est faite pendant le week-end, quand un trader d'or est habituellement déconnecté
+      (<a href="/blog/analyse-hebdo-or-4624-dette-us-40000-milliards-22-aout-2026/">l'analyse
+      complète</a>).
+    </p>
+    <p>
+      <strong>La semaine du 19 septembre 2026</strong>, le Bitcoin cotait 81 309 $, en hausse de 5,1 %,
+      au-dessus du seuil de 80 500 $ qui l'avait rejeté sept jours plus tôt. Deux semaines avant, il
+      avait déjà signé une séance à +5,1 % au contact de sa moyenne mobile à 50 semaines, vers
+      82 000 $. Une séance de 5 % sur une position à plein levier, c'est près de 17 000 $ de variation sur un
+      compte de 100 000 $ — dans le bon sens ce jour-là, dans le mauvais le suivant
+      (<a href="/blog/analyse-hebdo-or-4378-fed-4-pourcent-19-septembre-2026/">l'analyse complète</a>).
+    </p>
+    <p>
+      Aucune de ces semaines n'était exceptionnelle pour le Bitcoin. Chacune aurait éliminé un candidat
+      dont la taille de position avait été choisie au feeling plutôt que calculée.
+    </p>
+
+    <h2 class="reveal">Le cadre français : ce qui change, ce qui ne change pas</h2>
+    <p>
+      J'ai détaillé la fiscalité des prop firms sur la page <a href="/prop-firm-france/">prop firm en
+      France, légalité et fiscalité</a>. Trois points méritent d'être repris spécifiquement pour la
+      crypto, parce que c'est là que les erreurs de déclaration sont les plus fréquentes.
+    </p>
+    <p>
+      <strong>Vos gains ne sont pas des plus-values sur actifs numériques.</strong> Beaucoup de traders
+      supposent qu'un gain réalisé sur le Bitcoin relève du régime des cessions de crypto-actifs et de
+      son prélèvement forfaitaire. Ce n'est pas le cas : vous n'avez acheté ni vendu aucun bitcoin, vous
+      avez été rémunéré par une société pour une performance réalisée sur son compte. C'est un revenu
+      d'activité, déclaré en BNC, exactement comme un payout sur l'or ou le forex.
+    </p>
+    <p>
+      <strong>Un payout versé en stablecoin reste un revenu en euros.</strong> Beaucoup de prop firms
+      crypto paient en jeton adossé au dollar. En principe, le revenu se déclare pour sa valeur en
+      euros au moment où vous le recevez ; ce que vous faites ensuite de ces jetons — les garder, les
+      échanger, les convertir — relève d'une autre logique fiscale. La frontière entre les deux mérite
+      d'être posée à un expert-comptable dès le premier versement, pas au moment de la déclaration.
+    </p>
+    <p>
+      <strong>Le compte à l'étranger se déclare.</strong> Si vos payouts arrivent sur un compte ouvert
+      chez un exchange étranger, ou si la prop firm vous fait trader sur un sous-compte d'exchange à
+      votre nom, ce compte doit en principe figurer sur votre déclaration de comptes détenus à
+      l'étranger, au titre des comptes d'actifs numériques. L'oubli coûte une amende par compte et par
+      an, sans lien avec le montant de vos gains.
+    </p>
+    <p>
+      Côté réglementation, le règlement européen sur les marchés de crypto-actifs, en application
+      depuis le 30 décembre 2024, encadre les prestataires qui conservent ou échangent des
+      crypto-actifs pour le compte de clients. Une prop firm qui ne vous fait rien détenir n'entre pas
+      forcément dans ce périmètre ; l'exchange sur lequel vous tradez, lui, y entre. Ce que ça signifie
+      pour vous : <strong>l'agrément éventuel de l'exchange partenaire ne dit rien de la solidité de la
+      prop firm</strong>, et ne vous garantit aucun recours si elle refuse un retrait.
+    </p>
+
+    <h2 class="reveal">Les signaux d'alerte propres à la crypto</h2>
+    <p>
+      Le secteur des prop firms compte des sociétés sérieuses et des acteurs qui ne le sont pas. La
+      crypto concentre davantage les seconds, pour une raison simple : paiements en jetons, sociétés
+      domiciliées loin, clientèle attirée par des promesses de gains rapides. Quatre signaux doivent
+      vous arrêter.
+    </p>
+    <p>
+      <strong>Aucune société identifiable.</strong> Pas de raison sociale, pas de pays
+      d'immatriculation, pas de conditions générales lisibles : vous ne saurez même pas à qui vous
+      adresser en cas de litige.
+    </p>
+    <p>
+      <strong>Le paiement uniquement en crypto, dans les deux sens.</strong> Payer l'évaluation en
+      stablecoin et être payé en stablecoin supprime tout recours bancaire. Ce n'est pas un motif de
+      refus automatique, mais c'est un risque de plus à mettre dans la balance.
+    </p>
+    <p>
+      <strong>Des règles floues sur les retraits.</strong> Délai non précisé, clauses de « trading
+      abusif » sans définition, droit de la société d'annuler des gains sans justification : c'est au
+      premier retrait que ces lignes prennent leur sens.
+    </p>
+    <p>
+      <strong>Des promesses de rendement.</strong> Une prop firm vend une évaluation, pas un résultat.
+      Une page qui affiche des gains mensuels garantis ou des taux de réussite invraisemblables vend
+      autre chose que ce qu'elle prétend.
+    </p>
+
+    <h2 class="reveal">Faut-il passer son évaluation sur la crypto ?</h2>
+    <p>
+      Seulement si c'est le marché sur lequel votre méthode a déjà fait ses preuves, mesurée sur un
+      compte à vous. Passer d'un challenge sur l'or à un challenge sur le Bitcoin « parce que ça bouge
+      plus » change deux variables à la fois — le marché et la volatilité — et vous empêche de savoir,
+      en cas d'échec, laquelle des deux vous a éliminé. Sur un compte multi-actifs, la tentation est
+      permanente ; c'est une raison de plus de l'écrire noir sur blanc dans votre plan de trading.
+    </p>
+    <p>
+      Faites aussi le calcul du net. Un payout brut vaut à peu près la moitié une fois cotisations et
+      impôt payés, et chaque échec coûte le prix d'une évaluation. Quand la volatilité du marché
+      augmente la probabilité d'être éliminé sur un mauvais jour, <strong>la préparation vaut plus que
+      le choix de la société</strong>. C'est ce que travaille ma <a href="/formation/">formation sur l'or
+      et le XAUUSD</a> : un plan de trade écrit, une taille de position calculée avant le marché, et une
+      routine qui tient sur les semaines difficiles. La méthode multi-unités de temps que j'y enseigne
+      s'applique au Bitcoin — je l'utilise chaque semaine dans mes analyses — mais je conseille
+      toujours de la maîtriser d'abord sur un seul actif. Pour aller plus loin sur le marché lui-même,
+      lisez mon guide du <a href="/trading-crypto/">trading crypto</a>.
+    </p>
+    <p>
+      Le trading comporte un risque élevé de perte en capital, particulièrement sur les
+      cryptomonnaies. Les frais d'évaluation sont perdus en cas d'échec, et la majorité des candidats
+      échouent. <a href="/disclaimer-risque/" style="color:var(--gold-2)">Voir l'avertissement sur les
+      risques</a>.
+    </p>
+
+    <h2 class="reveal">Questions fréquentes sur les prop firms crypto</h2>
+    <div class="faq-list reveal">
+      <details class="qa reveal">
+        <summary>C'est quoi une prop firm crypto ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">C'est une société qui vous fait passer une évaluation payante sur les cryptomonnaies, puis vous confie un compte financé — le plus souvent simulé — dont vous touchez une part des gains. Vous ne détenez jamais de crypto : vous tradez un CFD ou un contrat perpétuel sur son prix. Certaines sont multi-actifs et proposent la crypto à côté du forex et de l'or, d'autres sont spécialisées, et des exchanges ont commencé à lancer leur propre programme.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Peut-on trader le Bitcoin chez FTMO ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Oui, en CFD. Relevé le 22 septembre 2026 : un lot vaut un bitcoin, le levier est de 1:3,33 sur le compte standard et de 1:1 sur le compte Swing, la commission est de 0,065 % du volume et le marché cote sept jours sur sept avec de courtes pauses. Les limites de perte sont celles du compte, identiques à celles de l'or. Vérifiez ces conditions dans la plateforme, elles évoluent.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Pourquoi le levier est-il si faible sur la crypto ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Parce que la volatilité du Bitcoin rendrait l'évaluation ingagnable avec le levier du forex. Même bridé à 1:3,33, il reste trop large : à plein levier, un mouvement de 1,5 % contre vous consomme une perte journalière de 5 %. La taille de position doit se calculer à partir du risque par trade et de la distance du stop, et rester très loin du plafond.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Peut-on garder une position crypto pendant le week-end ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Le marché le permet, pas forcément votre compte. Certaines formules interdisent de conserver une position pendant le week-end, crypto comprise ; d'autres l'autorisent en contrepartie d'un levier réduit. Si vous gardez une position, la perte journalière continue de courir et le financement de nuit continue de se payer. Lisez la règle de votre formule avant d'ouvrir le vendredi.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Comment sont imposés les gains d'une prop firm crypto en France ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Comme ceux de n'importe quelle prop firm : ce sont des revenus d'activité, déclarés en BNC, et non des plus-values sur actifs numériques, puisque vous n'avez cédé aucune cryptomonnaie. Un payout versé en stablecoin se déclare en principe pour sa valeur en euros à la réception, et le compte d'exchange étranger qui le reçoit doit être déclaré. Faites valider votre situation par un expert-comptable.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Quel risque prendre par trade sur une évaluation crypto ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Autour de 0,5 % du capital, comme sur l'or, parce que les limites de perte du compte sont les mêmes. Ce qui change, c'est la taille qui en découle : sur un compte de 100 000 $ avec un Bitcoin à 80 000 $ et un stop à 2,5 %, cela donne 0,25 bitcoin, soit environ 20 000 $ exposés. Réduisez encore si vous comptez garder la position plusieurs jours.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Une prop firm crypto est-elle une arnaque ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Pas par nature, mais le segment crypto concentre davantage d'acteurs douteux. Méfiez-vous d'une société sans raison sociale ni pays d'immatriculation, qui ne paie qu'en crypto, dont les règles de retrait sont floues ou qui affiche des rendements. Et gardez en tête qu'aucune prop firm ne vous offre les protections d'un intermédiaire agréé : en cas de litige, vous n'avez que ses conditions générales.</div>
+      </details>
+    </div>
+    <div class="hero-cta" style="justify-content:center;margin-top:2.4rem">
+      <a href="/formation/" class="btn btn-gold">La méthode que j'enseigne</a>
+      <a href="/capital-finance-prop-firm/" class="btn btn-ghost">Comment fonctionne une prop firm</a>
+    </div>
+  </div></section>
+  <section class="sec ctaband"><div class="wrap"><h2 class="reveal">Avant de payer une évaluation, jugez la méthode.</h2>
+  <p class="reveal d1">Mes analyses de l'or et du Bitcoin sont publiées chaque samedi, datées et laissées en ligne — qu'elles aient eu raison ou tort. C'est le seul moyen honnête de juger un trader avant de lui faire confiance.</p>
+  <div class="hero-cta reveal d2" style="justify-content:center"><a href="/blog/" class="btn btn-gold">Lire les analyses</a><a href="/resultats/" class="btn btn-ghost">Voir mes résultats</a></div></div></section>
+  <footer>
+    <div class="wrap">
+      <div class="disclaimer"><strong>Avertissement sur les risques.</strong> Le trading et l'investissement sur les marchés financiers (or, indices, cryptomonnaies, CFD…) comportent un risque élevé de perte en capital et ne conviennent pas à tout le monde. La majorité des investisseurs particuliers perdent de l'argent. Les performances passées ne préjugent pas des performances futures. Les contenus publiés par Gold Strategies ont une vocation <strong>pédagogique et informative</strong> et ne constituent pas un conseil en investissement personnalisé. Toute analyse partagée reflète une opinion, susceptible de porter sur des positions détenues par l'auteur (divulgation de conflit d'intérêts). Vous restez seul responsable de vos décisions ; au besoin, consultez un conseiller financier agréé.</div>
+      <div class="foot-grid">
+        <div><a href="/" class="brand" aria-label="Gold Strategies — accueil"><img src="/img/logo-gold-strategies.jpeg" width="46" height="46" alt="Gold Strategies" class="logo-img" /></a><p style="color:var(--muted-2);max-width:38ch">Éducation financière et accompagnement pour développer son pouvoir d'achat et construire un complément de revenu, avec méthode et prudence.</p></div>
+        <div><h4>Explorer</h4><a href="/complement-revenu/">Complément de revenu</a><a href="/methode/">La méthode</a><a href="/trading-de-lor/">Trading de l'or</a><a href="/xauusd/">Guide XAUUSD</a><a href="/xauusd-cours/">Cours du XAUUSD</a><a href="/comment-trader-lor/">Comment trader l'or</a><a href="/investir-dans-lor/">Investir dans l'or</a><a href="/trading-crypto/">Trading crypto</a><a href="/trading-indices/">Trading indices</a><a href="/capital-finance-prop-firm/">Capital financé</a><a href="/augmenter-pouvoir-achat/">Augmenter son pouvoir d'achat</a><a href="/resultats/">Résultats</a><a href="/blog/">Blog</a></div>
+        <div><h4>Gold Strategies</h4><a href="/a-propos/">À propos</a><a href="/communaute/">Communauté Telegram</a><a href="/contact/">Contact</a><a href="/mentions-legales/">Mentions légales</a><a href="/disclaimer-risque/">Avertissement sur les risques</a><a href="/politique-conflits-interets/">Politique de conflits d'intérêts</a></div>
+      </div>
+      <div class="foot-bottom"><span>© 2026 Gold Strategies. Tous droits réservés.</span><span>Contenu pédagogique — ne constitue pas un conseil en investissement.</span></div>
+    </div>
+  </footer>
+  <script src="/assets/main.js?v=20260901b" defer></script>
+</body>
+</html>
