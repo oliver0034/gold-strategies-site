@@ -158,6 +158,10 @@ TEXT_PATCHES = {
          '<h1 class="h1split">Apprendre à trader l\'or de zéro,'),
         ("Vous ne deviendrez pas régulier sur les marchés avec des intuitions.",
          "Vous ne deviendrez pas régulier sur le XAUUSD avec des intuitions."),
+        # Page 11 du backlog (29/09/2026) : lien du pilier formation vers le guide
+        # débutant — cluster « apprendre le trading » de cluster-plan.json.
+        ("<p>À toute personne motivée, débutante comme intermédiaire, de 18 à 78 ans. Aucun prérequis en finance : on part des bases, sans jargon.</p>",
+         "<p>À toute personne motivée, débutante comme intermédiaire, de 18 à 78 ans. Aucun prérequis en finance : on part des bases, sans jargon. Pour poser ces bases seul avant de vous décider, suivez mon guide <a href=\"/apprendre-le-trading/\">apprendre le trading de zéro</a>.</p>"),
     ],
 }
 
