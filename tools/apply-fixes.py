@@ -315,6 +315,8 @@ def main():
         missing = []
         if subprocess.run([sys.executable, str(ROOT / "tools" / "build-preuve-hebdo.py"), "--check"]).returncode:
             missing.append((pathlib.Path("index.html"), "section #preuve (build-preuve-hebdo.py)"))
+        if subprocess.run([sys.executable, str(ROOT / "tools" / "build-video-presentation.py"), "--check"]).returncode:
+            missing.append((pathlib.Path("index.html"), "section vidéo #presentation (build-video-presentation.py)"))
         if subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-trading-or.py"), "--check"]).returncode:
             missing.append((pathlib.Path("trading-de-lor/index.html"), "contenu long (build-guide-trading-or.py)"))
         if subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-prop-firm.py"), "--check"]).returncode:
@@ -337,6 +339,7 @@ def main():
     # La section « preuve hebdomadaire » de l'accueil est du contenu ajouté par-dessus le
     # build : un rebuild l'efface. On la régénère depuis le journal de trades.
     subprocess.run([sys.executable, str(ROOT / "tools" / "build-preuve-hebdo.py")])
+    subprocess.run([sys.executable, str(ROOT / "tools" / "build-video-presentation.py")])
     subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-trading-or.py")])
     subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-prop-firm.py")])
 
