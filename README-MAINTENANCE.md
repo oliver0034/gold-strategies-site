@@ -98,6 +98,23 @@ contrôle correspondant.
 
 ---
 
+### 3 bis. Section vidéo de l'accueil (`#presentation`)
+
+Ajoutée le 05/10/2026 juste sous le hero, avant « Le constat » : un motion design de 90 s
+(lecture muette en boucle au défilement, bouton « Activer le son »). Comme `#preuve`, c'est du
+contenu posé par-dessus le build Astro, inséré entre les marqueurs `VIDEO-PRESENTATION` par :
+
+```bash
+python3 tools/build-video-presentation.py           # (ré)insère la section
+python3 tools/build-video-presentation.py --check   # signale son absence
+```
+
+`apply-fixes.py` l'appelle et le contrôle. Fichiers : `assets/gold-strategies-presentation.mp4`
+et `.jpg`. Styles et script sont dans le bloc lui-même. Pour changer de vidéo : remplacer les
+deux fichiers et incrémenter `VERSION` dans le script. Les sources du motion sont dans
+`gold-strategies/motion-presentation-site/` ; les chiffres du plan « résultat » datent du
+journal du 02/10/2026 et ne se mettent pas à jour seuls.
+
 ### 4. Section « preuve hebdomadaire » de l'accueil (`#preuve`)
 
 Ajoutée le 18/08/2026 en **3ᵉ position** de la page d'accueil, juste après « Le constat ».
