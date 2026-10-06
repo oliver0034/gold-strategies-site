@@ -195,8 +195,8 @@ Redirect 301 /a-proposs /a-propos/
 RedirectMatch 301 ^/contact$ /contact/
 # [Institutionnelle]
 Redirect 301 /coaching-trading /formation/#coaching
-# [Institutionnelle]
-Redirect 301 /formation-trading /formation/
+# /formation-trading -> /formation/ retiree le 06/10/2026 : l'URL porte desormais
+# le guide « Formation trading : comment choisir » (page 12 du plan editorial).
 # [Institutionnelle]
 Redirect 301 /actualites /blog/
 # [Institutionnelle]
