@@ -16,7 +16,7 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 INDEX = ROOT / "index.html"
-VERSION = "20261005"
+VERSION = "20261010"
 START = "<!-- VIDEO-PRESENTATION:START (généré par tools/build-video-presentation.py — ne pas éditer à la main) -->"
 END = "<!-- VIDEO-PRESENTATION:END -->"
 ANCRE = '<section class="sec" id="constat">'      # la section se pose juste avant « Le constat »
