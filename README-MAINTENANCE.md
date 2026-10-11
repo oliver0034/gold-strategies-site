@@ -130,8 +130,10 @@ python3 tools/build-preuve-hebdo.py           # (re)génère la section dans ind
 python3 tools/build-preuve-hebdo.py --check   # signale son absence ou sa péremption
 ```
 
-Source : `~/Desktop/GOLD STRATEGIES TRADING 2/journal trades/journal_master.csv`, montants
-en euros, capital de départ affiché : 300 €. Le HTML est délimité par les marqueurs
+Source : `~/claude/gold-strategies/trading/journal trades/journal_master.csv` et, à côté,
+`contexte_compte.json` (devise du compte — USD —, capital de départ, total versé : la note de la
+section en est tirée, comme la page Résultats ; corrigé le 11/10/2026, l'ancienne version écrivait
+« € » et « 300 € » en dur). Le HTML est délimité par les marqueurs
 `<!-- PREUVE-HEBDO:START -->` / `<!-- PREUVE-HEBDO:END -->` — **ne rien éditer entre les
 deux**, la prochaine exécution écraserait la retouche. Pour changer le texte, la mise en
 page ou le graphique, modifier `tools/build-preuve-hebdo.py`.

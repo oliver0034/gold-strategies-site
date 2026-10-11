@@ -11,13 +11,16 @@ Usage :
 
 Source des données : ~/claude/gold-strategies/trading/journal trades/journal_master.csv
 (ancien emplacement ~/Desktop/GOLD STRATEGIES TRADING 2/ conservé en repli — rapatriement du 28/08/2026)
-Les montants du journal sont en euros (compte libellé en EUR, positions de 0,01 lot).
+Les montants du journal sont dans la devise du compte, lue dans contexte_compte.json (USD) avec le capital
+de départ et le total versé. Une ancienne version écrivait « € » et « 300 € de départ » en dur : c'était faux
+(corrigé le 11/10/2026).
 """
 
 import argparse
 import collections
 import csv
 import datetime
+import json
 import pathlib
 import sys
 
@@ -34,11 +37,36 @@ JOURNAL = next((p for p in _JOURNAUX if p.exists()), _JOURNAUX[0])
 START = "<!-- PREUVE-HEBDO:START (généré par tools/build-preuve-hebdo.py — ne pas éditer à la main) -->"
 END = "<!-- PREUVE-HEBDO:END -->"
 
-CAPITAL_DEPART = 300  # euros — capital réellement engagé au démarrage du journal
+# Le contexte du compte (devise, capital de départ, total versé) est tenu à jour par le journal de trades :
+# une seule source, pour que l'accueil ne puisse pas dire autre chose que la page Résultats.
+CONTEXTE = JOURNAL.parent / "contexte_compte.json"
+if not CONTEXTE.exists():
+    sys.exit(f"Contexte du compte introuvable : {CONTEXTE}")
+_CTX = json.loads(CONTEXTE.read_text(encoding="utf-8"))
+DEVISE = _CTX["devise"]
+CAPITAL_DEPART = _CTX["capital_initial"]
+VERSE = _CTX["depots_total"] - _CTX.get("retraits_total", 0)
 
 # Géométrie du graphique (viewBox ; le SVG est fluide en largeur)
 W, H = 860, 330
 PAD_L, PAD_R, PAD_T, PAD_B = 46, 16, 22, 46
+
+
+def lots():
+    """Taille de position au lancement et aujourd'hui : la plus fréquente de la première et de la dernière semaine."""
+    par = collections.OrderedDict()
+    for row in csv.DictReader(JOURNAL.open(encoding="utf-8")):
+        jour = datetime.datetime.strptime(row["closeTimeStr"].split()[0], "%d/%m/%Y").date()
+        par.setdefault(jour - datetime.timedelta(days=jour.weekday()), collections.Counter())[row["totalVolume"]] += 1
+    cles = sorted(par)
+    fr = lambda v: f"{float(v):.2f}".replace(".", ",")
+    return fr(par[cles[0]].most_common(1)[0][0]), fr(par[cles[-1]].most_common(1)[0][0])
+
+
+def bornes():
+    """Date du premier et du dernier trade clôturé."""
+    j = [datetime.datetime.strptime(r["closeTimeStr"].split()[0], "%d/%m/%Y").date() for r in csv.DictReader(JOURNAL.open(encoding="utf-8"))]
+    return min(j), max(j)
 
 
 def semaines():
@@ -62,11 +90,11 @@ def semaines():
 
 
 def eur(v, signe=True):
-    """Formate un montant à la française : +192,73 € / −6,21 €."""
-    s = f"{abs(v):,.2f}".replace(",", " ").replace(".", ",")
+    """Formate un montant à la française, dans la devise du compte : +192,73 USD / −6,21 USD."""
+    s = f"{abs(v):,.2f}".replace(",", "\u00a0").replace(".", ",")
     if not signe:
-        return f"{s} €"
-    return ("+" if v >= 0 else "−") + s + " €"
+        return f"{s}\u00a0{DEVISE}"
+    return ("+" if v >= 0 else "−") + s + f"\u00a0{DEVISE}"
 
 
 def graphique(sem):
@@ -154,9 +182,12 @@ def section(sem):
     n_pos = sum(1 for s in sem if s["net"] > 0)
     n_neg = n_sem - n_pos
     n_trades = sum(s["n"] for s in sem)
-    debut = sem[0]["lundi"].strftime("%d/%m/%Y")
-    fin = (sem[-1]["lundi"] + datetime.timedelta(days=4)).strftime("%d/%m/%Y")
-    capital_fin = CAPITAL_DEPART + total
+    d0, d1 = bornes()
+    debut, fin = d0.strftime("%d/%m/%Y"), d1.strftime("%d/%m/%Y")
+    capital_fin = VERSE + total                      # encours = tout ce qui a été versé + le résultat cumulé
+    lot0, lot1 = lots()
+    ent = lambda v: f"{v:,.0f}".replace(",", "&nbsp;")
+    taille = f"positions de {lot0} lot" if lot0 == lot1 else f"positions de {lot0} lot au lancement, {lot1} lot aujourd'hui"
     mot_neg = "une seule semaine négative" if n_neg == 1 else f"{n_neg} semaines négatives"
 
     return f"""{START}
@@ -179,13 +210,13 @@ def section(sem):
       <div class="stat rv">
         <div><b class="count" data-to="{n_sem}">0</b><span>semaines documentées</span></div>
         <div><b class="count" data-to="{n_pos}">0</b><span>semaines positives</span></div>
-        <div><b class="count" data-to="{int(round(total))}" data-suffix="&nbsp;€">0</b><span>cumulés, pertes déduites</span></div>
+        <div><b class="count" data-to="{int(round(total))}" data-suffix="&nbsp;{DEVISE}">0</b><span>cumulés, pertes déduites</span></div>
         <div><b class="count" data-to="{n_trades}">0</b><span>trades consignés</span></div>
       </div>
 
       <p class="ph-note rv">Journal réel du {debut} au {fin}, alimenté automatiquement, pertes comprises ·
-      capital engagé au départ : {CAPITAL_DEPART}&nbsp;€, positions de 0,01 lot · encours au {fin} :
-      {eur(capital_fin, signe=False)}. Résultats passés, sur une période courte : ils ne préjugent
+      capital de départ : {ent(CAPITAL_DEPART)}&nbsp;{DEVISE}, {ent(VERSE)}&nbsp;{DEVISE} versés au total · {taille} ·
+      encours au {fin} : {eur(capital_fin, signe=False)}. Résultats passés, sur une période courte : ils ne préjugent
       en rien des résultats futurs et ne constituent ni une promesse ni un conseil en investissement.</p>
 
       <div class="cta-row rv">
