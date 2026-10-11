@@ -19,6 +19,7 @@
         '<div class="nav-dropdown">' +
           '<button class="dd-trigger" aria-haspopup="true">Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>' +
           '<div class="dd-panel">' +
+            '<a href="/guides/">Tous les guides</a>' +
             '<span class="dd-group">L\'or</span>' +
             '<a href="/trading-de-lor/">Trading de l\'or</a>' +
             '<a href="/xauusd/">Guide XAUUSD</a>' +

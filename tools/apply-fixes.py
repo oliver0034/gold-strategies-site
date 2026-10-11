@@ -177,6 +177,8 @@ TEXT_PATCHES = {
 # la liste ci-dessous, seule source de vérité. Les intitulés .dd-group sont
 # stylés par assets/site-fixes.css. Harmonisé le 26/08/2026 sur les 105 pages.
 DROPDOWN = [
+    # Page « Guides » (06/10/2026) : porte d'entrée unique vers les pages evergreen.
+    ("link", "/guides/", "Tous les guides"),
     ("group", None, "L'or"),
     ("link", "/trading-de-lor/", "Trading de l'or"),
     ("link", "/xauusd/", "Guide XAUUSD"),
@@ -219,6 +221,18 @@ def fix_dropdown(text, path):
     if m.group(2) == wanted:
         return text
     return text[: m.start(2)] + wanted + text[m.end(2):]
+
+
+# --- pied de page : lien « Guides » dans la colonne Explorer (06/10/2026) -----
+FOOT_RE = re.compile(r'(<h4>Explorer</h4>(?:(?!</div>).)*?)(<a href="/resultats/")', re.S)
+FOOT_LINK = '<a href="/guides/">Guides</a>'
+
+
+def fix_footer(text):
+    m = FOOT_RE.search(text)
+    if not m or FOOT_LINK in m.group(1):
+        return text
+    return text[: m.start(2)] + FOOT_LINK + text[m.start(2):]
 
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -267,6 +281,7 @@ def apply(path):
         out = out.replace(old, new)
 
     out = fix_dropdown(out, path)
+    out = fix_footer(out)
 
     if CSS_RE.search(out):
         out = CSS_RE.sub(CSS_TAG, out, count=1)   # remet la bonne version si elle a dérivé
@@ -330,6 +345,10 @@ def main():
             s = p.read_text(encoding="utf-8")
             if not (CSS_RE.search(s) and JS_RE.search(s)):
                 missing.append((p.relative_to(ROOT), "correctifs CSS/JS"))
+            if fix_dropdown(s, p) != s:
+                missing.append((p.relative_to(ROOT), "menu déroulant « Services »"))
+            if fix_footer(s) != s:
+                missing.append((p.relative_to(ROOT), "lien Guides du pied de page"))
             for old, _ in missing_text_patches(p, s):
                 missing.append((p.relative_to(ROOT), "texte : « %s… »" % old[:48]))
         if missing:
