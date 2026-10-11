@@ -112,7 +112,7 @@ python3 tools/build-video-presentation.py --check   # signale son absence
 `apply-fixes.py` l'appelle et le contrôle. Fichiers : `assets/gold-strategies-presentation.mp4`
 et `.jpg`. Styles et script sont dans le bloc lui-même. Pour changer de vidéo : remplacer les
 deux fichiers et incrémenter `VERSION` dans le script. Les sources du motion sont dans
-`gold-strategies/motion-presentation-3d/` (version 3D du 10/10/2026, rendue avec HyperFrames ;
+`gold-strategies/motion-presentation-3d/` (version 3D du 11/10/2026 : objets en volume aux couleurs du logo, quatre phrases de voix modifiées ; rendue avec HyperFrames ;
 l'ancienne version est dans `motion-presentation-site/`) ; les chiffres du plan « résultat »
 datent du journal du 02/10/2026 et ne se mettent pas à jour seuls.
 
