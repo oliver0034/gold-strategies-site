@@ -114,7 +114,7 @@ et `.jpg`. Styles et script sont dans le bloc lui-même. Pour changer de vidéo 
 deux fichiers et incrémenter `VERSION` dans le script. Les sources du motion sont dans
 `gold-strategies/motion-presentation-3d/` (version 3D du 11/10/2026 : objets en volume aux couleurs du logo, quatre phrases de voix modifiées ; rendue avec HyperFrames ;
 l'ancienne version est dans `motion-presentation-site/`) ; les chiffres du plan « résultat »
-datent du journal du 02/10/2026 et ne se mettent pas à jour seuls.
+datent du journal du 09/10/2026 (page Résultats, commit 86a33dd) et ne se mettent pas à jour seuls.
 
 ### 4. Section « preuve hebdomadaire » de l'accueil (`#preuve`)
 
