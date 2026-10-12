@@ -29,7 +29,7 @@ import sys
 # Les deux fichiers évoluant séparément, ils ont leur propre version.
 CSS_VERSION = "20260826"    # assets/site-fixes.css — bumpé le 26/08/2026 (pont de survol du menu)
 JS_VERSION = "20260826"     # assets/nav-mobile.js — bumpé le 26/08/2026 (groupes du menu)
-SITEJS_VERSION = "20260818"  # assets/site-fixes.js — bumpé le 18/08/2026 (tracé de #preuve)
+SITEJS_VERSION = "20261012"  # assets/site-fixes.js — bumpé le 12/10/2026 (chargement de contact-mesure.js)
 CSS_TAG = '<link rel="stylesheet" href="/assets/site-fixes.css?v=%s">' % CSS_VERSION
 JS_TAG = '<script src="/assets/nav-mobile.js?v=%s" defer></script>' % JS_VERSION
 SITEJS_TAG = '<script src="/assets/site-fixes.js?v=%s" defer></script>' % SITEJS_VERSION

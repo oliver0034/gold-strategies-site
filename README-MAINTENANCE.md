@@ -232,3 +232,26 @@ cd "refonte" && python3 -m http.server 8642
 - Mobile : le burger ouvre bien le menu sur les pages Astro **et** sur les pages legacy
 - Article en mobile : le tableau défile dans son `.tableau-wrapper` sans faire déborder la page
 - Console sans erreur
+
+## 7. Bulle WhatsApp, consentement et mesure d'audience
+
+Ajouté le 12/10/2026. Tout le code est dans `assets/contact-mesure.js` : bulle WhatsApp en bas
+à droite, bandeau de consentement, chargement de Google Analytics 4 et événements de contact.
+
+- **Chargement** : le fichier n'est référencé dans aucune page. Il est chargé par les dernières
+  lignes de `assets/main.js` (pages legacy) et de `assets/site-fixes.js` (pages Astro). Une
+  page créée à partir d'un gabarit existant l'obtient donc sans rien faire.
+- **Règle** : Google Analytics n'est chargé, et aucun cookie de mesure n'est déposé, qu'après
+  un « Accepter ». Ne pas ajouter de balise Google dans le HTML des pages : elle partirait
+  avant le consentement.
+- **Réglages** : le bloc `CFG` en tête du fichier (identifiant de mesure `G-KGTFK0K5D4`,
+  numéro WhatsApp, phrase pré-remplie, couleurs).
+- **Événements envoyés** : `contact_whatsapp`, `clic_telegram`, `contact_email`,
+  `contact_telephone`, `prise_rdv`, `contact_formulaire`. Les clics sortants, le défilement
+  et les pages vues viennent des mesures améliorées de la propriété.
+- **Propriété Analytics** : « Gold Strategies - gold-strategies.com », compte « fiducia ia ».
+- **Après modification du fichier** : changer le `?v=` dans les deux lignes de chargement
+  (`main.js` et `site-fixes.js`), puis bumper `main.js` et `site-fixes.js` dans les pages
+  comme au § 3, et `SITEJS_VERSION` dans `tools/apply-fixes.py`.
+- **Information du visiteur** : section `#cookies` de `mentions-legales/index.html`, vers
+  laquelle pointe le bandeau. À tenir à jour si la mesure change.
