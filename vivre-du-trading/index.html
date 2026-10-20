@@ -31,6 +31,9 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Article","headline":"Vivre du trading : ce que ça implique vraiment","description":"Ce que vivre du trading demande : capital nécessaire selon le rendement, fiscalité française, absence de protection sociale, irrégularité des revenus, capital financé et parcours en trois paliers.","image":"https://gold-strategies.com/img/pages/vivre-du-trading-1.jpg?v=20261020","datePublished":"2026-10-20T08:00:00+02:00","dateModified":"2026-10-20T08:00:00+02:00","author":{"@type":"Person","name":"Oliver Sev","description":"Ancien conseiller financier inscrit à l'AMF pendant 27 ans","url":"https://gold-strategies.com/a-propos/"},"publisher":{"@type":"Organization","name":"Gold Strategies","logo":{"@type":"ImageObject","url":"https://gold-strategies.com/img/logo-gold-strategies.jpeg"}},"mainEntityOfPage":"https://gold-strategies.com/vivre-du-trading/","inLanguage":"fr","about":"Vivre du trading : capital, fiscalité, statut, régularité des revenus"}
   </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"VideoObject","name":"Vivre du trading : ce que ça implique vraiment","description":"Le capital nécessaire pour vivre du trading, ce que le statut de trader indépendant ne donne pas, le journal du compte pertes comprises, les trois paliers et la formation Gold Strategies.","thumbnailUrl":"https://gold-strategies.com/assets/vivre-du-trading-presentation.jpg","uploadDate":"2026-10-20T08:00:00+02:00","duration":"PT1M36S","contentUrl":"https://gold-strategies.com/assets/vivre-du-trading-presentation.mp4","inLanguage":"fr"}
+  </script>
   <!-- PAS de schéma FAQPage : convention du site (cf. commentaire dans style.css) -->
 </head>
 <body>
@@ -120,6 +123,34 @@
         <li>Le capital financé d'une prop firm raccourcit la question du capital, pas celle de la régularité.</li>
       </ul>
     </div>
+
+    <figure class="vdt-motion" aria-label="Vidéo : vivre du trading en 96 secondes">
+      <video id="vdt-video" muted loop playsinline preload="none" width="1280" height="720" poster="/assets/vivre-du-trading-presentation.jpg?v=20261020" aria-label="Vidéo animée : le capital nécessaire pour vivre du trading, ce que le statut ne donne pas, le journal du compte pertes comprises, les trois paliers et la formation Gold Strategies">
+        <source src="/assets/vivre-du-trading-presentation.mp4?v=20261020" type="video/mp4">
+      </video>
+      <button type="button" id="vdt-son" class="vdt-son" aria-pressed="false">Activer le son</button>
+    </figure>
+    <style>
+      .vdt-motion { position: relative; margin: 0 0 2.4rem; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: #0a0a0b; }
+      .vdt-motion video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+      .vdt-son { position: absolute; right: 14px; bottom: 14px; padding: 8px 14px; border-radius: 10px; border: 1px solid rgba(212,162,76,.45); background: rgba(10,10,11,.75); color: #f3ede1; font: 500 .85rem/1 inherit; cursor: pointer; }
+      @media (max-width: 600px) { .vdt-son { right: 8px; bottom: 8px; padding: 5px 9px; font-size: .72rem; } }
+    </style>
+    <script>
+      (function () {
+        var v = document.getElementById("vdt-video"), b = document.getElementById("vdt-son");
+        if (!v || !b) return;
+        b.addEventListener("click", function () {
+          v.muted = !v.muted;
+          if (!v.muted) { v.currentTime = 0; v.play(); }
+          b.textContent = v.muted ? "Activer le son" : "Couper le son";
+          b.setAttribute("aria-pressed", String(!v.muted));
+        });
+        if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) { v.controls = true; return; }
+        if (!("IntersectionObserver" in window)) { v.play().catch(function () {}); return; }
+        new IntersectionObserver(function (e) { if (e[0].isIntersecting) { v.play().catch(function () {}); } else { v.pause(); } }, { threshold: 0.3 }).observe(v);
+      })();
+    </script>
 
     <h2 class="reveal">Peut-on vraiment vivre du trading ?</h2>
     <p>
