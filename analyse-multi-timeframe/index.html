@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>document.documentElement.className+=' js';</script>
+  <title>Analyse multi-timeframe : la méthode top-down en trading | Gold Strategies</title>
+  <meta name="description" content="Analyse multi-timeframe : quelles unités de temps combiner, le rôle de chacune, la méthode top-down pas à pas et que faire quand elles se contredisent. Appliqué à l'or par un ancien conseiller inscrit 27 ans à l'AMF." />
+  <link rel="canonical" href="https://gold-strategies.com/analyse-multi-timeframe/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="analyse multi timeframe, multi timeframe, analyse multi-unités de temps, analyse top-down, unité de temps trading, timeframe trading" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Gold Strategies" />
+  <meta property="og:title" content="Analyse multi-timeframe : lire le marché de haut en bas" />
+  <meta property="og:description" content="Trois unités de temps, trois rôles : la direction, les zones, l'exécution. La méthode top-down pas à pas, ce qu'elle change à la taille de position, et trois semaines d'or lues sur plusieurs échelles." />
+  <meta property="og:url" content="https://gold-strategies.com/analyse-multi-timeframe/" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:image" content="https://gold-strategies.com/img/pages/analyse-multi-timeframe-1.jpg?v=20261027" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="/img/logo-gold-strategies.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/style.css?v=20260901" />
+  <style>
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://gold-strategies.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://gold-strategies.com/guides/"}, {"@type": "ListItem", "position": 3, "name": "Analyse multi-timeframe", "item": "https://gold-strategies.com/analyse-multi-timeframe/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Article", "headline": "Analyse multi-timeframe : lire le marché de haut en bas", "description": "Méthode d'analyse multi-unités de temps (top-down) : rôle de chaque unité de temps, combinaisons selon le style, méthode pas à pas sur l'or, conduite à tenir quand les unités de temps se contredisent, effet sur la taille de position.", "image": "https://gold-strategies.com/img/pages/analyse-multi-timeframe-1.jpg?v=20261027", "datePublished": "2026-10-27T08:00:00+01:00", "dateModified": "2026-10-27T08:00:00+01:00", "author": {"@type": "Person", "name": "Oliver Sev", "description": "Ancien conseiller financier inscrit à l'AMF pendant 27 ans", "url": "https://gold-strategies.com/a-propos/"}, "publisher": {"@type": "Organization", "name": "Gold Strategies", "logo": {"@type": "ImageObject", "url": "https://gold-strategies.com/img/logo-gold-strategies.jpeg"}}, "mainEntityOfPage": "https://gold-strategies.com/analyse-multi-timeframe/", "inLanguage": "fr", "about": "Analyse technique multi-timeframe (multi-unités de temps) appliquée au trading de l'or"}
+  </script>
+  <!-- PAS de schéma FAQPage : convention du site (cf. commentaire dans style.css) -->
+</head>
+<body>
+  <div class="scroll-progress" id="progress" aria-hidden="true"></div>
+  <header class="nav" id="nav">
+    <div class="wrap bar">
+      <a href="/" class="brand" aria-label="Gold Strategies — accueil"><img src="/img/logo-gold-strategies.jpeg" width="54" height="54" alt="Gold Strategies" class="logo-img" /></a>
+      <nav class="links" aria-label="Navigation principale">
+        <a href="/">Accueil</a>
+        <a href="/complement-revenu/">Complément de revenu</a>
+        <div class="nav-dropdown">
+          <button class="dd-trigger" aria-haspopup="true">Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd-panel">
+            <a href="/guides/">Tous les guides</a>
+            <span class="dd-group">L'or</span>
+            <a href="/trading-de-lor/">Trading de l'or</a>
+            <a href="/xauusd/">Guide XAUUSD</a>
+            <a href="/xauusd-cours/">Cours du XAUUSD</a>
+            <a href="/comment-trader-lor/">Comment trader l'or</a>
+            <a href="/investir-dans-lor/">Investir dans l'or</a>
+            <span class="dd-group">Autres marchés</span>
+            <a href="/trading-crypto/">Trading crypto</a>
+            <a href="/trading-indices/">Trading indices</a>
+            <span class="dd-group">Se former</span>
+            <a href="/methode/">La méthode</a>
+            <a href="/formation/">Formation</a>
+            <a href="/capital-finance-prop-firm/">Prop firm / Capital financé</a>
+            <a href="/analyses/">Analyses</a>
+            <a href="/communaute/">Communauté</a>
+          </div>
+        </div>
+        <a href="/resultats/">Résultats</a>
+        <a href="/blog/">Blog</a>
+        <a href="/a-propos/">À propos</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="/methode/" class="btn btn-ghost">Découvrir la méthode</a>
+        <a href="/communaute/" class="btn btn-gold">Rejoindre la communauté</a>
+        <button class="burger" aria-label="Ouvrir le menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero hero-webgl" style="padding:150px 0 36px">
+    <div class="hero-bg" aria-hidden="true"><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="11okDb" prefix="r1" component-url="/_astro/GoldAurora.BBjvRH8r.js" component-export="default" renderer-url="/_astro/client.bxcwkfp-.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;GoldAurora&quot;,&quot;value&quot;:true}" await-children><div style="position:relative;width:100%;height:100%"><div style="position:absolute;inset:0;width:100%;height:100%"><div class="w-full h-full"></div></div><div style="position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:screen;opacity:0.85"><div class="w-full h-full pointer-events-none z-[3] overflow-hidden relative"></div></div></div><!--astro:end--></astro-island></div>
+        <div class="wrap">
+      <p class="eyebrow reveal">Guide · Méthode</p>
+      <h1 id="heroH1" style="max-width:20ch"><span class="w">L'analyse</span> <span class="w">multi-timeframe :</span> <br/><span class="w">lire le marché</span> <span class="w shine">de haut en bas.</span></h1>
+      <p class="lead reveal d2">Quelles unités de temps combiner, dans quel ordre, ce que chacune a le droit de décider, et que faire quand elles se contredisent. Appliqué à l'or, avec des semaines réelles.</p>
+      <div class="hero-cta reveal d3">
+        <a href="/formation/" class="btn btn-gold">La formation au trading de l'or</a>
+        <a href="/blog/" class="btn btn-ghost">Mes analyses hebdomadaires</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:28px"><div class="wrap prose">
+
+    <figure style="margin:0 0 2.2rem"><img src="/img/pages/analyse-multi-timeframe-1.jpg?v=20261027" alt="Trois écrans superposés en profondeur affichant le même graphique de l'or à trois échelles de temps, du plus large au plus détaillé" width="1600" height="840" style="border-radius:14px;width:100%;display:block;border:1px solid var(--line)" /></figure>
+
+    <p class="post-meta" style="color:var(--muted-2);font-size:.9rem;margin:0 0 1.8rem">Par <a href="/a-propos/" style="color:var(--gold-2);text-decoration:none">Oliver Sev</a> — ancien conseiller financier inscrit à l'AMF pendant 27 ans · Publié le <time datetime="2026-10-27">27 octobre 2026</time></p>
+
+    <p>
+      Ouvrez un graphique de l'or en 15 minutes un mercredi après-midi. Vous verrez peut-être une
+      belle tendance haussière, des creux qui montent, une moyenne mobile qui pointe vers le ciel.
+      Passez en journalier : ce que vous preniez pour une tendance n'est qu'un rebond de quelques
+      heures dans une baisse qui dure depuis trois semaines. Passez en hebdomadaire : le prix est
+      collé au plancher d'un range qui tient depuis l'été. Trois graphiques, trois histoires, et un
+      seul prix.
+    </p>
+    <p>
+      L'analyse multi-timeframe — en français, l'analyse multi-unités de temps — sert à réconcilier
+      ces trois histoires avant de cliquer. C'est la première chose que je fais chaque matin sur l'or,
+      et c'est probablement la compétence qui sépare le plus nettement un trader qui subit le marché
+      d'un trader qui sait où il se trouve. J'ai été inscrit à l'AMF pendant 27 ans comme conseiller
+      financier ; <strong>Fiducia Conseils n'est plus agréée aujourd'hui</strong>, et ce guide est un
+      contenu pédagogique, pas un conseil en investissement personnalisé. Les exemples viennent du
+      marché que je trade tous les jours, et des analyses que je publie chaque samedi.
+    </p>
+
+    <div class="stat-card reveal">
+      <h3>📌 L'essentiel en 30 secondes</h3>
+      <ul>
+        <li>L'analyse multi-timeframe consiste à lire <strong>le même actif sur plusieurs unités de temps</strong>, de la plus large à la plus fine, avant de prendre une décision.</li>
+        <li>Chaque unité de temps a <strong>un rôle et un seul</strong> : la plus haute donne la direction, l'intermédiaire situe les zones, la plus basse ne sert qu'à l'exécution.</li>
+        <li>Trois unités de temps suffisent, espacées d'un <strong>facteur 4 à 6</strong> : par exemple journalier, 4 heures et 1 heure pour du day trading sur l'or.</li>
+        <li>On ne descend jamais chercher sur une petite unité de temps une direction que la grande ne donne pas. <strong>Le petit graphique exécute, il ne décide pas.</strong></li>
+        <li>Quand les unités de temps se contredisent, la réponse n'est pas de choisir celle qui vous arrange : c'est de <strong>réduire la taille, raccourcir les objectifs, ou ne rien faire</strong>.</li>
+        <li>L'unité de temps choisie fixe la distance de votre stop, donc la taille de position que votre capital autorise. C'est aussi une décision de gestion du risque.</li>
+      </ul>
+    </div>
+
+    <h2 class="reveal">Qu'est-ce que l'analyse multi-timeframe ?</h2>
+    <p class="bluf">Lire un même marché sur plusieurs échelles de temps, en commençant par la plus large, pour que chaque décision prise sur un petit graphique soit cohérente avec ce que disent les grands.</p>
+    <p>
+      Une <strong>unité de temps</strong> (ou <em>timeframe</em>) est la durée représentée par chaque
+      chandelier d'un graphique : une bougie par mois, par semaine, par jour, par quatre heures, par
+      heure, par quinze minutes. Le prix est le même partout ; ce qui change, c'est la quantité de bruit
+      que vous voyez. Sur un graphique mensuel, une journée de panique disparaît dans une seule bougie.
+      Sur un graphique de cinq minutes, elle remplit l'écran.
+    </p>
+    <p>
+      L'analyse multi-timeframe consiste à empiler ces lectures dans un ordre fixe, du haut vers le
+      bas. On parle aussi d'<strong>analyse top-down</strong>, ou descendante. La logique est celle
+      d'une carte routière : on regarde d'abord le pays pour savoir dans quelle direction partir, puis
+      la région pour choisir la route, et seulement à la fin le plan de la rue pour trouver le numéro.
+      Personne ne choisit son itinéraire en regardant le plan de la rue.
+    </p>
+    <p>
+      Les notations varient selon les plateformes. Vous croiserez <strong>MN</strong> ou <strong>M</strong>
+      pour le mensuel, <strong>W1</strong> pour l'hebdomadaire, <strong>D1</strong> pour le journalier,
+      <strong>H4</strong> et <strong>H1</strong> pour les 4 heures et l'heure, <strong>M15</strong>,
+      <strong>M5</strong> et <strong>M1</strong> pour les minutes. Attention au piège : selon le
+      logiciel, « M » peut désigner le mois ou la minute.
+    </p>
+
+    <h2 class="reveal">Pourquoi une seule unité de temps vous trompe</h2>
+    <p class="bluf">Toute tendance n'est qu'une vague dans une marée plus grande. Sans la grande échelle, vous ne savez pas si vous nagez avec le courant ou contre lui.</p>
+    <p>
+      Le marché est fractal : une tendance haussière en journalier est faite de hausses et de baisses
+      en 1 heure, elles-mêmes faites de hausses et de baisses en 5 minutes. Ce qui est une tendance sur
+      une échelle est une correction sur l'échelle du dessus. Un trader qui ne regarde qu'un seul
+      graphique prend donc pour une tendance ce qui n'est souvent qu'une respiration, et il achète
+      précisément au moment où le mouvement de fond reprend dans l'autre sens.
+    </p>
+    <p>
+      Les conséquences sont très concrètes. La première : des stops touchés en série, parce que les
+      positions sont ouvertes contre le mouvement dominant et que chaque reprise de ce mouvement les
+      balaie. La deuxième : des objectifs mal placés, trop loin quand on vise une cible qu'une
+      résistance d'unité de temps supérieure va bloquer, trop près quand on sort d'un trade aligné avec
+      une tendance de fond qui avait encore de la marge. La troisième, la plus coûteuse : le
+      surtrading. Sur un graphique de 5 minutes, il y a toujours un signal. Sur un graphique
+      journalier, il n'y en a que quelques-uns par mois. L'unité de temps haute filtre les trades,
+      et c'est exactement ce qu'on lui demande.
+    </p>
+
+    <h2 class="reveal">Trois unités de temps, trois rôles</h2>
+    <p class="bluf">La grande décide de la direction, l'intermédiaire situe les zones, la petite déclenche l'entrée. Aucune n'empiète sur le rôle d'une autre.</p>
+    <p>
+      La règle la plus utile de toute la méthode tient en une phrase : <strong>chaque unité de temps a
+      le droit de répondre à une question, et à une seule.</strong> Le jour où l'on demande au graphique
+      de 15 minutes s'il faut acheter ou vendre, l'analyse multi-timeframe s'effondre, parce qu'on
+      redonne la décision à l'échelle la plus bruitée.
+    </p>
+
+    <div class="tableau-wrapper reveal">
+      <table>
+        <thead><tr><th>Rôle</th><th>Question posée</th><th>Ce qu'on y lit</th><th>Ce qu'on n'y fait jamais</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Unité de temps haute</strong> (contexte)</td><td>Dans quel sens ai-je le droit de trader ?</td><td>Le régime : tendance haussière, baissière, ou range ; les grands supports et résistances</td><td>Chercher un point d'entrée</td></tr>
+          <tr><td><strong>Unité de temps intermédiaire</strong> (carte)</td><td>Où le prix a-t-il des chances de réagir ?</td><td>Les zones : anciens sommets et creux, zones laissées par un mouvement trop rapide, niveaux de retracement</td><td>Contredire la direction donnée au-dessus</td></tr>
+          <tr><td><strong>Unité de temps basse</strong> (exécution)</td><td>Le prix réagit-il maintenant sur ma zone ?</td><td>La confirmation : un rejet net, un changement de structure, un retour en test</td><td>Décider de la direction</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Cette séparation a un effet que l'on sous-estime : elle rend les erreurs lisibles. Quand un trade
+      perd, vous savez à quel étage la lecture a été mauvaise. Le contexte était-il faux ? La zone
+      était-elle mal placée ? Ou l'entrée a-t-elle été prise trop tôt, avant la confirmation ? Un
+      trader qui mélange les rôles ne peut pas répondre, et il ne progresse pas.
+    </p>
+
+    <h2 class="reveal">Quelles unités de temps combiner selon votre style</h2>
+    <p class="bluf">Choisissez d'abord l'unité de temps sur laquelle vous exécutez, puis remontez de deux crans, en multipliant à chaque fois par quatre à six.</p>
+    <p>
+      La règle d'espacement la plus pratique est un <strong>facteur de 4 à 6</strong> entre deux unités
+      de temps successives. Trop proches — 1 heure et 30 minutes, par exemple — elles racontent la même
+      histoire et n'apportent rien. Trop éloignées — mensuel et 5 minutes —, le lien entre la direction
+      et l'exécution se perd : le mensuel peut rester haussier pendant que vous enchaînez une semaine
+      entière de pertes en 5 minutes.
+    </p>
+
+    <div class="tableau-wrapper reveal">
+      <table>
+        <thead><tr><th>Style</th><th>Durée d'un trade</th><th>Contexte</th><th>Zones</th><th>Exécution</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Scalping</strong></td><td>Quelques minutes</td><td>1 heure</td><td>15 minutes</td><td>1 à 5 minutes</td></tr>
+          <tr><td><strong>Day trading</strong></td><td>Quelques heures, dans la journée</td><td>Journalier</td><td>4 heures</td><td>15 minutes à 1 heure</td></tr>
+          <tr><td><strong>Swing trading</strong></td><td>Plusieurs jours à deux semaines</td><td>Hebdomadaire</td><td>Journalier</td><td>4 heures</td></tr>
+          <tr><td><strong>Position</strong></td><td>Plusieurs semaines à plusieurs mois</td><td>Mensuel</td><td>Hebdomadaire</td><td>Journalier</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Pour quelqu'un qui débute, je recommande la ligne « day trading » avec une exécution en
+      <strong>1 heure</strong>, ou la ligne « swing ». Les unités de temps basses ne sont pas plus
+      difficiles à comprendre, elles sont plus difficiles à supporter : plus de bruit, plus de faux
+      signaux, plus de frais rapportés au gain, et plus de temps devant l'écran. J'ai détaillé ce choix
+      de style dans <a href="/trading-pour-debutant/">trading pour débutant : par où commencer</a>.
+    </p>
+    <p>
+      Ces trois unités de temps sont un point de départ, pas un plafond. Pour apprendre, tenez-vous-y :
+      chaque échelle ajoutée à la main est une contradiction de plus à arbitrer. Ma propre lecture en
+      compte davantage, de l'hebdomadaire à la minute, mais je ne les surveille pas une par une : un
+      tableau les lit pour moi et me dit lesquelles sont d'accord. Ce n'est utile qu'une fois que vous
+      savez exactement quelle question vous posez à chacune.</p>
+
+    <h2 class="reveal">La méthode pas à pas, telle que je l'applique sur l'or</h2>
+    <p class="bluf">Cinq étapes dans un ordre fixe, de l'hebdomadaire à la minute, et un trade seulement si les cinq sont franchies.</p>
+
+    <h3>1. Le régime de marché, en hebdomadaire</h3>
+    <p>
+      Le samedi, je qualifie le marché : hausse structurelle, baisse structurelle, ou range. Je regarde
+      la succession des plus hauts et des plus bas de semaine, la position du prix par rapport à sa
+      moyenne mobile à 20 semaines, et les bornes des grandes zones. Cette qualification décide de la
+      façon de travailler toute la semaine. Dans une tendance, on cherche la continuation. Dans un
+      range, chercher la continuation est le meilleur moyen de se faire découper à chaque extrémité :
+      on travaille les retours depuis les bornes.
+    </p>
+
+    <h3>2. Le biais du jour, en journalier</h3>
+    <p>
+      Chaque matin, le graphique journalier fixe le sens dans lequel j'ai le droit de travailler.
+      Je regarde la structure des dernières bougies, la position du prix par rapport aux moyennes à
+      20 et 50 jours, et l'état de mon indicateur de tendance en journalier. Si le journalier est
+      vendeur, la séance commence avec un biais vendeur : un achat n'y sera qu'une respiration, tradée
+      en taille réduite, quelle que soit la tentation offerte plus bas.
+    </p>
+
+    <h3>3. La carte des zones, du journalier à l'heure</h3>
+    <p>
+      Je relève ensuite les zones qui comptent sur trois échelles : journalier, 4 heures et 1 heure. Je
+      ne les traite pas à égalité. Une zone vue en journalier pèse plus lourd qu'une zone vue en
+      1 heure, et ce qui m'intéresse vraiment, ce sont les <strong>confluences</strong> : les endroits où
+      plusieurs unités de temps désignent le même niveau, à quelques dollars près. Une zone qui
+      n'apparaît que sur une unité de temps basse est une simple ligne. Une zone que l'on retrouve en
+      journalier, en 4 heures et sur un niveau de retracement est un endroit où le prix a de vraies
+      raisons de réagir, et c'est là que je place mes entrées, mes stops et mes objectifs.
+    </p>
+
+    <h3>4. Le cadre en 1 heure, les entrées en 5 minutes, le déclenchement en 1 minute</h3>
+    <p>
+      Le 1 heure fixe le cadre de la séance. Avant toute chose, le prix doit se trouver du même côté
+      de ses moyennes mobiles à 50 périodes en 1 heure et en 5 minutes : coincé entre les deux, il
+      n'y a ni cadre ni entrée. Le 1 heure me dit ensuite si le mouvement va dans le sens du journalier
+      ou s'il s'agit d'une respiration contre lui, et surtout <strong>la réserve qu'il lui reste</strong>
+      avant d'arriver en fin de course. Ce n'est pas une position : c'est un cadre à l'intérieur duquel
+      je travaille.
+    </p>
+    <p>
+      À l'intérieur de ce cadre, je ne prends pas une seule position que je tiens des heures. J'enchaîne
+      des <strong>entrées successives, par segments de 5 minutes</strong>, dans le sens du 1 heure. Un
+      segment se termine quand le 5 minutes s'essouffle : j'encaisse, et je repars au segment suivant
+      tant que le 1 heure a encore de la marge. Quand il n'en a plus, j'arrête, même si le prix
+      continue un peu.
+    </p>
+    <p>
+      Le point d'entrée, lui, se raffine jusqu'au graphique <strong>1 minute</strong>. Il ne se devine
+      pas : c'est un niveau repéré à l'avance, celui qui tient le mouvement de très court terme. Tant
+      qu'il tient, rien ne change. S'il casse, c'est l'amorce du retournement, celui qui se verra
+      ensuite en 15 minutes, puis en 1 heure. Entrer à ce moment-là, sur un niveau noté avant que le
+      prix y arrive, c'est entrer avant que les unités de temps plus lentes confirment, mais à un
+      endroit que les unités de temps hautes ont déjà validé. L'ordre peut être posé à l'avance : il ne
+      se déclenchera que si le niveau cède.
+    </p>
+
+    <figure class="reveal" style="margin:2rem 0 2.2rem">
+      <a href="/img/pages/analyse-multi-timeframe-graphique-5min.jpg" target="_blank" rel="noopener" style="display:block"><img src="/img/pages/analyse-multi-timeframe-graphique-5min.jpg" alt="Graphique de l'or en 5 minutes avec l'indicateur Gold Strategies : rebond depuis une zone de demande vers 4 028 $, signaux d'achat successifs, niveaux de retracement de Fibonacci, et à droite le tableau qui affiche l'état de chaque unité de temps de la minute au mois" width="1821" height="818" loading="lazy" style="border-radius:14px;width:100%;height:auto;display:block;border:1px solid var(--line)" /></a>
+      <figcaption style="color:var(--muted-2);font-size:.88rem;line-height:1.55;margin-top:.8rem">
+        Mon graphique de l'or en 5 minutes. Le prix rebondit depuis une zone de demande vers 4 028 $ et
+        enchaîne les entrées à l'achat. Le tableau de droite lit pour moi chaque unité de temps : le prix
+        est au-dessus de ses moyennes à 50 périodes en 5 minutes et en 1 heure, donc le sens acheteur est
+        autorisé ; mais la ligne MODE indique « contre D1 » : le journalier reste vendeur, c'est une
+        respiration, tradée en demi-taille. La ligne CYCLE montre un cycle d'une heure récent, avec encore
+        de la réserve. En haut du mouvement, le 15 minutes passe en surachat et le 5 minutes s'essouffle :
+        le segment se termine, on encaisse, et l'on n'en reprend un que si le cycle d'une heure le permet.
+        Cliquez sur l'image pour l'agrandir.
+      </figcaption>
+    </figure>
+
+    <figure class="mtf-zoom reveal">
+      <a href="/img/pages/analyse-multi-timeframe-tableau.jpg" target="_blank" rel="noopener"><img src="/img/pages/analyse-multi-timeframe-tableau.jpg" alt="Zoom sur le tableau multi-unités de temps de l'indicateur Gold Strategies : tendance et momentum de chaque unité de temps de la minute au mois, position par rapport aux moyennes à 50 périodes, verdict, mode et cycle" width="532" height="920" loading="lazy" /></a>
+      <figcaption>
+        <strong>Le tableau, de haut en bas.</strong>
+        <ul>
+          <li><strong>Tendance par unité de temps</strong>, de la minute au mois : ici, acheteuse de 5 minutes à 1 heure, vendeuse en 4 heures, en journalier et en hebdomadaire. Le sablier signale une bascule en cours, non confirmée : c'est la minute qui commence à tourner.</li>
+          <li><strong>Momentum et zone</strong> : sens de l'élan sur chaque unité de temps, avec les états extrêmes. Le 15 minutes est en surachat, la minute et les 5 minutes repassent dessous : le segment s'essouffle.</li>
+          <li><strong>Moyennes à 50 périodes</strong> : le prix est au-dessus en 5 minutes et en 1 heure, de 14 et 27 $. Le sens acheteur est autorisé.</li>
+          <li><strong>Mode</strong> : « contre D1 ». Le 1 heure monte pendant que le journalier baisse : respiration, demi-taille, objectifs courts.</li>
+          <li><strong>Cycle</strong> : un cycle d'une heure lancé depuis 1 h 04, encore récent. Tant qu'il garde de la réserve, un nouveau segment reste possible.</li>
+        </ul>
+        Le tableau ne décide rien à ma place : il m'évite de rater une contradiction entre deux échelles.
+      </figcaption>
+    </figure>
+    <style>
+      .mtf-zoom { display: flex; gap: 26px; align-items: flex-start; margin: 0 0 2.4rem; }
+      .mtf-zoom > a { flex: 0 0 280px; display: block; }
+      .mtf-zoom img { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid var(--line); }
+      .mtf-zoom figcaption { color: var(--muted); font-size: .92rem; line-height: 1.6; }
+      .mtf-zoom figcaption ul { margin: .6rem 0 .8rem; padding-left: 1.1rem; }
+      .mtf-zoom figcaption li { margin: 0 0 .45rem; }
+      @media (max-width: 700px) { .mtf-zoom { flex-direction: column; } .mtf-zoom > a { flex: none; width: 100%; max-width: 360px; margin: 0 auto; } }
+    </style>
+
+    <h3>5. Le placement du stop et des objectifs</h3>
+    <p>
+      Le stop se place au plus proche de deux repères : le dernier extrême opposé en 5 minutes, ou le
+      niveau de déclenchement qui vient de céder. Jamais à un nombre de dollars choisi pour faire joli.
+      Les objectifs viennent de la structure, pas d'un nombre de points : la première zone rencontrée
+      en 5 minutes, puis en 15 minutes, et une zone journalière majeure pour un éventuel objectif
+      lointain en mode tendance. Enfin, j'exécute uniquement dans les créneaux où l'or est liquide, la
+      matinée de Londres et le chevauchement entre Londres et New York l'après-midi. Dans les heures
+      creuses, un graphique de 1 ou de 5 minutes ne veut rien dire.
+    </p>
+
+    <h2 class="reveal">Quand les unités de temps se contredisent</h2>
+    <p class="bluf">La contradiction n'est pas un problème à résoudre en choisissant le graphique qui vous arrange : c'est une information sur le niveau de risque, et elle change la taille de la position.</p>
+    <p>
+      Les débutants vivent les contradictions entre unités de temps comme une panne de la méthode. C'est
+      l'inverse : c'est le moment où elle sert le plus. Je distingue trois situations, et chacune a sa
+      conduite à tenir.
+    </p>
+
+    <div class="tableau-wrapper reveal">
+      <table>
+        <thead><tr><th>Situation</th><th>Ce que l'on voit</th><th>Ce que je fais</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Alignement</strong></td><td>Le 1 heure va dans le sens du journalier</td><td>Plan normal : taille habituelle, entrées successives tant que le 1 heure a de la marge, objectifs jusqu'aux zones plus lointaines</td></tr>
+          <tr><td><strong>Respiration</strong></td><td>Le 1 heure part contre le journalier</td><td>Plan court : taille divisée par deux, objectifs proches uniquement, jamais laisser courir ; sortie dès que le 1 heure se retourne dans le sens du journalier</td></tr>
+          <tr><td><strong>Indécision</strong></td><td>Le 1 heure lui-même est contradictoire, ou le prix est coincé entre ses moyennes à 50 périodes en 1 heure et en 5 minutes</td><td>Aucun trade. Je note les niveaux qui débloqueraient un scénario à l'achat et un scénario à la vente, et j'attends</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Le cas de la respiration mérite qu'on s'y arrête. Trader contre l'unité de temps haute n'est pas
+      interdit : les corrections existent, elles durent parfois plusieurs heures et elles se tradent.
+      Mais on y entre avec un handicap structurel, puisque chaque reprise du mouvement de fond peut
+      balayer la position. On compense ce handicap par la taille et par la durée, pas par l'espoir.
+      Deux autres situations me font aussi lever le pied : un cycle en 1 heure qui dure depuis plus de
+      trois à cinq heures, ou qui n'a presque plus de réserve, où une nouvelle entrée arrive tard ; et
+      une unité de temps haute en zone extrême qui commence à tourner, signe d'essoufflement de la
+      tendance de fond.
+    </p>
+    <p>
+      Un dernier piège, très courant : lire la bougie en cours comme si elle était close. Une bougie
+      journalière qui « casse » un support à 15 heures peut finir la journée au-dessus. Pour qualifier
+      une unité de temps, je ne retiens que les bougies clôturées. Une bascule en cours, non confirmée,
+      appelle la prudence, pas l'action.
+    </p>
+
+    <h2 class="reveal">Trois semaines d'or lues en multi-timeframe</h2>
+    <p>
+      Je publie chaque samedi une analyse datée de l'or, laissée en ligne quoi qu'il arrive ensuite.
+      Les trois dernières de ce mois d'octobre montrent l'analyse multi-timeframe au travail, y compris
+      quand deux échelles ne disent pas la même chose.
+    </p>
+    <p>
+      <strong>3 octobre 2026 : une invalidation journalière, dans un cadre hebdomadaire.</strong> La
+      semaine précédente, mon cadre tenait en une ligne : invalidation à 4 234 $ en clôture quotidienne,
+      et en dessous, 4 110 $. Le lundi, le plancher cède et le prix touche 4 110,47 $ dans la même
+      séance. Le niveau de déclenchement était défini en journalier, l'objectif aussi ; et le cadre de
+      fond, en hebdomadaire, était celui d'une série de plus hauts de semaine décroissants, six
+      d'affilée depuis fin août. Les deux échelles allaient dans le même sens : c'est la configuration
+      la plus simple à trader
+      (<a href="/blog/analyse-hebdo-or-4140-euro-casse-support-3-octobre-2026/">l'analyse complète</a>).
+    </p>
+    <p>
+      <strong>17 octobre 2026 : l'hebdomadaire se stabilise, le journalier reste vendeur.</strong>
+      Cette semaine-là, la bougie hebdomadaire fait un plus haut plus haut et un plus bas plus haut :
+      la série de sept plus hauts décroissants s'interrompt. Tentant d'y voir un retournement. Mais en
+      journalier, le prix reste sous sa moyenne à 20 jours, vers 4 192 $, et nettement sous celle à
+      50 jours, vers 4 331 $ ; mon indicateur de tendance reste vendeur en journalier, avec un seuil de
+      retournement à 4 361 $, et à 4 679 $ en hebdomadaire. Ma conclusion n'était donc pas « la
+      tendance est redevenue haussière », mais « le range se resserre ». C'est exactement ce que
+      l'analyse multi-timeframe empêche : prendre un signal d'une échelle pour une décision de toutes
+      les autres
+      (<a href="/blog/analyse-hebdo-or-4166-inflation-nasdaq-17-octobre-2026/">l'analyse complète</a>).
+    </p>
+    <p>
+      <strong>24 octobre 2026 : le journalier casse, l'hebdomadaire arrive sur sa borne.</strong> L'or
+      perd 4,05 % sur la semaine, casse le double plancher de 4 066-4 074 $ et clôture à 3 997 $. En
+      journalier, c'est une cassure franche. En hebdomadaire, le prix arrive sur la base du range qui
+      l'encadre depuis l'été, à 16 $ des planchers de juin et juillet, vers 3 959 $. Les deux lectures
+      sont vraies en même temps, et elles ne mènent pas à la même conclusion. J'ai tranché par
+      l'échelle haute : scénario principal de rebond depuis la borne basse, et un critère objectif
+      pour changer d'avis, une clôture hebdomadaire sous 3 942 $, confirmée sur l'or coté en euros
+      (<a href="/blog/analyse-hebdo-or-3997-credit-ia-petrole-24-octobre-2026/">l'analyse complète</a>).
+    </p>
+    <p>
+      Je ne sais pas, au moment où j'écris, laquelle de ces deux lectures aura raison la semaine
+      prochaine. Ce n'est pas le sujet. Le sujet, c'est qu'à chaque instant je sais sur quelle échelle
+      repose ma décision et ce qui l'invaliderait. Toutes mes analyses sont sur le
+      <a href="/blog/">blog</a>, celles qui ont eu tort comprises.
+    </p>
+
+    <h2 class="reveal">L'unité de temps décide aussi de votre taille de position</h2>
+    <p class="bluf">Plus l'unité de temps d'exécution est haute, plus le stop logique est loin, et plus le capital nécessaire pour respecter son risque par trade est élevé.</p>
+    <p>
+      On présente souvent le choix des unités de temps comme une affaire de style. C'est d'abord une
+      affaire d'arithmétique. Sur l'or, un mouvement de 1 $ vaut 1 $ pour 0,01 lot, soit une once. Un
+      stop placé derrière une zone en 1 heure se trouve souvent à quelques dollars du point d'entrée ;
+      un stop placé derrière une zone journalière, à plusieurs dizaines de dollars. Prenons un compte de
+      2 000 $ et un risque de 1 % par trade, soit 20 $.
+    </p>
+
+    <div class="tableau-wrapper reveal">
+      <table>
+        <thead><tr><th>Exécution</th><th>Distance du stop (exemple)</th><th>Perte pour 0,01 lot</th><th>Taille maximale pour 20 $ de risque</th></tr></thead>
+        <tbody>
+          <tr><td><strong>15 minutes</strong></td><td>4 $</td><td>4 $</td><td>0,05 lot</td></tr>
+          <tr><td><strong>1 heure</strong></td><td>8 $</td><td>8 $</td><td>0,02 lot</td></tr>
+          <tr><td><strong>4 heures</strong></td><td>20 $</td><td>20 $</td><td>0,01 lot</td></tr>
+          <tr><td><strong>Journalier</strong></td><td>40 $</td><td>40 $</td><td>Impossible : même la taille minimale dépasse le risque autorisé</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Les distances sont des ordres de grandeur, pas des règles : elles dépendent de la volatilité du
+      moment et de l'endroit où se trouve la zone. Mais la conclusion tient. Avec un petit compte, le
+      swing trading de l'or sur des stops journaliers n'est pas accessible en respectant 1 % de risque,
+      et la seule façon de le faire est d'augmenter le risque, ce qui revient à jouer le compte. La
+      tentation inverse est aussi dangereuse : descendre en 5 minutes pour avoir des stops courts et une
+      grosse taille, c'est multiplier le bruit et les frais. Le calcul complet de la taille de position
+      est détaillé dans <a href="/apprendre-le-trading/">apprendre le trading de zéro</a>.
+    </p>
+
+    <h2 class="reveal">Les cinq erreurs que je vois le plus souvent</h2>
+    <p>
+      <strong>Descendre chercher une direction.</strong> Le journalier est neutre, rien ne se passe, et
+      l'on descend en 5 minutes jusqu'à trouver un graphique qui donne envie d'agir. C'est la négation
+      même de la méthode. Si l'échelle haute ne donne pas de direction, la réponse est d'attendre.
+    </p>
+    <p>
+      <strong>Empiler les unités de temps.</strong> Six graphiques ouverts, chacun avec ses indicateurs,
+      et l'on finit toujours par en trouver un qui confirme ce qu'on voulait faire. Trois unités de temps
+      actives, une quatrième pour le régime de marché le week-end : au-delà, on ne lit plus le marché,
+      on lit ses propres envies.
+    </p>
+    <p>
+      <strong>Changer d'unité de temps en cours de trade.</strong> On entre sur un signal en 5 minutes,
+      le trade part contre soi, et l'on « remonte » en 4 heures pour se convaincre que la position a
+      encore du sens. Un trade se gère sur l'unité de temps où il a été pris. Si l'on voulait un trade
+      4 heures, il fallait le prendre en 4 heures, avec un stop et une taille de 4 heures.
+    </p>
+    <p>
+      <strong>Traiter toutes les zones à égalité.</strong> Une ligne tracée en 15 minutes n'a pas le poids
+      d'un support journalier. Sans hiérarchie entre les zones, on place son stop juste devant une zone
+      majeure, ou son objectif juste derrière.
+    </p>
+    <p>
+      <strong>Lire les bougies non clôturées.</strong> Une bougie 4 heures qui casse un niveau à mi-parcours
+      n'a encore rien cassé. Pour qualifier une échelle, seule la clôture compte.
+    </p>
+
+    <h2 class="reveal">Faut-il un indicateur multi-timeframe ?</h2>
+    <p>
+      Non, la méthode se pratique très bien à la main : une disposition à trois graphiques côte à côte sur
+      TradingView ou sur votre plateforme, la même échelle de prix, les mêmes zones reportées de l'un à
+      l'autre. C'est même la meilleure façon d'apprendre, parce qu'on construit soi-même la hiérarchie.
+    </p>
+    <p>
+      J'utilise pour ma part un indicateur maison qui affiche, dans un tableau, l'état de tendance de
+      chaque unité de temps, du mensuel à la minute, me signale si l'heure va avec ou contre le
+      journalier, la réserve qu'il reste au cycle d'une heure, et le niveau de déclenchement en
+      1 minute. Il ne décide de rien : il me sert de garde-fou, pour qu'une contradiction entre
+      échelles ne m'échappe pas un jour de fatigue. Un indicateur de ce type vous fait gagner du temps
+      une fois que vous savez ce que vous cherchez. Avant, il vous en fait perdre, parce qu'il vous donne
+      des réponses à des questions que vous n'avez pas encore appris à poser.
+    </p>
+    <p>
+      La logique est la même sur tous les marchés. Je l'applique surtout à l'or, mais elle vaut pour les
+      indices ou les cryptomonnaies, avec une seule adaptation : sur un marché ouvert le week-end comme
+      le Bitcoin, les bougies journalières et hebdomadaires n'ont pas les mêmes heures de clôture que
+      sur l'or, et il faut le savoir avant de comparer deux graphiques.
+    </p>
+
+    <div class="vigilance-box reveal">
+      <strong>Méfiez-vous des stratégies « multi-timeframe » à 90 % de réussite</strong>
+      L'expression est devenue un argument de vente : vidéos promettant la stratégie ultime, indicateurs
+      qui « alignent toutes les unités de temps » pour vous, captures de trades parfaits choisis après
+      coup. L'analyse multi-timeframe ne prédit rien ; elle classe les situations, du plus favorable au
+      plus risqué, et vous dit quelle taille leur donner. Une méthode sérieuse se juge sur un journal
+      complet, pertes comprises, et sur des analyses publiées avant le mouvement, pas après.
+    </div>
+
+    <h2 class="reveal">Pour aller plus loin</h2>
+    <p>
+      Si vous découvrez l'or, commencez par le <a href="/xauusd/">guide complet du XAUUSD</a>, qui
+      explique la cotation, la taille de lot et les horaires. L'analyse multi-timeframe y est le socle de
+      ma lecture du marché. Pour la manière d'exploiter ensuite les zones, en continuation ou en retour,
+      j'ai comparé les approches possibles dans <a href="/comment-trader-lor/">comment trader l'or :
+      cinq stratégies</a>.
+    </p>
+    <p>
+      La méthode que je décris ici, avec la lecture de mon tableau multi-unités de temps, le placement des
+      zones, les entrées successives dans le cadre du 1 heure et la gestion des respirations, est transmise en direct dans ma
+      <a href="/formation/">formation au trading de l'or</a> : quinze jours de sessions en live, à 999 €.
+      Elle ne promet pas de résultat ; elle transmet la façon dont je travaille sur le compte dont je
+      publie le <a href="/resultats/">journal de trades</a>. Et si votre objectif est de trader le capital
+      d'une société plutôt que le vôtre, la même discipline s'applique, avec des règles de perte plus
+      strictes : voir <a href="/capital-finance-prop-firm/">prop firm et capital financé</a>.
+    </p>
+
+    <p>
+      Le trading comporte un risque élevé de perte en capital, en particulier sur les produits à effet
+      de levier comme les CFD, et la majorité des particuliers qui les utilisent perdent de l'argent.
+      Les performances passées ne préjugent pas des performances futures.
+      <a href="/disclaimer-risque/" style="color:var(--gold-2)">Voir l'avertissement sur les
+      risques</a>.
+    </p>
+
+    <h2 class="reveal">Questions fréquentes sur l'analyse multi-timeframe</h2>
+    <div class="faq-list reveal">
+      <details class="qa reveal">
+        <summary>Qu'est-ce que l'analyse multi-timeframe en trading ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">C'est l'étude d'un même actif sur plusieurs unités de temps, de la plus large à la plus fine. L'unité de temps haute donne la direction, l'intermédiaire situe les zones où le prix peut réagir, la plus basse sert uniquement à déclencher l'entrée. On l'appelle aussi analyse top-down ou analyse multi-unités de temps.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Quelles unités de temps utiliser en day trading ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Une combinaison courante est journalier pour la direction, 4 heures pour les zones, et 1 heure ou 15 minutes pour l'exécution. L'important est l'espacement : un facteur de 4 à 6 entre deux unités de temps successives, pour qu'elles apportent chacune une information différente.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Combien d'unités de temps faut-il regarder ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Trois unités de temps actives suffisent, éventuellement une quatrième consultée une fois par semaine pour qualifier le régime de marché. Au-delà, on multiplie les contradictions et l'on finit toujours par trouver un graphique qui confirme ce que l'on avait envie de faire.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Quelle est la meilleure unité de temps pour trader l'or ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Il n'y en a pas une seule : tout dépend de votre disponibilité et de votre capital. Pour débuter, une exécution en 1 heure, avec le journalier pour la direction et le 4 heures pour les zones, offre un bon compromis entre nombre d'opportunités, bruit et distance du stop. Le swing trading sur stops journaliers demande un capital plus important pour respecter 1 % de risque par trade.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Que faire quand les unités de temps se contredisent ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Ne pas choisir celle qui vous arrange. Si l'unité de temps d'exécution part contre l'unité de temps haute, il s'agit le plus souvent d'une correction : on peut la trader, mais avec une taille réduite et des objectifs courts. Si l'unité de temps intermédiaire est elle-même contradictoire, la meilleure décision est de ne pas trader et de noter les niveaux qui débloqueraient un scénario.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>L'analyse multi-timeframe fonctionne-t-elle en crypto et sur les indices ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Oui, la logique est la même sur tous les marchés liquides. Il faut seulement tenir compte des horaires : un marché ouvert sept jours sur sept, comme le Bitcoin, ne clôture pas ses bougies journalières et hebdomadaires aux mêmes heures que l'or ou les indices, ce qui change la lecture des niveaux de clôture.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Faut-il attendre la clôture de la bougie ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Pour qualifier une unité de temps, oui. Une bougie journalière qui traverse un support en cours de séance peut clôturer au-dessus. Je ne retiens pour la direction et les invalidations que les bougies clôturées ; une bascule en cours, non confirmée, appelle la prudence, pas l'action.</div>
+      </details>
+    </div>
+    <div class="hero-cta" style="justify-content:center;margin-top:2.4rem">
+      <a href="/formation/" class="btn btn-gold">La formation au trading de l'or</a>
+      <a href="/capital-finance-prop-firm/" class="btn btn-ghost">Comprendre le capital financé</a>
+    </div>
+  </div></section>
+  <section class="sec ctaband"><div class="wrap"><h2 class="reveal">Une méthode se juge avant le mouvement.</h2>
+  <p class="reveal d1">Chaque samedi, je publie une analyse de l'or datée, avec ses niveaux et ses critères d'invalidation, et je la laisse en ligne qu'elle ait eu raison ou tort. Lisez-en plusieurs à la suite : vous verrez l'analyse multi-timeframe au travail, semaine après semaine.</p>
+  <div class="hero-cta reveal d2" style="justify-content:center"><a href="/blog/" class="btn btn-gold">Lire les analyses</a><a href="/resultats/" class="btn btn-ghost">Voir mes résultats</a></div></div></section>
+  <footer>
+    <div class="wrap">
+      <div class="disclaimer"><strong>Avertissement sur les risques.</strong> Le trading et l'investissement sur les marchés financiers (or, indices, cryptomonnaies, CFD…) comportent un risque élevé de perte en capital et ne conviennent pas à tout le monde. La majorité des investisseurs particuliers perdent de l'argent. Les performances passées ne préjugent pas des performances futures. Les contenus publiés par Gold Strategies ont une vocation <strong>pédagogique et informative</strong> et ne constituent pas un conseil en investissement personnalisé. Toute analyse partagée reflète une opinion, susceptible de porter sur des positions détenues par l'auteur (divulgation de conflit d'intérêts). Vous restez seul responsable de vos décisions ; au besoin, consultez un conseiller financier agréé.</div>
+      <div class="foot-grid">
+        <div><a href="/" class="brand" aria-label="Gold Strategies — accueil"><img src="/img/logo-gold-strategies.jpeg" width="46" height="46" alt="Gold Strategies" class="logo-img" /></a><p style="color:var(--muted-2);max-width:38ch">Éducation financière et accompagnement pour développer son pouvoir d'achat et construire un complément de revenu, avec méthode et prudence.</p></div>
+        <div><h4>Explorer</h4><a href="/complement-revenu/">Complément de revenu</a><a href="/methode/">La méthode</a><a href="/trading-de-lor/">Trading de l'or</a><a href="/xauusd/">Guide XAUUSD</a><a href="/xauusd-cours/">Cours du XAUUSD</a><a href="/comment-trader-lor/">Comment trader l'or</a><a href="/investir-dans-lor/">Investir dans l'or</a><a href="/trading-crypto/">Trading crypto</a><a href="/trading-indices/">Trading indices</a><a href="/capital-finance-prop-firm/">Capital financé</a><a href="/augmenter-pouvoir-achat/">Augmenter son pouvoir d'achat</a><a href="/guides/">Guides</a><a href="/resultats/">Résultats</a><a href="/blog/">Blog</a></div>
+        <div><h4>Gold Strategies</h4><a href="/a-propos/">À propos</a><a href="/communaute/">Communauté Telegram</a><a href="/contact/">Contact</a><a href="/mentions-legales/">Mentions légales</a><a href="/disclaimer-risque/">Avertissement sur les risques</a><a href="/politique-conflits-interets/">Politique de conflits d'intérêts</a></div>
+      </div>
+      <div class="foot-bottom"><span>© 2026 Gold Strategies. Tous droits réservés.</span><span>Contenu pédagogique — ne constitue pas un conseil en investissement.</span></div>
+    </div>
+  </footer>
+  <script src="/assets/main.js?v=20261012" defer></script>
+</body>
+</html>
