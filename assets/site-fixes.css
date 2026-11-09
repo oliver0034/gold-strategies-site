@@ -434,3 +434,15 @@ body.mobile-nav-open { overflow: hidden; }
   color: var(--gold-light, #f2dfa8);
   opacity: .55;
 }
+
+/* ---------- 12. Gold Strategies App — bouton-icône du menu (ajouté le 09/11/2026) ----------
+   « L'app » mène à /application/. Bouton-icône (44 px) : la barre est plafonnée à 1240 px et
+   n'a pas la place d'un bouton texte (mesuré : « Découvrir la méthode » et « Rejoindre la
+   communauté » passaient sur deux lignes). Le texte « L'app » reste lu par les lecteurs d'écran
+   et repris par le menu mobile, comme « Espace membre », masqué ici sur la barre de bureau.
+   Balisage posé par tools/apply-fixes.py (fix_nav_app). */
+.nav .nav-cta .nav-app { display: none; align-items: center; justify-content: center; padding: 0; width: 44px; height: 44px; min-width: 44px; }
+.nav .nav-cta .nav-app img { display: block; width: 30px; height: 30px; border-radius: 7px; }
+.nav .nav-cta .nav-app span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.nav .nav-cta .nav-login { display: none; }
+@media (min-width: 1180px) { .nav .nav-cta .nav-app { display: inline-flex; } }

@@ -27,7 +27,7 @@ import sys
 # en ligne : le script REMPLACE le `?v=` existant, donc une constante en retard
 # rétrograde silencieusement la version et fait resservir une feuille en cache.
 # Les deux fichiers évoluant séparément, ils ont leur propre version.
-CSS_VERSION = "20260826"    # assets/site-fixes.css — bumpé le 26/08/2026 (pont de survol du menu)
+CSS_VERSION = "20261109"    # assets/site-fixes.css — bumpé le 09/11/2026 (bouton-icône Gold Strategies App)
 JS_VERSION = "20260826"     # assets/nav-mobile.js — bumpé le 26/08/2026 (groupes du menu)
 SITEJS_VERSION = "20261012"  # assets/site-fixes.js — bumpé le 12/10/2026 (chargement de contact-mesure.js)
 CSS_TAG = '<link rel="stylesheet" href="/assets/site-fixes.css?v=%s">' % CSS_VERSION
@@ -235,6 +235,43 @@ def fix_footer(text):
     return text[: m.start(2)] + FOOT_LINK + text[m.start(2):]
 
 
+# --- Gold Strategies App (09/11/2026) : bouton du menu et liens du pied de page --------------
+# Décision d'Olivier : un accès à l'application membre dans le menu et dans le pied de page.
+# « L'app » mène à la page /application/ ; c'est un bouton-icône (logo APP, texte « L'app » lu par
+# les lecteurs d'écran et repris par le menu mobile) parce que la barre Astro, plafonnée à 1240 px,
+# n'a la place que pour 44 px de plus (mesuré le 09/11/2026 : un bouton texte faisait passer
+# « Découvrir la méthode » et « Rejoindre la communauté » sur deux lignes). « Espace membre »
+# (connexion directe à l'app) est repris par le menu mobile ; il est masqué sur la barre de
+# bureau (site-fixes.css § 12 et style.css). Mêmes fonctions pour les pages legacy (passe unique
+# du 09/11/2026), qui n'appellent pas ce script.
+APP_LOGIN = "https://app.gold-strategies.com/#/connexion"
+NAV_APP_RE = re.compile(r'<div class="nav-cta">\s*<a href="/methode/" class="btn btn-ghost( magnetic)?">Découvrir la méthode</a>')
+FOOT_APP_RE = re.compile(r'<h4>Gold Strategies</h4>(?:(?!</div>).)*?<a href="/communaute/">Communauté Telegram</a>', re.S)
+FOOT_APP = '<a href="/application/">Application</a><a href="%s">Espace membre</a>' % APP_LOGIN
+
+
+def nav_app_html(magnetic):
+    return ('<a href="/application/" class="btn btn-ghost%s nav-app" title="Gold Strategies App">'
+            '<img src="/img/gold-strategies-app-64.webp" alt="" width="30" height="30"><span>L&#39;app</span></a>'
+            '<a href="%s" class="btn btn-ghost nav-login">Espace membre</a>') % (" magnetic" if magnetic else "", APP_LOGIN)
+
+
+def fix_nav_app(text):
+    if 'nav-app"' in text:
+        return text
+    m = NAV_APP_RE.search(text)
+    if not m:
+        return text
+    return text[: m.end()] + nav_app_html(bool(m.group(1))) + text[m.end():]
+
+
+def fix_footer_app(text):
+    m = FOOT_APP_RE.search(text)
+    if not m or FOOT_APP in m.group(0) or FOOT_APP in text[m.end(): m.end() + len(FOOT_APP)]:
+        return text
+    return text[: m.end()] + FOOT_APP + text[m.end():]
+
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SKIP_DIRS = {"_astro", "img", "assets", "tools", "astro-patch", ".git", "blog"}
 
@@ -282,6 +319,8 @@ def apply(path):
 
     out = fix_dropdown(out, path)
     out = fix_footer(out)
+    out = fix_nav_app(out)
+    out = fix_footer_app(out)
 
     if CSS_RE.search(out):
         out = CSS_RE.sub(CSS_TAG, out, count=1)   # remet la bonne version si elle a dérivé
@@ -337,6 +376,8 @@ def main():
             missing.append((pathlib.Path("index.html"), "section #preuve (build-preuve-hebdo.py)"))
         if subprocess.run([sys.executable, str(ROOT / "tools" / "build-video-presentation.py"), "--check"]).returncode:
             missing.append((pathlib.Path("index.html"), "section vidéo #presentation (build-video-presentation.py)"))
+        if subprocess.run([sys.executable, str(ROOT / "tools" / "build-app-presentation.py"), "--check"]).returncode:
+            missing.append((pathlib.Path("index.html"), "bloc Gold Strategies App #application (build-app-presentation.py)"))
         if subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-trading-or.py"), "--check"]).returncode:
             missing.append((pathlib.Path("trading-de-lor/index.html"), "contenu long (build-guide-trading-or.py)"))
         if subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-prop-firm.py"), "--check"]).returncode:
@@ -349,6 +390,10 @@ def main():
                 missing.append((p.relative_to(ROOT), "menu déroulant « Services »"))
             if fix_footer(s) != s:
                 missing.append((p.relative_to(ROOT), "lien Guides du pied de page"))
+            if fix_nav_app(s) != s:
+                missing.append((p.relative_to(ROOT), "bouton « L'app » du menu"))
+            if fix_footer_app(s) != s:
+                missing.append((p.relative_to(ROOT), "liens Application / Espace membre du pied de page"))
             for old, _ in missing_text_patches(p, s):
                 missing.append((p.relative_to(ROOT), "texte : « %s… »" % old[:48]))
         if missing:
@@ -364,6 +409,7 @@ def main():
     # build : un rebuild l'efface. On la régénère depuis le journal de trades.
     subprocess.run([sys.executable, str(ROOT / "tools" / "build-preuve-hebdo.py")])
     subprocess.run([sys.executable, str(ROOT / "tools" / "build-video-presentation.py")])
+    subprocess.run([sys.executable, str(ROOT / "tools" / "build-app-presentation.py")])
     subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-trading-or.py")])
     subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-prop-firm.py")])
 

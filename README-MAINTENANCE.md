@@ -116,6 +116,33 @@ deux fichiers et incrémenter `VERSION` dans le script. Les sources du motion so
 l'ancienne version est dans `motion-presentation-site/`) ; les chiffres du plan « résultat »
 datent du journal du 09/10/2026 (page Résultats, commit 86a33dd) et ne se mettent pas à jour seuls.
 
+### 3 ter. Gold Strategies App : page, bloc d'accueil, menu et pied de page (09/11/2026)
+
+L'application membre (https://app.gold-strategies.com, dépôt `application-gold-strategies`) a son
+logo, décliné du logo VIP (sources : `~/claude/gold-strategies/identite-gold-strategies-app/`).
+Sur le site :
+
+- **Page `/application/`** (charte legacy, gabarit de `guides/`) : ce que contient l'app, les
+  formules et leurs prix, l'ajout à l'écran d'accueil. Chaque phrase reprend `src/config/plans.js`
+  et `src/config/schedule.js` de l'app : **la relire dès qu'une offre ou un prix change.** L'« Agent
+  IA » de l'app n'y figure pas (démonstration, aucun modèle branché au 09/11/2026).
+- **Bloc `#application` de l'accueil**, juste après `#preuve`, entre les marqueurs
+  `APP-PRESENTATION`, inséré par `python3 tools/build-app-presentation.py` (`--check` signale son
+  absence) ; `apply-fixes.py` l'appelle et le contrôle. Image : `img/gold-strategies-app-640.webp`.
+- **Menu** : bouton-icône « L'app » (vers `/application/`) et lien « Espace membre » (connexion
+  directe à l'app) dans `.nav-cta`, sur les 128 pages. Sur la barre de bureau, seul le bouton-icône
+  s'affiche (pages Astro ≥ 1180 px, pages legacy ≥ 1280 px) : la barre n'a pas la place d'un bouton
+  texte (mesuré : 9 px libres à 1180 px sur les pages legacy ; sur les pages Astro, un bouton texte
+  passait les deux boutons existants sur deux lignes). Les deux menus mobiles reprennent les deux
+  liens avec leur texte. Styles : `site-fixes.css` § 12 (Astro) et fin de `style.css` (legacy,
+  `?v=20261109`).
+- **Pied de page**, colonne « Gold Strategies », après « Communauté Telegram » : « Application »
+  et « Espace membre ».
+
+Pages Astro : `apply-fixes.py` (`fix_nav_app`, `fix_footer_app`) remet bouton et liens après un
+rebuild. Pages legacy : posés une fois dans leur HTML ; une nouvelle page legacy copiée d'une page
+existante les hérite.
+
 ### 4. Section « preuve hebdomadaire » de l'accueil (`#preuve`)
 
 Ajoutée le 18/08/2026 en **3ᵉ position** de la page d'accueil, juste après « Le constat ».
