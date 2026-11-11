@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>document.documentElement.className+=' js';</script>
+  <title>Analyse technique crypto : méthode, indicateurs et pièges | Gold Strategies</title>
+  <meta name="description" content="Analyse technique crypto : lire un graphique de Bitcoin, les indicateurs qui servent vraiment, mèche ou clôture, taille de position. Méthode pas à pas par un ancien conseiller inscrit 27 ans à l'AMF." />
+  <link rel="canonical" href="https://gold-strategies.com/analyse-technique-crypto/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="analyse technique crypto, analyse crypto, analyse technique bitcoin, indicateur crypto, analyse graphique crypto, lire un graphique crypto" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Gold Strategies" />
+  <meta property="og:title" content="Analyse technique crypto : lire un marché qui ne dort jamais" />
+  <meta property="og:description" content="Marché ouvert 24/7, prix fragmenté, mèches de liquidation : ce qui change quand on applique l'analyse technique au Bitcoin, la méthode pas à pas et trois semaines d'octobre 2026 lues sur le graphique." />
+  <meta property="og:url" content="https://gold-strategies.com/analyse-technique-crypto/" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:image" content="https://gold-strategies.com/img/pages/analyse-technique-crypto-1.jpg?v=20261103" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="/img/logo-gold-strategies.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/style.css?v=20261109" />
+  <style>
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://gold-strategies.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://gold-strategies.com/guides/"}, {"@type": "ListItem", "position": 3, "name": "Analyse technique crypto", "item": "https://gold-strategies.com/analyse-technique-crypto/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Article", "headline": "Analyse technique crypto : lire un marché qui ne dort jamais", "description": "Analyse technique appliquée aux cryptomonnaies : spécificités d'un marché ouvert en continu, indicateurs utiles et leurs pièges, unités de temps, méthode pas à pas, mèche contre clôture, taille de position à risque égal, lecture des altcoins à travers le Bitcoin.", "image": "https://gold-strategies.com/img/pages/analyse-technique-crypto-1.jpg?v=20261103", "datePublished": "2026-11-03T08:00:00+01:00", "dateModified": "2026-11-03T08:00:00+01:00", "author": {"@type": "Person", "name": "Oliver Sev", "description": "Ancien conseiller financier inscrit à l'AMF pendant 27 ans", "url": "https://gold-strategies.com/a-propos/"}, "publisher": {"@type": "Organization", "name": "Gold Strategies", "logo": {"@type": "ImageObject", "url": "https://gold-strategies.com/img/logo-gold-strategies.jpeg"}}, "mainEntityOfPage": "https://gold-strategies.com/analyse-technique-crypto/", "inLanguage": "fr", "about": "Analyse technique des cryptomonnaies, appliquée au Bitcoin"}
+  </script>
+  <!-- PAS de schéma FAQPage : convention du site (cf. commentaire dans style.css) -->
+</head>
+<body>
+  <div class="scroll-progress" id="progress" aria-hidden="true"></div>
+  <header class="nav" id="nav">
+    <div class="wrap bar">
+      <a href="/" class="brand" aria-label="Gold Strategies — accueil"><img src="/img/logo-gold-strategies.jpeg" width="54" height="54" alt="Gold Strategies" class="logo-img" /></a>
+      <nav class="links" aria-label="Navigation principale">
+        <a href="/">Accueil</a>
+        <a href="/complement-revenu/">Complément de revenu</a>
+        <div class="nav-dropdown">
+          <button class="dd-trigger" aria-haspopup="true">Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd-panel">
+            <a href="/guides/">Tous les guides</a>
+            <span class="dd-group">L'or</span>
+            <a href="/trading-de-lor/">Trading de l'or</a>
+            <a href="/xauusd/">Guide XAUUSD</a>
+            <a href="/xauusd-cours/">Cours du XAUUSD</a>
+            <a href="/comment-trader-lor/">Comment trader l'or</a>
+            <a href="/investir-dans-lor/">Investir dans l'or</a>
+            <span class="dd-group">Autres marchés</span>
+            <a href="/trading-crypto/">Trading crypto</a>
+            <a href="/trading-indices/">Trading indices</a>
+            <span class="dd-group">Se former</span>
+            <a href="/methode/">La méthode</a>
+            <a href="/formation/">Formation</a>
+            <a href="/capital-finance-prop-firm/">Prop firm / Capital financé</a>
+            <a href="/analyses/">Analyses</a>
+            <a href="/communaute/">Communauté</a>
+          </div>
+        </div>
+        <a href="/resultats/">Résultats</a>
+        <a href="/blog/">Blog</a>
+        <a href="/a-propos/">À propos</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="/methode/" class="btn btn-ghost">Découvrir la méthode</a><a href="/application/" class="btn btn-ghost nav-app" title="Gold Strategies App"><img src="/img/gold-strategies-app-64.webp" alt="" width="30" height="30"><span>L&#39;app</span></a><a href="https://app.gold-strategies.com/#/connexion" class="btn btn-ghost nav-login">Espace membre</a>
+        <a href="/communaute/" class="btn btn-gold">Rejoindre la communauté</a>
+        <button class="burger" aria-label="Ouvrir le menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero hero-webgl" style="padding:150px 0 36px">
+    <div class="hero-bg" aria-hidden="true"><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="11okDb" prefix="r1" component-url="/_astro/GoldAurora.BBjvRH8r.js" component-export="default" renderer-url="/_astro/client.bxcwkfp-.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;GoldAurora&quot;,&quot;value&quot;:true}" await-children><div style="position:relative;width:100%;height:100%"><div style="position:absolute;inset:0;width:100%;height:100%"><div class="w-full h-full"></div></div><div style="position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:screen;opacity:0.85"><div class="w-full h-full pointer-events-none z-[3] overflow-hidden relative"></div></div></div><!--astro:end--></astro-island></div>
+        <div class="wrap">
+      <p class="eyebrow reveal">Guide · Méthode</p>
+      <h1 id="heroH1" style="max-width:20ch"><span class="w">L'analyse technique</span> <span class="w">crypto :</span> <br/><span class="w">lire un marché</span> <span class="w shine">qui ne dort jamais.</span></h1>
+      <p class="lead reveal d2">Les mêmes outils que sur l'or, un terrain très différent : marché ouvert en continu, prix fragmenté, mèches de liquidation. La méthode pas à pas, et trois semaines de Bitcoin lues sur le graphique.</p>
+      <div class="hero-cta reveal d3">
+        <a href="/formation/" class="btn btn-gold">Découvrir la formation</a>
+        <a href="/blog/" class="btn btn-ghost">Mes analyses hebdomadaires</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:28px"><div class="wrap prose">
+
+    <figure style="margin:0 0 2.2rem"><img src="/img/pages/analyse-technique-crypto-1.jpg?v=20261103" alt="Un écran de trader dans la pénombre affiche un graphique en chandeliers dont les longues mèches transpercent une ligne de support sans que les bougies ne clôturent en dessous" width="1600" height="840" style="border-radius:14px;width:100%;display:block;border:1px solid var(--line)" /></figure>
+
+    <p class="post-meta" style="color:var(--muted-2);font-size:.9rem;margin:0 0 1.8rem">Par <a href="/a-propos/" style="color:var(--gold-2);text-decoration:none">Oliver Sev</a> — ancien conseiller financier inscrit à l'AMF pendant 27 ans · Publié le <time datetime="2026-11-03">3 novembre 2026</time></p>
+
+    <p>
+      Un dimanche à 4 heures du matin, Bitcoin perd 3 % en vingt minutes, transperce un support que
+      tout le monde surveillait, puis remonte avant le lever du jour. À l'ouverture des marchés
+      traditionnels, le graphique journalier affiche une bougie presque normale, avec une longue mèche
+      en dessous. Ceux qui avaient placé leur stop juste sous le support sont sortis. Ceux qui avaient
+      lu ce support comme une zone, et qui jugeaient sur la clôture, sont toujours en position.
+    </p>
+    <p>
+      L'analyse technique crypto, c'est d'abord ça : les mêmes outils que sur l'or ou les indices —
+      chandeliers, supports, tendances, moyennes mobiles — appliqués à un marché qui ne ferme jamais,
+      dont le prix diffère d'une plateforme à l'autre et dont les mouvements extrêmes sont souvent
+      fabriqués par des liquidations en chaîne. Les outils se transposent. La lecture, beaucoup moins.
+      Je couvre le Bitcoin chaque semaine aux côtés de l'or, et c'est cette différence que ce guide
+      veut rendre concrète. J'ai été inscrit à l'AMF pendant 27 ans comme conseiller financier ;
+      <strong>Fiducia Conseils n'est plus agréée aujourd'hui</strong>, et ce guide est un contenu
+      pédagogique, pas un conseil en investissement personnalisé.
+    </p>
+
+    <div class="stat-card reveal">
+      <h3>📌 L'essentiel en 30 secondes</h3>
+      <ul>
+        <li>L'analyse technique crypto étudie <strong>le prix et le volume passés</strong> d'une cryptomonnaie pour bâtir des scénarios, avec les mêmes outils que sur les autres marchés.</li>
+        <li>Le marché tourne <strong>24 heures sur 24, 7 jours sur 7</strong> : il n'y a pas de clôture naturelle, il faut choisir une heure de référence et s'y tenir.</li>
+        <li>Les longues mèches sont la signature de la crypto. <strong>Une mèche sous un support n'invalide rien ; une clôture, si.</strong></li>
+        <li>Toutes les altcoins se lisent d'abord à travers le <strong>Bitcoin</strong> : un signal haussier sur une petite crypto ne vaut rien si le Bitcoin casse.</li>
+        <li>La volatilité impose des stops plus larges, donc des <strong>positions plus petites</strong> à risque égal. C'est la règle qui protège le plus.</li>
+        <li>L'analyse technique ne prévoit pas un piratage ni une annonce réglementaire. Elle dit seulement <strong>où vous avez tort</strong> — c'est déjà beaucoup.</li>
+      </ul>
+    </div>
+
+    <h2 class="reveal">Qu'est-ce que l'analyse technique crypto ?</h2>
+    <p class="bluf">L'étude des mouvements passés du prix et des volumes d'une cryptomonnaie, sur un ou plusieurs graphiques, pour repérer des zones de décision et écrire des scénarios avec un point d'invalidation précis.</p>
+    <p>
+      L'analyse technique repose sur une idée simple : le prix affiché intègre déjà ce que les
+      participants savent, craignent ou espèrent. On ne cherche pas à savoir ce que « vaut » le Bitcoin
+      — question sans réponse consensuelle — mais à observer comment les acheteurs et les vendeurs se
+      comportent à certains niveaux de prix. Là où le prix a rebondi plusieurs fois, des acheteurs se
+      sont manifestés. Là où il a échoué plusieurs fois, des vendeurs attendaient. Ces zones ont
+      tendance à compter de nouveau, parce que les mêmes participants s'en souviennent.
+    </p>
+    <p>
+      Elle s'oppose classiquement à l'analyse fondamentale, qui étudie la valeur intrinsèque d'un
+      actif. Sur une action, on lit des bilans. Sur une cryptomonnaie, l'analyse fondamentale existe
+      — adoption, usage du réseau, flux des grands détenteurs, émission de nouvelles unités — mais elle
+      ne donne aucun niveau de prix exploitable pour une décision de trading à quelques jours. C'est
+      pour ça que l'analyse technique occupe une place aussi centrale en crypto : sur un actif sans
+      flux de trésorerie, le graphique est souvent la seule information structurée dont on dispose.
+    </p>
+    <p>
+      Ce qu'elle n'est pas : une boule de cristal. Une bonne analyse technique ne dit jamais « Bitcoin va
+      monter ». Elle dit « tant que tel niveau tient en clôture, le scénario haussier reste valide ;
+      au-dessus de tel autre, il s'accélère ; sous tel troisième, je change d'avis ». Toute la valeur est
+      dans cette dernière phrase.
+    </p>
+
+    <h2 class="reveal">Ce que la crypto change par rapport à l'or ou aux actions</h2>
+    <p class="bluf">Quatre choses : un marché sans fermeture, un prix fragmenté entre plateformes, des mouvements extrêmes provoqués par l'effet de levier, et une hiérarchie où le Bitcoin commande tout le reste.</p>
+    <p>
+      Si vous savez déjà lire un graphique de l'or, vous savez lire un graphique de Bitcoin. Les
+      chandeliers ont la même forme, les supports se tracent de la même façon. Ce qui change, ce sont
+      les conditions dans lesquelles ces outils travaillent. Les ignorer, c'est appliquer correctement
+      une méthode à un terrain qu'elle ne connaît pas.
+    </p>
+
+    <div class="tableau-wrapper reveal">
+      <table>
+        <thead><tr><th>Caractéristique</th><th>Or (XAUUSD)</th><th>Bitcoin</th><th>Conséquence pour l'analyse</th></tr></thead>
+        <tbody>
+          <tr><td>Horaires</td><td>Cinq jours sur sept, pause quotidienne d'une heure</td><td>En continu, week-ends et jours fériés compris</td><td>Pas de clôture naturelle : l'heure de clôture journalière et hebdomadaire est une convention à fixer</td></tr>
+          <tr><td>Gaps</td><td>Fréquents à la réouverture du dimanche soir</td><td>Quasi inexistants sur le marché au comptant</td><td>Les mouvements du week-end s'impriment en mèches, pas en gaps</td></tr>
+          <tr><td>Prix de référence</td><td>Marché interbancaire, écarts faibles entre courtiers</td><td>Un prix par plateforme d'échange, plus les dérivés</td><td>Un niveau tracé sur une plateforme peut avoir été touché sur une autre et pas sur la vôtre</td></tr>
+          <tr><td>Volume</td><td>Non centralisé, volume de tick indicatif</td><td>Volume réel par plateforme, mais fragmenté</td><td>Le volume est utile, à condition de le lire sur une source de forte liquidité</td></tr>
+          <tr><td>Mouvements extrêmes</td><td>Surtout lors des annonces macroéconomiques</td><td>Souvent déclenchés par des liquidations de positions à levier</td><td>Les mèches sont plus longues et plus fréquentes : on juge sur les clôtures</td></tr>
+          <tr><td>Hiérarchie</td><td>L'or se lit avec le dollar et les taux réels</td><td>Les altcoins se lisent à travers le Bitcoin</td><td>On analyse le Bitcoin avant toute autre crypto</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      <strong>L'absence de fermeture</strong> est le changement le plus sous-estimé. Sur l'or, la bougie
+      journalière se ferme à une heure que tout le monde partage, et la bougie hebdomadaire se ferme le
+      vendredi soir. Sur le Bitcoin, la convention la plus répandue sur les grandes plateformes et sur
+      TradingView est une clôture journalière à minuit UTC, et une clôture hebdomadaire dans la nuit du
+      dimanche au lundi, toujours à minuit UTC — 1 heure du matin à Paris en hiver, 2 heures en été.
+      Ce n'est qu'une convention, mais c'est celle que la majorité des participants regardent. Si votre
+      graphique est réglé sur un autre fuseau, vos bougies journalières ne sont pas celles des autres,
+      et vos « clôtures sous le support » non plus.
+    </p>
+    <p>
+      <strong>Le prix fragmenté</strong> vient de ce qu'il n'existe pas de marché central. Chaque
+      plateforme a son carnet d'ordres et son prix, généralement très proches, mais pas identiques —
+      et lors d'un mouvement violent, l'écart peut se creuser quelques minutes. Sur une plateforme
+      moins liquide, une mèche peut descendre nettement plus bas qu'ailleurs. Règle simple : tracez vos
+      niveaux sur une source liquide de référence, et passez vos ordres en sachant que votre
+      courtier peut afficher un prix un peu différent. C'est le même problème que sur l'or, où le cours
+      affiché varie d'un courtier à l'autre, mais en plus marqué. Je l'explique en détail dans
+      <a href="/xauusd-cours/">le guide du cours du XAUUSD</a>.
+    </p>
+
+    <h2 class="reveal">Les bases d'un graphique crypto, sans détour</h2>
+    <p class="bluf">Trois éléments suffisent pour commencer : la structure des plus hauts et des plus bas, les zones de support et de résistance, et la lecture des clôtures. Le reste vient après.</p>
+
+    <h3>Les chandeliers japonais</h3>
+    <p>
+      Chaque bougie résume une période : le prix d'ouverture, le plus haut, le plus bas et le prix de
+      clôture. Le corps relie l'ouverture à la clôture ; les mèches montrent jusqu'où le prix est allé
+      avant d'être repoussé. En crypto, c'est la <strong>mèche</strong> qui raconte le plus d'histoires :
+      une longue mèche basse signifie que le prix a été chercher des vendeurs plus bas et qu'il a été
+      racheté. Ce n'est pas une cassure, c'est un rejet. Une bougie dont le corps entier se ferme sous
+      un support, en revanche, dit que les vendeurs ont tenu jusqu'à la fin de la période.
+    </p>
+
+    <h3>La structure de tendance</h3>
+    <p>
+      Une tendance haussière, c'est une suite de plus hauts et de plus bas de plus en plus élevés. Une
+      tendance baissière, l'inverse. Un range, c'est un prix qui fait des allers-retours entre deux
+      bornes. Avant tout indicateur, regardez la structure sur l'unité de temps hebdomadaire puis
+      journalière : elle vous dit dans quel régime vous êtes, et donc quelles stratégies ont une chance
+      de fonctionner. Acheter les replis marche en tendance haussière et vous ruine en tendance
+      baissière. Jouer les bornes marche en range et vous fait sortir à contre-temps en tendance.
+    </p>
+
+    <h3>Les supports et résistances</h3>
+    <p>
+      Un support est une zone où le prix a plusieurs fois trouvé des acheteurs ; une résistance, une
+      zone où il a plusieurs fois rencontré des vendeurs. Le mot important est <strong>zone</strong>.
+      Sur un actif aussi volatil que le Bitcoin, un support n'est jamais une ligne au dollar près :
+      c'est une bande de quelques centaines, voire de quelques milliers de dollars selon l'unité de
+      temps. Tracez-la à partir des corps de bougies plutôt que des mèches extrêmes, et vous verrez
+      qu'elle tient beaucoup plus souvent qu'une ligne tracée au plus bas absolu. Les chiffres ronds —
+      80 000 $, 100 000 $ — jouent en plus un rôle psychologique réel, parce que beaucoup d'ordres y
+      sont posés.
+    </p>
+    <p>
+      Une règle que j'applique sur tous les marchés : un support cassé en clôture devient souvent une
+      résistance, et inversement. C'est le principe du <strong>pivot</strong>. Un niveau qui a servi
+      de plancher pendant trois semaines et qui cède devient le premier obstacle au rebond.
+    </p>
+
+    <h2 class="reveal">Les indicateurs utiles en crypto, et ce qu'ils valent vraiment</h2>
+    <p class="bluf">Une moyenne mobile pour le sens, un oscillateur pour l'essoufflement, le volume pour la confirmation. Au-delà, chaque indicateur ajouté répète les précédents.</p>
+    <p>
+      Tous les indicateurs techniques sont calculés à partir du prix, et parfois du volume. Ils
+      n'apportent donc aucune information que le graphique ne contient pas déjà : ils la mettent en
+      forme. Leur intérêt est de rendre une lecture plus objective et plus reproductible. Leur danger
+      est d'en empiler cinq qui disent la même chose et de prendre l'unanimité pour une confirmation.
+    </p>
+
+    <div class="tableau-wrapper reveal">
+      <table>
+        <thead><tr><th>Indicateur</th><th>Ce qu'il mesure</th><th>Le piège propre à la crypto</th></tr></thead>
+        <tbody>
+          <tr><td>Moyennes mobiles (50 et 200 périodes)</td><td>Le sens et la maturité de la tendance</td><td>En range, le prix les traverse sans cesse : elles ne servent qu'une fois la tendance installée</td></tr>
+          <tr><td>RSI</td><td>La vitesse du mouvement, entre 0 et 100</td><td>En tendance forte, le RSI peut rester au-dessus de 70 pendant des semaines : « suracheté » n'est pas un signal de vente</td></tr>
+          <tr><td>MACD</td><td>L'accélération ou le ralentissement de la tendance</td><td>Signaux tardifs sur des mouvements rapides ; utile en hebdomadaire, bruyant en intraday</td></tr>
+          <tr><td>Bandes de Bollinger</td><td>La volatilité relative du moment</td><td>Une compression annonce un mouvement, jamais sa direction</td></tr>
+          <tr><td>Volume</td><td>La participation derrière un mouvement</td><td>Fragmenté entre plateformes : à lire sur une source liquide, pas sur un courtier CFD</td></tr>
+          <tr><td>Retracements de Fibonacci</td><td>Des zones de repli possibles dans une tendance</td><td>Utiles seulement s'ils recoupent une zone de support ou de résistance déjà visible</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Le RSI mérite une mise en garde particulière, parce que c'est l'indicateur le plus cité dans les
+      guides crypto et le plus mal employé. Un RSI au-dessus de 70 signifie que le prix a monté vite,
+      pas qu'il va baisser. Dans les phases haussières du Bitcoin, il est resté en zone de surachat
+      pendant de longues périodes, et ceux qui vendaient à découvert sur ce seul signal se faisaient
+      laminer. Il est bien plus utile pour repérer une <strong>divergence</strong> : un prix qui fait un
+      nouveau plus haut pendant que le RSI en fait un plus bas, sur une unité de temps élevée. Ce n'est
+      toujours pas un signal de vente, mais c'est une raison de resserrer sa gestion.
+    </p>
+    <p>
+      Sur l'or, je travaille avec mon propre indicateur, qui combine la direction donnée par des
+      moyennes mobiles sur deux unités de temps et des zones repérées à l'avance. Je n'en publie ni les
+      seuils ni les réglages, mais le principe se transpose tel quel au Bitcoin : <strong>une
+      moyenne mobile pour dire dans quel sens on a le droit de travailler, des zones pour dire où, et
+      une unité de temps fine pour dire quand</strong>. Si vous ne deviez garder qu'une phrase de cette
+      section, ce serait celle-là.
+    </p>
+
+    <h2 class="reveal">Quelles unités de temps pour analyser une crypto</h2>
+    <p class="bluf">Trois unités de temps espacées d'un facteur 4 à 6, choisies selon votre disponibilité. L'hebdomadaire compte plus en crypto qu'ailleurs, parce qu'il filtre le bruit du week-end.</p>
+    <p>
+      La logique est celle de <a href="/analyse-multi-timeframe/">l'analyse multi-timeframe</a> : une
+      unité de temps haute pour la direction, une intermédiaire pour les zones, une basse pour
+      l'exécution. Le petit graphique exécute ; il ne décide pas. Ce qui change en crypto, c'est le poids
+      à donner à la bougie hebdomadaire : sur un marché qui tourne en continu, c'est la seule clôture qui
+      absorbe d'un coup tous les mouvements nocturnes et du week-end.
+    </p>
+
+    <div class="tableau-wrapper reveal">
+      <table>
+        <thead><tr><th>Votre style</th><th>Direction</th><th>Zones</th><th>Exécution</th><th>Temps à y consacrer</th></tr></thead>
+        <tbody>
+          <tr><td>Investisseur actif, quelques décisions par mois</td><td>Mensuel</td><td>Hebdomadaire</td><td>Journalier</td><td>Une revue par semaine</td></tr>
+          <tr><td>Swing trading, positions de quelques jours</td><td>Hebdomadaire</td><td>Journalier</td><td>4 heures</td><td>Un point le matin et le soir</td></tr>
+          <tr><td>Day trading</td><td>Journalier</td><td>4 heures</td><td>1 heure ou 15 minutes</td><td>Des plages fixes, choisies à l'avance</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Pour débuter sur le Bitcoin, je recommande le swing trading plutôt que le day trading. Pas parce
+      qu'il est plus rentable, mais parce qu'il est compatible avec un marché qui ne s'arrête jamais :
+      vos niveaux sont fixés à l'avance, vos ordres sont posés, et vous n'avez pas besoin de regarder
+      l'écran à 3 heures du matin. Le day trading crypto, lui, vous impose de choisir vos plages et de
+      les tenir, faute de quoi le marché choisira pour vous — généralement au pire moment. Si vous partez
+      de zéro, <a href="/trading-pour-debutant/">le guide du trading pour débutant</a> détaille ce choix
+      du style avant toute question d'analyse.
+    </p>
+
+    <h2 class="reveal">La méthode pas à pas, de la carte à l'ordre</h2>
+    <p class="bluf">Six étapes, toujours dans le même ordre, et un scénario écrit avant de toucher au bouton d'achat. C'est l'ordre qui protège, pas la sophistication.</p>
+
+    <h3>1. Fixer la source et l'heure de clôture</h3>
+    <p>
+      Choisissez une source de prix liquide pour l'analyse et réglez votre graphique sur une clôture à
+      minuit UTC. Ne changez plus ces deux paramètres. Comparer des clôtures prises à des heures
+      différentes revient à comparer des bougies qui ne contiennent pas les mêmes heures de cotation.
+    </p>
+
+    <h3>2. Qualifier le régime en hebdomadaire</h3>
+    <p>
+      Tendance haussière, baissière ou range ? Où se situe le prix par rapport à sa moyenne mobile
+      hebdomadaire ? Quels sont les deux ou trois niveaux majeurs au-dessus et au-dessous ? Cette lecture
+      prend cinq minutes et ne change que rarement d'une semaine à l'autre. C'est elle qui vous dit dans
+      quel sens vous avez le droit de chercher des opportunités.
+    </p>
+
+    <h3>3. Tracer les zones en journalier</h3>
+    <p>
+      Sur le journalier, repérez les zones qui ont servi plusieurs fois, en partant des corps de bougies.
+      Notez la zone de support la plus proche, la zone de résistance la plus proche, et le pivot — le
+      niveau dont la cassure en clôture changerait votre lecture. Trois niveaux, pas quinze.
+    </p>
+
+    <h3>4. Écrire le scénario et son invalidation</h3>
+    <p>
+      Écrivez noir sur blanc : « Haussier tant que X tient en clôture journalière ; accélération
+      au-dessus de Y ; neutre sous X ; baissier sous Z. » Si vous ne pouvez pas écrire la phrase
+      d'invalidation, vous n'avez pas de scénario, vous avez une opinion. C'est exactement la forme de
+      mes analyses du samedi, et c'est ce qui permet de les relire ensuite sans tricher.
+    </p>
+
+    <h3>5. Attendre le déclencheur sur l'unité de temps basse</h3>
+    <p>
+      Le prix arrive dans votre zone. Vous ne l'achetez pas parce qu'il y est : vous attendez qu'il y
+      montre quelque chose — un rejet net, une reprise d'un plus haut sur l'unité de temps
+      d'exécution. Sans déclencheur, pas d'entrée. Une zone touchée n'est qu'une condition, pas un
+      signal.
+    </p>
+
+    <h3>6. Calculer la taille avant d'entrer</h3>
+    <p>
+      Le stop se place là où votre scénario est faux, pas là où la perte vous paraît supportable. Une
+      fois le stop placé, la taille de position découle du risque que vous acceptez — généralement 1 %
+      du capital. C'est l'étape que la plupart des guides crypto oublient, et c'est celle qui décide
+      si vous serez encore là dans six mois. Je la détaille plus bas, chiffres à l'appui.
+    </p>
+
+    <h2 class="reveal">Mèche ou clôture : le piège numéro un</h2>
+    <p class="bluf">En crypto, les niveaux évidents sont régulièrement transpercés en mèche pour déclencher les stops et les liquidations, puis récupérés. On qualifie une cassure sur la clôture, jamais sur un passage.</p>
+    <p>
+      Une grande partie des positions sur Bitcoin est ouverte avec un effet de levier, notamment sur les
+      contrats perpétuels. Chaque position à levier a un prix de liquidation, et ces prix se concentrent
+      juste sous les supports évidents et juste au-dessus des résistances évidentes — là où tout le monde
+      a placé son stop. Quand le prix s'en approche, les premières liquidations forcent des ventes, qui
+      font baisser le prix, qui déclenchent les liquidations suivantes. La cascade s'arrête quand il n'y
+      a plus de positions à liquider, et le prix remonte souvent aussi vite qu'il est descendu. Sur le
+      graphique, il reste une mèche.
+    </p>
+    <p>
+      La conséquence est double. D'abord, <strong>une invalidation se juge sur la clôture</strong> de
+      l'unité de temps qui porte le scénario : si votre scénario est journalier, c'est la clôture
+      journalière qui compte, pas un passage de vingt minutes sous le niveau. Ensuite, <strong>votre stop
+      de protection ne doit pas être collé au niveau</strong> : placé à quelques dollars sous un
+      support que tout le monde voit, il est exactement là où la cascade ira le chercher. On le met plus
+      loin — sous l'extrême de la zone, avec une marge — et on réduit la taille de position en
+      conséquence.
+    </p>
+    <p>
+      Il y a donc deux niveaux distincts : le niveau d'invalidation du scénario, jugé en clôture, et le
+      stop de protection, placé assez loin pour survivre à une mèche mais assez près pour que la perte
+      reste bornée si la catastrophe arrive vraiment. Confondre les deux, c'est soit se faire sortir à
+      chaque mèche, soit rester en position pendant une vraie cassure.
+    </p>
+
+    <h2 class="reveal">Trois semaines de Bitcoin lues sur le graphique</h2>
+    <p class="bluf">Octobre 2026 : un pivot à 80 500 $ testé trois semaines de suite, percé en séance, sans clôture qui tranche. Exactement le cas où la discipline de la clôture fait la différence.</p>
+    <p>
+      Je publie chaque samedi une analyse datée qui couvre l'or et le Bitcoin, et je la laisse en ligne
+      qu'elle ait eu raison ou tort. Voici comment la méthode de ce guide s'est appliquée, semaine après
+      semaine, sur un même niveau.
+    </p>
+    <p>
+      <strong>Semaine du 17 octobre.</strong> Bitcoin se traite autour de 81 500 $ et vient de percer en
+      séance son pivot de 80 500 $, avec un plus bas à 79 800 $, pour la première fois depuis sa
+      validation. Dans la même semaine, le Nasdaq perd 5,5 % : le Bitcoin se comporte exactement comme un
+      actif de risque. Ma lecture n'a pas été de conclure à la cassure, mais de renvoyer la décision à la
+      clôture hebdomadaire du dimanche
+      (<a href="/blog/analyse-hebdo-or-4166-inflation-nasdaq-17-octobre-2026/">l'analyse complète</a>).
+    </p>
+    <p>
+      <strong>Semaine du 24 octobre.</strong> Bitcoin revient autour de 80 800 $ après un plus bas à
+      80 451 $ : le pivot est testé pour la troisième semaine consécutive, sans clôture en dessous. J'y
+      notais qu'une mèche sous un niveau ne suffit pas à invalider une tendance sur un actif aussi
+      volatil, et que le Bitcoin était le seul grand actif à se négocier pendant le week-end — donc le
+      seul exposé à un mouvement sans liquidité de soutien
+      (<a href="/blog/analyse-hebdo-or-3997-credit-ia-petrole-24-octobre-2026/">l'analyse complète</a>).
+    </p>
+    <p>
+      <strong>Semaine du 31 octobre.</strong> Le piratage d'une grande plateforme d'échange fait plonger
+      les cryptomonnaies. Bitcoin descend jusqu'à 76 326 $ et se traite autour de 77 960 $ le dimanche :
+      cette fois, le pivot de 80 500 $ a cédé. Mais la structure de plus haut terme, un petit canal
+      haussier, tient encore. Mon cadre écrit : haussier tant que le canal tient, accélération au-dessus
+      de 87 400 $, passage en neutre sur une clôture hebdomadaire hors du canal
+      (<a href="/blog/analyse-hebdo-or-3876-marche-baissier-31-octobre-2026/">l'analyse complète</a>).
+    </p>
+    <p>
+      Trois enseignements. Un : pendant deux semaines, le niveau a été percé sans être cassé, et ceux qui
+      ont vendu sur la mèche du 17 octobre ont vendu au plus bas d'une semaine qui a fini au-dessus. Deux :
+      quand le pivot a vraiment cédé, ce n'est pas un indicateur qui l'a annoncé, c'est une nouvelle — un
+      piratage — que l'analyse technique ne pouvait pas prévoir. Trois : même après la cassure, le
+      scénario n'a pas basculé d'un coup en baissier, parce que l'unité de temps supérieure disait autre
+      chose. La décision est descendue d'un cran — d'« haussier » à « haussier sous condition » — au lieu
+      de se retourner.
+    </p>
+
+    <h2 class="reveal">Le calcul qui protège : la taille de position</h2>
+    <p class="bluf">À risque égal, un stop plus large impose une position plus petite. Sur le Bitcoin, le même risque de 100 $ correspond à une exposition plusieurs fois inférieure à celle qu'on prendrait sur l'or.</p>
+    <p>
+      La formule est la même partout : <strong>taille de position = montant risqué ÷ distance du
+      stop</strong>. Si vous acceptez de perdre 100 $ sur un trade et que votre stop est à 20 $ de votre
+      entrée sur l'or, vous pouvez traiter 5 onces. Sur le Bitcoin, la distance du stop se compte en
+      milliers de dollars, et la taille de position s'effondre en proportion. C'est normal, et c'est
+      voulu.
+    </p>
+
+    <div class="tableau-wrapper reveal">
+      <table>
+        <thead><tr><th>Exemple pédagogique, risque de 100 $</th><th>Prix d'entrée</th><th>Distance du stop</th><th>Taille de position</th><th>Exposition</th></tr></thead>
+        <tbody>
+          <tr><td>Or, stop à 20 $</td><td>3 876 $</td><td>20 $ (0,5 %)</td><td>5 onces</td><td>environ 19 400 $</td></tr>
+          <tr><td>Bitcoin, stop serré</td><td>78 000 $</td><td>1 170 $ (1,5 %)</td><td>0,085 BTC</td><td>environ 6 650 $</td></tr>
+          <tr><td>Bitcoin, stop sous la zone</td><td>78 000 $</td><td>2 340 $ (3 %)</td><td>0,043 BTC</td><td>environ 3 350 $</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Les prix sont arrondis à partir des niveaux de fin octobre 2026 et ne servent qu'à illustrer le
+      calcul. Ce que le tableau montre : pour le même risque, l'exposition sur le Bitcoin est trois à six
+      fois plus faible que sur l'or. Le trader qui garde ses habitudes de taille en passant de l'un à
+      l'autre multiplie son risque réel sans s'en rendre compte. Et celui qui serre son stop pour garder
+      une grosse position le place exactement dans la zone des mèches décrite plus haut.
+    </p>
+    <p>
+      Côté produits, gardez en tête que les CFD sur cryptomonnaies proposés aux particuliers en France
+      sont plafonnés à un effet de levier de 2 pour 1, en application des mesures européennes reprises
+      par l'AMF. Les prop firms vont dans le même sens avec leurs propres plafonds ; c'est ce qui rend une
+      évaluation sur le Bitcoin si différente d'une évaluation sur l'or, comme je le détaille dans
+      <a href="/prop-firm-crypto/">le guide des prop firms crypto</a>.
+    </p>
+
+    <h2 class="reveal">Les altcoins : l'analyse commence par le Bitcoin</h2>
+    <p class="bluf">Avant d'analyser une autre cryptomonnaie, lisez le Bitcoin. Une configuration haussière sur une altcoin résiste rarement à une cassure du Bitcoin.</p>
+    <p>
+      Le Bitcoin représente une part dominante de la capitalisation du marché crypto, et l'essentiel de
+      la liquidité y transite. Quand il baisse franchement, les autres cryptomonnaies baissent
+      généralement davantage, parce que leur carnet d'ordres est plus mince et que leurs détenteurs
+      sont plus prompts à vendre. Une analyse technique sur l'Ethereum ou sur une petite crypto
+      commence donc par deux questions : que fait le Bitcoin, et que fait cette crypto <em>par
+      rapport</em> au Bitcoin ? Le graphique de la paire contre Bitcoin (par exemple ETH/BTC) dit si
+      l'actif surperforme ou sous-performe le marché ; c'est souvent plus instructif que son graphique en
+      dollars.
+    </p>
+    <p>
+      Plus une crypto est petite, moins l'analyse technique est fiable. Avec peu de volume, quelques
+      ordres suffisent à dessiner un support ou à le faire disparaître, et les configurations
+      graphiques n'ont plus la valeur statistique qu'elles ont sur un marché profond. Au-delà des
+      premières capitalisations, je considère que le graphique décrit surtout l'humeur de quelques gros
+      détenteurs.
+    </p>
+
+    <h2 class="reveal">Ce que l'analyse technique ne fera pas pour vous</h2>
+    <p>
+      Elle ne prévoit pas les événements. Le piratage d'une plateforme, une décision réglementaire, la
+      faillite d'un acteur : aucun graphique ne les annonce, et ce sont eux qui ont produit les plus
+      fortes baisses de l'histoire du marché crypto. Ce que l'analyse technique peut faire, c'est vous
+      donner un plan pour ces moments-là : un niveau d'invalidation déjà écrit, un stop déjà posé, une
+      taille de position qui rend la perte supportable. Le 31 octobre, ce n'est pas le graphique qui a
+      vu venir le piratage ; c'est le cadre écrit la semaine précédente qui a dit quoi faire ensuite.
+    </p>
+    <p>
+      Elle ne vous dira pas non plus si une crypto « va monter ou descendre ». C'est la question la plus
+      posée, et la réponse honnête est que personne ne le sait. L'analyse technique répond à une
+      question plus modeste et plus utile : à quel endroit l'hypothèse que je fais devient-elle fausse ?
+      Toute la gestion du risque repose sur cette réponse.
+    </p>
+    <p>
+      Les outils d'intelligence artificielle qui « analysent » un graphique ne changent rien à ce
+      principe. Ils peuvent décrire une configuration, calculer des niveaux, résumer des indicateurs.
+      Ils ne portent pas la décision, ni la perte. Un outil qui vous dit d'acheter sans vous dire où vous
+      avez tort ne vous aide pas.
+    </p>
+
+    <h2 class="reveal">Les cinq erreurs que je vois le plus souvent</h2>
+    <ol>
+      <li><strong>Trader la mèche.</strong> Vendre parce que le prix est passé sous un support, sans attendre la clôture, puis le voir remonter dans l'heure.</li>
+      <li><strong>Garder la taille de l'or.</strong> Passer d'un actif à l'autre avec le même nombre de lots ou la même exposition, alors que la volatilité n'a rien à voir.</li>
+      <li><strong>Empiler les indicateurs.</strong> RSI, MACD, stochastique et deux moyennes mobiles qui disent la même chose, pris pour cinq confirmations indépendantes.</li>
+      <li><strong>Analyser une altcoin sans regarder le Bitcoin.</strong> Une belle figure de retournement sur une petite crypto, balayée par une baisse du marché entier.</li>
+      <li><strong>Surveiller au lieu de planifier.</strong> Regarder le graphique la nuit et le week-end parce que le marché est ouvert, et finir par décider sous l'effet de la fatigue. Les niveaux se fixent à l'avance ; les ordres se posent ; on dort.</li>
+    </ol>
+
+    <div class="vigilance-box reveal">
+      <strong>Ne risquez jamais sur un trade crypto une somme dont la perte vous mettrait en difficulté</strong>
+      Les cryptomonnaies sont parmi les actifs les plus volatils accessibles aux particuliers, et les
+      produits à effet de levier qui les répliquent font perdre de l'argent à la majorité de ceux qui les
+      utilisent. Vérifiez que votre intermédiaire est autorisé à proposer ses services en France, et
+      méfiez-vous de tout signal ou de tout « groupe » qui promet un rendement : l'analyse technique ne
+      garantit aucun résultat, elle aide seulement à borner le risque.
+    </div>
+
+    <h2 class="reveal">Pour aller plus loin</h2>
+    <ul>
+      <li><a href="/trading-crypto/">Le guide du trading crypto</a> : comptant, CFD ou perpétuel, ce que le cadre MiCA a changé en France, et la taille de position face à la volatilité.</li>
+      <li><a href="/analyse-multi-timeframe/">L'analyse multi-timeframe</a> : la méthode top-down en détail, et que faire quand les unités de temps se contredisent.</li>
+      <li><a href="/prop-firm-crypto/">Prop firm crypto</a> : ce que le levier bridé, le week-end et la volatilité changent à une évaluation.</li>
+      <li><a href="/capital-finance-prop-firm/">Le capital financé</a> : trader le capital d'une société plutôt que le sien, et ce que cela suppose.</li>
+      <li><a href="/formation/">La formation</a> : la méthode que j'applique chaque jour sur l'or, construite pour se transposer aux autres marchés, de la lecture du graphique à la taille de position.</li>
+    </ul>
+
+    <h2 class="reveal">Questions fréquentes sur l'analyse technique crypto</h2>
+    <div class="faq-list reveal">
+      <details class="qa reveal">
+        <summary>L'analyse technique fonctionne-t-elle sur les cryptomonnaies ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Oui, sur les cryptomonnaies les plus liquides comme le Bitcoin et l'Ethereum, où beaucoup de participants regardent les mêmes niveaux. Elle fonctionne moins bien sur les petites cryptos, dont le faible volume permet à quelques ordres de dessiner ou d'effacer un support. Dans tous les cas, elle ne prévoit pas l'avenir : elle aide à écrire des scénarios et à savoir où l'on a tort.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Quels indicateurs utiliser pour analyser une crypto ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Peu, et complémentaires : une moyenne mobile pour le sens de la tendance, un oscillateur comme le RSI pour repérer un essoufflement ou une divergence, et le volume pour juger de la participation. Ajouter un MACD et un stochastique à un RSI n'apporte pas d'information nouvelle : ils mesurent la même chose.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Comment savoir si une crypto va monter ou descendre ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Personne ne le sait à l'avance. L'analyse technique permet en revanche de qualifier une tendance, de repérer les zones où le prix a déjà réagi, et de fixer le niveau où un scénario devient faux. On ne parie pas sur une direction ; on prend une position dont on connaît à l'avance le point de sortie si l'on se trompe.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>À quelle heure clôture la bougie journalière du Bitcoin ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Le marché ne fermant jamais, il n'y a pas de clôture officielle. La convention la plus répandue sur les grandes plateformes et sur TradingView est minuit UTC, soit 1 heure du matin à Paris en hiver et 2 heures en été ; la bougie hebdomadaire se ferme dans la nuit du dimanche au lundi. L'important est de choisir une convention et de ne plus en changer.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Quelle unité de temps choisir pour débuter en crypto ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Pour débuter, le swing trading est le plus compatible avec un marché ouvert en continu : l'hebdomadaire pour la direction, le journalier pour les zones, le 4 heures pour l'exécution. Les niveaux se fixent à l'avance et les ordres se posent, sans obligation de surveiller l'écran la nuit ou le week-end.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Pourquoi les mèches sont-elles si longues en crypto ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Parce qu'une grande partie des positions est prise avec un effet de levier. Les prix de liquidation se concentrent près des niveaux évidents ; quand le prix les atteint, les liquidations forcées accélèrent le mouvement, puis le prix revient une fois la cascade épuisée. C'est pour cela qu'on juge une cassure sur la clôture et qu'on évite de coller son stop au niveau.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Une IA peut-elle faire l'analyse technique à ma place ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Elle peut décrire un graphique, calculer des niveaux ou résumer des indicateurs. Elle ne remplace ni le plan écrit, ni le calcul de la taille de position, ni la responsabilité de la décision. Un outil qui donne une direction sans niveau d'invalidation ne vous protège de rien.</div>
+      </details>
+    </div>
+    <div class="hero-cta" style="justify-content:center;margin-top:2.4rem">
+      <a href="/formation/" class="btn btn-gold">Découvrir la formation</a>
+      <a href="/capital-finance-prop-firm/" class="btn btn-ghost">Comprendre le capital financé</a>
+    </div>
+  </div></section>
+  <section class="sec ctaband"><div class="wrap"><h2 class="reveal">Une analyse se juge à son invalidation.</h2>
+  <p class="reveal d1">Chaque samedi, je publie une analyse datée de l'or et du Bitcoin, avec ses niveaux et le point où je change d'avis, et je la laisse en ligne qu'elle ait eu raison ou tort. Lisez-en trois à la suite : vous verrez la méthode de ce guide au travail.</p>
+  <div class="hero-cta reveal d2" style="justify-content:center"><a href="/blog/" class="btn btn-gold">Lire les analyses</a><a href="/resultats/" class="btn btn-ghost">Voir mes résultats</a></div></div></section>
+  <footer>
+    <div class="wrap">
+      <div class="disclaimer"><strong>Avertissement sur les risques.</strong> Le trading et l'investissement sur les marchés financiers (or, indices, cryptomonnaies, CFD…) comportent un risque élevé de perte en capital et ne conviennent pas à tout le monde. La majorité des investisseurs particuliers perdent de l'argent. Les performances passées ne préjugent pas des performances futures. Les contenus publiés par Gold Strategies ont une vocation <strong>pédagogique et informative</strong> et ne constituent pas un conseil en investissement personnalisé. Toute analyse partagée reflète une opinion, susceptible de porter sur des positions détenues par l'auteur (divulgation de conflit d'intérêts). Vous restez seul responsable de vos décisions ; au besoin, consultez un conseiller financier agréé.</div>
+      <div class="foot-grid">
+        <div><a href="/" class="brand" aria-label="Gold Strategies — accueil"><img src="/img/logo-gold-strategies.jpeg" width="46" height="46" alt="Gold Strategies" class="logo-img" /></a><p style="color:var(--muted-2);max-width:38ch">Éducation financière et accompagnement pour développer son pouvoir d'achat et construire un complément de revenu, avec méthode et prudence.</p></div>
+        <div><h4>Explorer</h4><a href="/complement-revenu/">Complément de revenu</a><a href="/methode/">La méthode</a><a href="/trading-de-lor/">Trading de l'or</a><a href="/xauusd/">Guide XAUUSD</a><a href="/xauusd-cours/">Cours du XAUUSD</a><a href="/comment-trader-lor/">Comment trader l'or</a><a href="/investir-dans-lor/">Investir dans l'or</a><a href="/trading-crypto/">Trading crypto</a><a href="/trading-indices/">Trading indices</a><a href="/capital-finance-prop-firm/">Capital financé</a><a href="/augmenter-pouvoir-achat/">Augmenter son pouvoir d'achat</a><a href="/guides/">Guides</a><a href="/resultats/">Résultats</a><a href="/blog/">Blog</a></div>
+        <div><h4>Gold Strategies</h4><a href="/a-propos/">À propos</a><a href="/communaute/">Communauté Telegram</a><a href="/application/">Application</a><a href="https://app.gold-strategies.com/#/connexion">Espace membre</a><a href="/contact/">Contact</a><a href="/mentions-legales/">Mentions légales</a><a href="/disclaimer-risque/">Avertissement sur les risques</a><a href="/politique-conflits-interets/">Politique de conflits d'intérêts</a></div>
+      </div>
+      <div class="foot-bottom"><span>© 2026 Gold Strategies. Tous droits réservés.</span><span>Contenu pédagogique — ne constitue pas un conseil en investissement.</span></div>
+    </div>
+  </footer>
+  <script src="/assets/main.js?v=20261012" defer></script>
+</body>
+</html>

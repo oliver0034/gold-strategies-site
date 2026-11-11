@@ -142,6 +142,26 @@ TEXT_PATCHES = {
          "actives expose à des écarts de prix plus larges et moins prévisibles.</p>",
          ""),
     ],
+    # Page 17 du backlog (10/11/2026) : /trading-crypto/ devient le guide « trading crypto »
+    # (contenu long dans build-guide-trading-crypto.py). Title (60 car.) et meta (154 car.)
+    # recentrés sur la requête ; la FAQ ne dit plus que la détention directe n'est pas traitée.
+    "trading-crypto/index.html": [
+        ("Trading crypto : notre méthode | Gold Strategies",
+         "Trading crypto : le guide pour bien débuter | Gold Strategies"),
+        ("Trader les cryptomonnaies (Bitcoin, Ethereum...) avec méthode et gestion du risque. "
+         "Marché 24/7, volatilité, corrélations macro — une approche pédagogique, pas des signaux à copier.",
+         "Comptant, CFD ou perpétuel, cadre MiCA depuis juillet 2026, taille de position face à la "
+         "volatilité : le trading crypto expliqué par un ancien inscrit AMF."),
+        ('"dateModified":"2026-07-25","isPartOf":{"@type":"WebSite","name":"Gold Strategies",'
+         '"url":"https://gold-strategies.com/"},"about":"Comprendre et trader les cryptomonnaies',
+         '"dateModified":"2026-11-11","isPartOf":{"@type":"WebSite","name":"Gold Strategies",'
+         '"url":"https://gold-strategies.com/"},"about":"Comprendre et trader les cryptomonnaies'),
+        # Bannière du 11/11/2026 (générée sans texte : le h1 de la page est visible).
+        ('<meta property="og:image" content="https://gold-strategies.com/img/logo-gold-strategies.png">',
+         '<meta property="og:image" content="https://gold-strategies.com/img/pages/trading-crypto-1.jpg?v=20261111">'),
+        ("nous ne couvrons pas ce second sujet sur ce site.",
+         "le guide ci-dessus en décrit les risques et la fiscalité, sans recommander de plateforme."),
+    ],
     "index.html": [
         (ORG_OLD, ORG_NEW),
         (SITE_OLD, SITE_NEW),
@@ -382,6 +402,8 @@ def main():
             missing.append((pathlib.Path("trading-de-lor/index.html"), "contenu long (build-guide-trading-or.py)"))
         if subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-prop-firm.py"), "--check"]).returncode:
             missing.append((pathlib.Path("capital-finance-prop-firm/index.html"), "contenu long (build-guide-prop-firm.py)"))
+        if subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-trading-crypto.py"), "--check"]).returncode:
+            missing.append((pathlib.Path("trading-crypto/index.html"), "contenu long (build-guide-trading-crypto.py)"))
         for p in pages:
             s = p.read_text(encoding="utf-8")
             if not (CSS_RE.search(s) and JS_RE.search(s)):
@@ -412,6 +434,7 @@ def main():
     subprocess.run([sys.executable, str(ROOT / "tools" / "build-app-presentation.py")])
     subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-trading-or.py")])
     subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-prop-firm.py")])
+    subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-trading-crypto.py")])
 
     touched = [p for p in pages if apply(p)]
     for p in touched:
