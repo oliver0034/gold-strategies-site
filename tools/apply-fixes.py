@@ -162,6 +162,26 @@ TEXT_PATCHES = {
         ("nous ne couvrons pas ce second sujet sur ce site.",
          "le guide ci-dessus en décrit les risques et la fiscalité, sans recommander de plateforme."),
     ],
+    # Page 18 du backlog (17/11/2026) : /trading-indices/ devient le guide « trading indices »
+    # (contenu long dans build-guide-trading-indices.py). Title (59 car.) et meta recentrés sur
+    # la requête ; la phrase qui renvoyait à des « résultats réels sur indices » dans le journal
+    # de trades est corrigée : la page /resultats/ ne contient aucun trade sur indice.
+    "trading-indices/index.html": [
+        ("Trading d'indices boursiers : notre méthode | Gold Strategies",
+         "Trading indices : CAC 40, S&P 500, Nasdaq | Gold Strategies"),
+        ("Trader les indices (CAC 40, S&P 500, Nasdaq...) avec méthode et gestion du risque. "
+         "Comprendre ce qui fait bouger les marchés actions — une approche pédagogique, pas des signaux à copier.",
+         "CFD, contrats à terme ou ETF, horaires vus de Paris, taille de position à risque égal, coûts cachés : le trading d'indices par un ancien inscrit AMF."),
+        ('"dateModified":"2026-07-25","isPartOf":{"@type":"WebSite","name":"Gold Strategies",'
+         '"url":"https://gold-strategies.com/"},"about":"Comprendre et trader les indices',
+         '"dateModified":"2026-11-17","isPartOf":{"@type":"WebSite","name":"Gold Strategies",'
+         '"url":"https://gold-strategies.com/"},"about":"Comprendre et trader les indices'),
+        # Bannière du 17/11/2026 (générée sans texte : le h1 de la page est visible).
+        ('<meta property="og:image" content="https://gold-strategies.com/img/logo-gold-strategies.png">',
+         '<meta property="og:image" content="https://gold-strategies.com/img/pages/trading-indices-1.jpg?v=20261117">'),
+        ("et nos résultats réels sur indices dans le <a href=\"/resultats/\" style=\"color:var(--gold)\">journal de trades</a>.",
+         "et ma lecture hebdomadaire des indices dans les <a href=\"/blog/\" style=\"color:var(--gold)\">analyses du blog</a>."),
+    ],
     "index.html": [
         (ORG_OLD, ORG_NEW),
         (SITE_OLD, SITE_NEW),
@@ -404,6 +424,8 @@ def main():
             missing.append((pathlib.Path("capital-finance-prop-firm/index.html"), "contenu long (build-guide-prop-firm.py)"))
         if subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-trading-crypto.py"), "--check"]).returncode:
             missing.append((pathlib.Path("trading-crypto/index.html"), "contenu long (build-guide-trading-crypto.py)"))
+        if subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-trading-indices.py"), "--check"]).returncode:
+            missing.append((pathlib.Path("trading-indices/index.html"), "contenu long (build-guide-trading-indices.py)"))
         for p in pages:
             s = p.read_text(encoding="utf-8")
             if not (CSS_RE.search(s) and JS_RE.search(s)):
@@ -435,6 +457,7 @@ def main():
     subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-trading-or.py")])
     subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-prop-firm.py")])
     subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-trading-crypto.py")])
+    subprocess.run([sys.executable, str(ROOT / "tools" / "build-guide-trading-indices.py")])
 
     touched = [p for p in pages if apply(p)]
     for p in touched:
