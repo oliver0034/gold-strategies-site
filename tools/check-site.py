@@ -10,6 +10,7 @@ Vérifie ce qui casse silencieusement en production et qu'un coup d'œil ne ratt
   4. compteur « N analyses & réflexions » = nombre réel de cartes du blog
   5. images référencées par l'accueil et l'index du blog présentes sur le disque
   6. ratio des bannières récentes (avertissement seulement)
+  7. bannière du dernier article hebdo TITRÉE (OCR macOS : date de l'article + titre et cartes lisibles)
 
 Code de sortie 1 si un contrôle bloquant échoue — c'est ce qui arrête le hook pre-push.
 À lancer depuis la racine du site (`refonte/`) : python3 tools/check-site.py
@@ -17,8 +18,11 @@ Code de sortie 1 si un contrôle bloquant échoue — c'est ce qui arrête le ho
 
 import pathlib
 import re
+import shutil
 import struct
+import subprocess
 import sys
+import unicodedata
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 EXPECT_FIXES = True          # passer à False une fois les patches portés dans les sources Astro
@@ -136,6 +140,51 @@ for src in re.findall(r'<img src="(/img/blog/[^"]+)"', home):
             warnings.append(
                 "%s en %dx%d (ratio %.3f) — attendu 40/21 (%.3f), l'image sera rognée"
                 % (src, dims[0], dims[1], ratio, BANNER_RATIO)
+            )
+
+# --- 7. bannière hebdo titrée (OCR) -------------------------------------------
+# Le 21/11/2026, /banniere a rendu une image SANS AUCUN TEXTE et elle est partie en
+# production : les abonnés ont vu une page hors charte (les bannières hebdo portent
+# logo, bandeau « ANALYSE HEBDOMADAIRE – date », titre, cartes chiffrées). Ce contrôle
+# lit le texte de la bannière de la 1re tuile de la galerie d'accueil avec l'OCR de
+# macOS (Vision) et bloque si le bandeau daté est absent.
+def _norm(t):
+    t = unicodedata.normalize("NFD", t.upper())
+    t = "".join(c for c in t if unicodedata.category(c) != "Mn")
+    return re.sub(r"[^A-Z0-9]+", " ", t).strip()
+
+
+def _ocr_bin():
+    src = ROOT / "tools" / "ocr-banniere.swift"
+    out = ROOT / "tools" / ".bin" / "ocr-banniere"
+    if out.exists() and out.stat().st_mtime >= src.stat().st_mtime:
+        return out
+    if not shutil.which("swiftc"):
+        return None
+    out.parent.mkdir(exist_ok=True)
+    r = subprocess.run(["swiftc", "-O", str(src), "-o", str(out)], capture_output=True, text=True)
+    return out if r.returncode == 0 else None
+
+
+m = re.search(r'id="galTrack"><a class="tile" href="/blog/(analyse-hebdo[^"]+)/".*?<img src="(/img/blog/[^"]+)".*?class="tile-date">([^<]+)<', home, re.S)
+if m:
+    slug, src, date = m.groups()
+    ocr = _ocr_bin()
+    if ocr is None:
+        warnings.append("OCR indisponible (swiftc absent) : bannière hebdo %s non contrôlée — la REGARDER" % src)
+    else:
+        r = subprocess.run([str(ocr), str(ROOT / src.lstrip("/"))], capture_output=True, text=True)
+        txt = _norm(r.stdout)
+        lignes = [l for l in r.stdout.splitlines() if l.strip()]
+        # Critère commun à toutes les bannières hebdo publiées (vérifié du 24/10 au 21/11) :
+        # la date de l'article écrite dessus, et un vrai bloc de texte (titre + cartes).
+        if _norm(date) not in txt or len(lignes) < 5:
+            errors.append(
+                "bannière hebdo hors charte : %s — texte lu : « %s ».\n"
+                "    Attendu : bandeau « ANALYSE HEBDOMADAIRE – %s », titre, cartes chiffrées\n"
+                "    (modèle : la bannière de l'article précédent). Régénérer avec la consigne de\n"
+                "    format en tête du prompt, et changer le nom du fichier (cache CDN d'un an)."
+                % (src, (r.stdout.strip().replace("\n", " / ") or "AUCUN TEXTE")[:120], date.upper())
             )
 
 # --- aurore WebGL des pages piliers -------------------------------------------
