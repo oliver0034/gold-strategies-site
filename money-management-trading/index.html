@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>document.documentElement.className+=' js';</script>
+  <title>Money management trading : la règle qui fait tout | Gold Strategies</title>
+  <meta name="description" content="Money management en trading : risque par trade, calcul de la taille de position sur l'or, séries de pertes, repli, espérance, limites journalières. Avec les chiffres réels de mon journal, pertes comprises." />
+  <link rel="canonical" href="https://gold-strategies.com/money-management-trading/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="money management trading, gestion du risque trading, taille de position, règle des 1 %, ratio rendement risque, gestion du capital trading" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Gold Strategies" />
+  <meta property="og:title" content="Money management : la règle qui fait tout en trading" />
+  <meta property="og:description" content="Décider de la perte avant l'entrée, calculer la taille de position, survivre aux séries de pertes : la gestion du risque appliquée à l'or, avec mon journal de 1 599 trades." />
+  <meta property="og:url" content="https://gold-strategies.com/money-management-trading/" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:image" content="https://gold-strategies.com/img/pages/money-management-trading-1.jpg?v=20261124" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="/img/logo-gold-strategies.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/style.css?v=20261109" />
+  <style>
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://gold-strategies.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://gold-strategies.com/guides/"},{"@type":"ListItem","position":3,"name":"Money management trading","item":"https://gold-strategies.com/money-management-trading/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Money management : la règle qui fait tout en trading","description":"La gestion du risque en trading : perte décidée avant l'entrée, calcul de la taille de position sur l'or, séries de pertes, asymétrie du repli, espérance, limites journalières, levier utilisé, et les écarts relevés dans un journal de 1 599 trades.","image":"https://gold-strategies.com/img/pages/money-management-trading-1.jpg?v=20261124","datePublished":"2026-11-24T08:00:00+01:00","dateModified":"2026-11-24T08:00:00+01:00","author":{"@type":"Person","name":"Oliver Sev","description":"Ancien conseiller financier inscrit à l'AMF pendant 27 ans","url":"https://gold-strategies.com/a-propos/"},"publisher":{"@type":"Organization","name":"Gold Strategies","logo":{"@type":"ImageObject","url":"https://gold-strategies.com/img/logo-gold-strategies.jpeg"}},"mainEntityOfPage":"https://gold-strategies.com/money-management-trading/","inLanguage":"fr","about":"Money management et gestion du risque en trading"}
+  </script>
+  <!-- PAS de schéma FAQPage : convention du site (cf. commentaire dans style.css) -->
+</head>
+<body>
+  <div class="scroll-progress" id="progress" aria-hidden="true"></div>
+  <header class="nav" id="nav">
+    <div class="wrap bar">
+      <a href="/" class="brand" aria-label="Gold Strategies — accueil"><img src="/img/logo-gold-strategies.jpeg" width="54" height="54" alt="Gold Strategies" class="logo-img" /></a>
+      <nav class="links" aria-label="Navigation principale">
+        <a href="/">Accueil</a>
+        <a href="/complement-revenu/">Complément de revenu</a>
+        <div class="nav-dropdown">
+          <button class="dd-trigger" aria-haspopup="true">Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd-panel">
+            <a href="/guides/">Tous les guides</a>
+            <span class="dd-group">L'or</span>
+            <a href="/trading-de-lor/">Trading de l'or</a>
+            <a href="/xauusd/">Guide XAUUSD</a>
+            <a href="/xauusd-cours/">Cours du XAUUSD</a>
+            <a href="/comment-trader-lor/">Comment trader l'or</a>
+            <a href="/investir-dans-lor/">Investir dans l'or</a>
+            <span class="dd-group">Autres marchés</span>
+            <a href="/trading-crypto/">Trading crypto</a>
+            <a href="/trading-indices/">Trading indices</a>
+            <span class="dd-group">Se former</span>
+            <a href="/methode/">La méthode</a>
+            <a href="/formation/">Formation</a>
+            <a href="/capital-finance-prop-firm/">Prop firm / Capital financé</a>
+            <a href="/analyses/">Analyses</a>
+            <a href="/communaute/">Communauté</a>
+          </div>
+        </div>
+        <a href="/resultats/">Résultats</a>
+        <a href="/blog/">Blog</a>
+        <a href="/a-propos/">À propos</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="/methode/" class="btn btn-ghost">Découvrir la méthode</a><a href="/application/" class="btn btn-ghost nav-app" title="Gold Strategies App"><img src="/img/gold-strategies-app-64.webp" alt="" width="30" height="30"><span>L&#39;app</span></a><a href="https://app.gold-strategies.com/#/connexion" class="btn btn-ghost nav-login">Espace membre</a>
+        <a href="/communaute/" class="btn btn-gold">Rejoindre la communauté</a>
+        <button class="burger" aria-label="Ouvrir le menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero hero-webgl" style="padding:150px 0 36px">
+    <div class="hero-bg" aria-hidden="true"><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="11okDb" prefix="r1" component-url="/_astro/GoldAurora.BBjvRH8r.js" component-export="default" renderer-url="/_astro/client.bxcwkfp-.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;GoldAurora&quot;,&quot;value&quot;:true}" await-children><div style="position:relative;width:100%;height:100%"><div style="position:absolute;inset:0;width:100%;height:100%"><div class="w-full h-full"></div></div><div style="position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:screen;opacity:0.85"><div class="w-full h-full pointer-events-none z-[3] overflow-hidden relative"></div></div></div><!--astro:end--></astro-island></div>
+        <div class="wrap">
+      <p class="eyebrow reveal">Guide · Se former</p>
+      <h1 id="heroH1" style="max-width:20ch"><span class="w">Money management :</span> <br/><span class="w">la règle</span> <span class="w shine">qui fait tout.</span></h1>
+      <p class="lead reveal d2">Décider de la perte avant l'entrée, calculer la taille de position, traverser les séries de pertes. La gestion du risque appliquée à l'or, chiffres de mon journal à l'appui.</p>
+      <div class="hero-cta reveal d3">
+        <a href="/formation/" class="btn btn-gold">La formation au trading de l'or</a>
+        <a href="/resultats/" class="btn btn-ghost">Mon journal de trades</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:28px"><div class="wrap prose">
+
+    <figure style="margin:0 0 2.2rem"><img src="/img/pages/money-management-trading-1.jpg?v=20261124" alt="Une balance de précision en laiton équilibrée sur un bureau de trader, un petit lingot d'or d'un côté et des jetons noirs de l'autre, devant un carnet et un graphique de l'or flou" width="1600" height="840" style="border-radius:14px;width:100%;display:block;border:1px solid var(--line)" /></figure>
+
+    <p class="post-meta" style="color:var(--muted-2);font-size:.9rem;margin:0 0 1.8rem">Par <a href="/a-propos/" style="color:var(--gold-2);text-decoration:none">Oliver Sev</a> — ancien conseiller financier inscrit à l'AMF pendant 27 ans · Publié le <time datetime="2026-11-24">24 novembre 2026</time></p>
+
+    <p>
+      On peut avoir raison sur le marché et perdre son compte. On peut se tromper une fois sur deux
+      et gagner de l'argent. Ce qui sépare les deux situations ne se trouve pas sur le graphique :
+      c'est la façon dont on décide, avant chaque trade, de ce qu'on accepte de perdre. Les Anglo-Saxons
+      appellent cela le <em>money management</em>. En français, on parle de gestion du capital ou de
+      gestion du risque. Le nom importe peu ; c'est la règle qui fait tout le reste.
+    </p>
+    <p>
+      Je précise d'où je parle. J'ai été inscrit à l'AMF pendant 27 ans comme conseiller financier ;
+      <strong>Fiducia Conseils n'est plus agréée aujourd'hui</strong>, et ce qui suit est un contenu
+      pédagogique, pas un conseil en investissement personnalisé. Je trade l'or tous les jours, je
+      publie mon analyse chaque samedi et <a href="/resultats/">mon journal de trades</a> est en ligne,
+      pertes comprises. Les chiffres de cette page viennent de ce journal : 1 599 trades clôturés entre
+      le 20 mai et le 20 novembre 2026. Y compris ceux qui ne me flattent pas.
+    </p>
+
+    <div class="stat-card reveal">
+      <h3>📌 L'essentiel en 30 secondes</h3>
+      <ul>
+        <li>Le money management, c'est l'ensemble des règles qui fixent <strong>combien vous risquez</strong> sur chaque trade, chaque jour et sur tout le compte. Il se décide avant l'entrée, jamais pendant.</li>
+        <li>L'ordre est toujours le même : <strong>le niveau d'invalidation d'abord, la perte acceptée ensuite, la taille de position en dernier</strong>. La taille est un résultat de calcul, pas une envie.</li>
+        <li>Autour de <strong>1 % du capital par trade</strong>, dix pertes de suite coûtent moins de 10 %. À 5 %, elles coûtent 40 %, et il faut ensuite gagner 67 % pour revenir.</li>
+        <li>Un ratio gain/risque de 1 pour 2 n'est pas une loi. Ce qui compte, c'est <strong>l'espérance</strong> : taux de réussite multiplié par le gain moyen, moins le reste multiplié par la perte moyenne.</li>
+        <li>Sur mon compte, la plus longue série de pertes a été de <strong>6 trades</strong>, la pire journée a coûté <strong>1,4 %</strong>, et le pire trade près de <strong>6 %</strong> — un écart à ma propre règle, que je détaille plus bas.</li>
+        <li>Le levier accordé par le courtier n'est pas celui que vous utilisez : <strong>1:100 disponible, environ 6,6:1 utilisé</strong> par position sur mon compte aujourd'hui.</li>
+      </ul>
+    </div>
+
+    <h2 class="reveal">Le money management en trading : de quoi parle-t-on ?</h2>
+    <p>
+      Le money management désigne les règles qui encadrent l'argent engagé, indépendamment de l'analyse.
+      L'analyse répond à la question « où et dans quel sens ? ». Le money management répond à toutes les
+      autres : combien, jusqu'où, combien de fois, et quand s'arrêter. On le confond souvent avec le stop
+      loss. Le stop n'en est qu'un outil ; le money management est la règle qui dit où le mettre et
+      quelle taille de position lui associer.
+    </p>
+    <p>
+      Je le découpe en trois étages, parce que chacun protège d'un danger différent.
+    </p>
+    <div class="tableau-wrapper reveal">
+      <table>
+        <thead><tr><th>Étage</th><th>Ce qu'il fixe</th><th>Ce dont il protège</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Le trade</strong></td><td>La perte maximale acceptée sur une position, en pourcentage du capital, et la taille qui en découle</td><td>La perte isolée qui abîme le compte</td></tr>
+          <tr><td><strong>La séance et la semaine</strong></td><td>Une perte maximale par jour et par semaine, et un nombre de pertes après lequel on arrête</td><td>La série de mauvaises décisions prises sous le coup d'une perte</td></tr>
+          <tr><td><strong>Le compte</strong></td><td>Un repli maximal toléré, et la règle qui fait évoluer la taille avec le capital</td><td>La ruine lente, celle qu'on ne voit pas venir trade après trade</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Un trader débutant passe presque tout son temps sur l'analyse et presque aucun sur ces trois
+      étages. C'est l'inverse qu'il faudrait faire. Une analyse moyenne avec une gestion stricte survit
+      assez longtemps pour s'améliorer. Une bonne analyse avec une gestion approximative finit, tôt ou
+      tard, par rencontrer la série de pertes qui la sort du jeu.
+    </p>
+
+    <h2 class="reveal">La règle qui fait tout : la perte se décide avant l'entrée</h2>
+    <p>
+      Si je ne devais garder qu'une règle, ce serait celle-ci : <strong>avant d'entrer, je sais où
+      j'ai tort, et je sais combien cela me coûtera</strong>. Tout le reste en découle. Concrètement,
+      cela se fait en trois temps, toujours dans cet ordre.
+    </p>
+    <ol>
+      <li><strong>Le niveau d'invalidation.</strong> C'est le prix au-delà duquel mon scénario est faux. Il vient du graphique — un plus bas, un niveau cassé, une borne de range — et pas de mon portefeuille. Le stop se place là, ou juste au-delà.</li>
+      <li><strong>La perte acceptée.</strong> C'est un pourcentage fixe du capital, décidé une fois pour toutes, pas trade par trade. Ma cible tourne autour de 1 %.</li>
+      <li><strong>La taille de position.</strong> Elle se calcule à partir des deux premiers : perte acceptée divisée par la distance du stop. Si la taille obtenue est ridicule, ce n'est pas le stop qu'on rapproche, c'est le trade qu'on laisse passer.</li>
+    </ol>
+    <p>
+      Cette règle revient dans mes analyses du samedi, parce qu'elle s'applique au marché réel, pas
+      seulement aux livres. Le 24 octobre, sur un or en baisse, j'écrivais que j'attendais un rejet du support avant d'acheter, avec une invalidation fixée sous
+      3 942 $ <em>avant</em> d'entrer (<a href="/blog/analyse-hebdo-or-3997-credit-ia-petrole-24-octobre-2026/">analyse
+      du 24 octobre 2026</a>). Le 7 novembre, une semaine après avoir posé un scénario baissier, c'est
+      une clôture au-dessus de mon seuil d'invalidation qui l'a annulé, et je l'ai écrit tel quel
+      (<a href="/blog/analyse-hebdo-or-4070-krach-ia-midterms-7-novembre-2026/">analyse du 7 novembre
+      2026</a>). Un signal sans condition d'invalidation n'est pas un signal : c'est une opinion.
+    </p>
+
+    <h2 class="reveal">Calculer la taille de position sur l'or</h2>
+    <p>
+      Sur l'or en CFD, chez la plupart des courtiers — dont le mien — un lot standard porte sur
+      100 onces. Un mouvement de 1 dollar du cours vaut donc 100 USD pour 1 lot, et <strong>1 USD pour
+      0,01 lot</strong>. La formule tient en une ligne :
+    </p>
+    <p style="text-align:center;font-size:1.05rem">
+      <strong>Taille (en lots) = perte acceptée en USD ÷ (distance du stop en dollars × 100)</strong>
+    </p>
+    <p>
+      Prenons un compte de 5 000 USD et un risque de 1 % par trade, soit 50 USD. Selon la distance qui
+      sépare l'entrée du niveau d'invalidation, la taille change du tout au tout.
+    </p>
+    <div class="tableau-wrapper reveal">
+      <table>
+        <thead><tr><th>Distance du stop</th><th>Calcul</th><th>Taille arrondie</th><th>Perte si le stop est touché</th></tr></thead>
+        <tbody>
+          <tr><td><strong>3 $</strong> (stop serré, unité de temps courte)</td><td>50 ÷ (3 × 100) = 0,166</td><td>0,16 lot</td><td>48 USD</td></tr>
+          <tr><td><strong>8 $</strong></td><td>50 ÷ (8 × 100) = 0,062</td><td>0,06 lot</td><td>48 USD</td></tr>
+          <tr><td><strong>15 $</strong></td><td>50 ÷ (15 × 100) = 0,033</td><td>0,03 lot</td><td>45 USD</td></tr>
+          <tr><td><strong>40 $</strong> (stop large, swing de plusieurs jours)</td><td>50 ÷ (40 × 100) = 0,0125</td><td>0,01 lot</td><td>40 USD</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      La perte reste la même ; c'est la taille qui s'adapte. On arrondit toujours vers le bas. Et la
+      dernière ligne montre la limite du système : avec un petit compte, un stop très large peut exiger
+      une taille inférieure au minimum de 0,01 lot. Dans ce cas, on ne prend pas le trade, ou on le
+      prend sur une unité de temps plus courte, avec un niveau d'invalidation plus proche. Le lien entre
+      l'unité de temps et la taille est détaillé dans mon guide de
+      <a href="/analyse-multi-timeframe/">l'analyse multi-timeframe</a>.
+    </p>
+    <p>
+      Pour mémoire, sur mon compte, une position fait aujourd'hui 0,25 lot pour un capital d'environ
+      13 370 USD : chaque dollar de mouvement de l'or y vaut 25 USD. Un stop à 5 dollars représente donc
+      125 USD, un peu moins de 1 % du capital. C'est la même arithmétique, à une autre échelle.
+    </p>
+
+    <h2 class="reveal">Pourquoi 1 % et pas 5 % : la série de pertes</h2>
+    <p>
+      Le pourcentage par trade paraît abstrait tant qu'on ne le confronte pas à ce qui arrivera
+      forcément : une série de pertes. Avec une méthode qui gagne 45 % du temps — ce qui est déjà
+      honorable —, la plus longue série perdante attendue sur 200 trades tourne autour de <strong>neuf
+      pertes d'affilée</strong>. Ce n'est pas de la malchance, c'est de la statistique. Voici ce que dix
+      pertes consécutives coûtent selon le risque choisi.
+    </p>
+    <div class="tableau-wrapper reveal">
+      <table>
+        <thead><tr><th>Risque par trade</th><th>Capital restant après 10 pertes</th><th>Repli</th></tr></thead>
+        <tbody>
+          <tr><td><strong>0,5 %</strong></td><td>95,1 %</td><td>−4,9 %</td></tr>
+          <tr><td><strong>1 %</strong></td><td>90,4 %</td><td>−9,6 %</td></tr>
+          <tr><td><strong>2 %</strong></td><td>81,7 %</td><td>−18,3 %</td></tr>
+          <tr><td><strong>5 %</strong></td><td>59,9 %</td><td>−40,1 %</td></tr>
+          <tr><td><strong>10 %</strong></td><td>34,9 %</td><td>−65,1 %</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Le calcul suppose que le risque est recalculé sur le capital restant après chaque perte, ce que
+      je recommande : la taille baisse d'elle-même quand le compte baisse. À 1 %, une très mauvaise
+      série reste un mauvais mois. À 5 %, c'est un compte à reconstruire. À 10 %, c'est presque toujours
+      la fin, parce que personne ne trade correctement après avoir perdu les deux tiers de son argent.
+    </p>
+    <p>
+      Sur mes 1 599 trades, la plus longue série de pertes a été de <strong>six trades</strong>, le
+      10 juin 2026. Mon taux de réussite est élevé, autour de 87 %, et la série a donc été plus courte
+      que celle d'une méthode à 45 %. Je ne compte pas pour autant sur cette chance : la règle est
+      calibrée pour la série que je n'ai pas encore vue.
+    </p>
+
+    <h2 class="reveal">Le repli et l'asymétrie de la remontée</h2>
+    <p>
+      Le second argument est arithmétique, et c'est celui qui m'a le plus marqué quand je gérais
+      l'argent des autres. Une perte ne se rattrape pas avec un gain de même pourcentage. Plus le trou
+      est profond, plus la remontée est raide.
+    </p>
+    <div class="tableau-wrapper reveal">
+      <table>
+        <thead><tr><th>Repli du capital</th><th>Gain nécessaire pour revenir au point de départ</th></tr></thead>
+        <tbody>
+          <tr><td><strong>−10 %</strong></td><td>+11,1 %</td></tr>
+          <tr><td><strong>−20 %</strong></td><td>+25 %</td></tr>
+          <tr><td><strong>−30 %</strong></td><td>+42,9 %</td></tr>
+          <tr><td><strong>−40 %</strong></td><td>+66,7 %</td></tr>
+          <tr><td><strong>−50 %</strong></td><td>+100 %</td></tr>
+          <tr><td><strong>−70 %</strong></td><td>+233 %</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Jusqu'à 10 ou 20 %, un repli se répare avec la méthode habituelle. Au-delà de 30 %, la tentation
+      devient de « se refaire » en augmentant la taille — c'est-à-dire de faire exactement ce qui a
+      creusé le trou. Le money management sert d'abord à ne jamais arriver dans cette zone.
+    </p>
+
+    <h2 class="reveal">Ratio rendement/risque et espérance : le 1 pour 2 n'est pas une loi</h2>
+    <p>
+      On lit partout qu'il ne faut prendre que des trades où le gain visé vaut au moins deux fois la
+      perte acceptée. C'est un bon réflexe de débutant, mais ce n'est pas une loi. Ce qui fait gagner de
+      l'argent, c'est <strong>l'espérance</strong> par trade :
+    </p>
+    <p style="text-align:center;font-size:1.05rem">
+      <strong>Espérance = taux de réussite × gain moyen − taux d'échec × perte moyenne</strong>
+    </p>
+    <p>
+      Un ratio faible peut être rentable avec un taux de réussite élevé, et un ratio élevé peut perdre
+      de l'argent si le taux de réussite s'effondre. Le tableau donne le taux de réussite minimal pour
+      ne pas perdre, selon le ratio entre gain moyen et perte moyenne, avant frais.
+    </p>
+    <div class="tableau-wrapper reveal">
+      <table>
+        <thead><tr><th>Gain moyen / perte moyenne</th><th>Taux de réussite d'équilibre</th></tr></thead>
+        <tbody>
+          <tr><td><strong>0,5</strong></td><td>66,7 %</td></tr>
+          <tr><td><strong>1</strong></td><td>50 %</td></tr>
+          <tr><td><strong>1,5</strong></td><td>40 %</td></tr>
+          <tr><td><strong>2</strong></td><td>33,3 %</td></tr>
+          <tr><td><strong>3</strong></td><td>25 %</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Mon journal en donne un exemple concret. Sur 1 599 trades, le gain moyen est de 9,24 USD et la
+      perte moyenne de 6,78 USD : un ratio d'à peine 1,36, loin du « 1 pour 2 » des manuels. Mais
+      87,1 % des trades se clôturent en gain. L'espérance ressort à environ <strong>+7,15 USD par
+      trade</strong>, nette de frais, et le profit factor à 9,18. Les performances passées ne préjugent
+      pas des performances futures. Ce que cet exemple montre, c'est qu'on ne juge pas une méthode sur
+      un seul chiffre : un taux de réussite sans le ratio, ou un ratio sans le taux de réussite, ne dit
+      rien.
+    </p>
+    <p>
+      Un piège à connaître : beaucoup de méthodes à fort taux de réussite cachent des pertes rares mais
+      énormes. Une moyenne de 87 % de gains ne vaut rien si le treizième trade efface les douze
+      précédents. C'est pour cela que je regarde toujours, à côté du taux de réussite, le pire trade et
+      le repli maximal. Je les donne plus bas.
+    </p>
+
+    <h2 class="reveal">Les limites de perte par jour et par semaine</h2>
+    <p>
+      Le risque par trade ne suffit pas. Une série de pertes concentrée sur une matinée ne vient
+      presque jamais du hasard : elle vient d'un trader qui a perdu son calme et qui enchaîne. La parade
+      est une limite de perte quotidienne, fixée à l'avance, et une règle simple qui l'accompagne.
+    </p>
+    <ul>
+      <li><strong>Une perte maximale par jour</strong>, de l'ordre de deux à trois fois le risque par trade. Atteinte, la plateforme se ferme jusqu'au lendemain.</li>
+      <li><strong>Un arrêt après deux pertes consécutives</strong> dans la même séance, même si la limite n'est pas atteinte. La troisième est rarement une bonne idée.</li>
+      <li><strong>Une perte maximale par semaine</strong>, qui déclenche une pause et une relecture du journal plutôt qu'une semaine de rattrapage.</li>
+    </ul>
+    <p>
+      Sur les 123 journées de trading de mon journal, six se sont terminées en perte. La pire, le
+      8 septembre 2026, a coûté 63 USD, soit <strong>1,4 % du capital</strong> du moment. Sur 27 semaines,
+      une seule est négative, de 6 USD, début juin. Ce sont des chiffres de mon compte, sur une période
+      favorable à ma méthode ; ils ne garantissent rien pour la suite.
+    </p>
+    <p>
+      Ces limites sont exactement celles qu'imposent les sociétés de capital financé : chez FTMO, par
+      exemple, une perte journalière de 5 % et une perte maximale de 10 % éliminent le candidat, quel
+      que soit son gain par ailleurs. Je détaille comment caler son risque sur ces seuils dans
+      <a href="/reussir-challenge-prop-firm/">réussir un challenge de prop firm</a>. Un trader qui a
+      déjà ses propres limites, plus basses que celles de la société, a fait l'essentiel du travail
+      avant même de s'inscrire.
+    </p>
+
+    <h2 class="reveal">Le levier : celui qu'on vous accorde, celui que vous utilisez</h2>
+    <p>
+      Le levier fait peur, à juste titre, mais on le comprend souvent de travers. Le levier accordé par
+      le courtier fixe seulement la marge immobilisée. Le levier que vous <em>utilisez</em> dépend de la
+      taille de vos positions par rapport à votre capital. C'est le second qui détermine le risque.
+    </p>
+    <p>
+      Mon courtier m'accorde 1:100. Une position de 0,25 lot sur l'or à 3 515 $ représente environ
+      87 900 USD de valeur nominale et immobilise environ 880 USD de marge. Rapportée à un capital de
+      13 370 USD, elle correspond à un levier utilisé d'environ <strong>6,6:1</strong>, quinze fois moins
+      que ce qui est disponible. Le levier disponible n'est pas un objectif ; c'est un plafond qu'il ne
+      faut jamais approcher. Un compte qui utilise tout son levier n'a plus aucune marge pour encaisser
+      un mouvement contraire, et c'est le courtier qui coupe les positions à votre place, au pire
+      moment.
+    </p>
+
+    <h2 class="reveal">Ce que mon journal montre, y compris mes écarts</h2>
+    <p>
+      Une page sur la gestion du risque qui ne montrerait que des chiffres flatteurs serait une
+      publicité. Voici les trois lignes de mon journal que je relis le plus souvent.
+    </p>
+    <div class="tableau-wrapper reveal">
+      <table>
+        <thead><tr><th>Ce qui s'est passé</th><th>En chiffres</th><th>Ce que j'en retiens</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Le pire trade</strong> : un achat ouvert le vendredi 4 septembre, gardé pendant le week-end, clôturé le mardi 8 au petit matin</td><td>−259,67 USD, près de <strong>6 % du capital</strong> du moment, pour 0,05 lot et un écart d'environ 50 $</td><td>Six fois ma règle d'environ 1 %. Une position perdante qui passe le week-end n'a plus de stop réel : l'écart d'ouverture décide à votre place</td></tr>
+          <tr><td><strong>Le plus fort repli</strong>, le 28 mai, huit jours après l'ouverture du compte</td><td>Deux ventes perdantes de 0,01 lot, −67 USD sur 547 USD : <strong>−12,3 %</strong></td><td>Sur un petit compte, la taille minimale de 0,01 lot pèse lourd. C'est l'argument pour démarrer petit en capital, mais pas trop petit</td></tr>
+          <tr><td><strong>La position gardée trop longtemps</strong> : un achat ouvert le 29 mai et clôturé le 21 août</td><td>−29 USD pour 0,01 lot, après près de trois mois</td><td>Elle n'a pas coûté cher parce que la taille était minuscule. C'est la taille, pas la discipline, qui m'a protégé ce jour-là</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Ces trois lignes disent la même chose : <strong>la taille de position est la dernière ligne de
+      défense</strong>. Quand le stop n'a pas été respecté — et cela arrive, même après des années —,
+      c'est elle qui décide si l'erreur coûte 1 %, 6 % ou le compte. C'est aussi pour cela que, sur mon
+      compte, la taille suit le capital par paliers, et jamais l'inverse : 0,01 lot au lancement,
+      0,05 lot à partir de fin août, 0,25 lot depuis le 20 novembre. <strong>La taille monte après le
+      capital, jamais avant.</strong>
+    </p>
+
+    <h2 class="reveal">Quand le marché s'emballe : réduire la taille, pas élargir le stop</h2>
+    <p>
+      La volatilité change la distance des stops. Un stop placé au bon endroit sur l'or un jour calme
+      peut se trouver à 5 dollars ; un jour de statistiques américaines, il en faut 15 ou 20. La règle ne
+      change pas : la perte acceptée reste la même, donc la taille baisse. Ce qu'il ne faut jamais faire,
+      c'est garder la taille habituelle et élargir le stop « pour laisser respirer » : c'est multiplier le
+      risque sans le décider.
+    </p>
+    <p>
+      Le 12 septembre, avant une décision de la Fed, j'écrivais que je gardais mon risque calibré petit
+      jusqu'au mercredi soir, et que ne pas être positionné au mauvais moment rapporte souvent plus
+      que d'avoir raison trop tôt (<a href="/blog/analyse-hebdo-or-4349-taux-us-499-12-septembre-2026/">analyse
+      du 12 septembre 2026</a>). Le 21 novembre, après une semaine où l'or a perdu 9,5 % et le S&amp;P 500 8,6 %, avec un VIX à 36, ma conclusion pratique était la même : la prudence prime sur la conviction, et la taille
+      de position sur l'ambition de gain
+      (<a href="/blog/analyse-hebdo-or-3515-wall-street-vix-21-novembre-2026/">analyse du 21 novembre
+      2026</a>). Dans ces régimes de marché, la gestion du risque compte davantage que la qualité de
+      l'analyse.
+    </p>
+
+    <h2 class="reveal">Les méthodes de money management, et ce que j'en pense</h2>
+    <p>
+      Les manuels présentent plusieurs façons de fixer la taille des positions. Elles ne se valent pas.
+    </p>
+    <div class="tableau-wrapper reveal">
+      <table>
+        <thead><tr><th>Méthode</th><th>Principe</th><th>Mon avis</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Lot fixe</strong></td><td>La même taille à chaque trade, quelle que soit la distance du stop</td><td>Simple, mais le risque réel varie d'un trade à l'autre. Acceptable sur un très petit compte, au lot minimum</td></tr>
+          <tr><td><strong>Fraction fixe</strong></td><td>Un pourcentage constant du capital à chaque trade ; la taille découle du stop</td><td>C'est celle que je défends sur cette page. La taille baisse quand le compte baisse, monte quand il monte</td></tr>
+          <tr><td><strong>Paliers de capital</strong></td><td>La taille ne change qu'à des seuils de capital fixés à l'avance</td><td>Une variante de la fraction fixe, plus lisible au quotidien. C'est ce que montre mon journal</td></tr>
+          <tr><td><strong>Critère de Kelly</strong></td><td>Une fraction optimale calculée à partir du taux de réussite et du ratio gain/perte</td><td>Mathématiquement juste, humainement intenable. Avec 45 % de réussite et un ratio de 2, il conseille de risquer 17,5 % par trade. Les professionnels qui l'utilisent n'en prennent qu'une petite fraction</td></tr>
+          <tr><td><strong>Martingale</strong></td><td>Doubler la taille après chaque perte pour se refaire au premier gain</td><td>À proscrire. Elle fonctionne jusqu'à la série qui vide le compte, et cette série finit toujours par arriver</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="reveal">Votre plan de money management en sept lignes</h2>
+    <p>
+      Un plan de money management tient sur une demi-page. S'il ne tient pas sur une demi-page, il ne
+      sera pas appliqué un jour de stress. Le mien se résume à ceci, et je vous conseille d'écrire le
+      vôtre avant votre prochain trade, puis de le relire chaque matin.
+    </p>
+    <ol>
+      <li><strong>Risque par trade</strong> : un pourcentage fixe du capital, entre 0,5 et 1 %, recalculé sur le capital du jour.</li>
+      <li><strong>Invalidation avant l'entrée</strong> : pas de niveau d'invalidation, pas de trade.</li>
+      <li><strong>Taille calculée</strong> : perte acceptée divisée par la distance du stop, arrondie vers le bas.</li>
+      <li><strong>Limite journalière</strong> : deux à trois fois le risque par trade, et arrêt après deux pertes consécutives.</li>
+      <li><strong>Limite hebdomadaire</strong> : atteinte, on s'arrête et on relit le journal.</li>
+      <li><strong>Stop jamais élargi</strong> : on peut le rapprocher pour protéger un gain, jamais l'éloigner pour éviter une perte.</li>
+      <li><strong>Taille par paliers</strong> : elle n'augmente qu'après que le capital a franchi un seuil fixé à l'avance, jamais pour se refaire.</li>
+    </ol>
+    <p>
+      Un tableur suffit pour tenir ce plan : une colonne pour le capital du jour, une pour la distance
+      du stop, une pour la taille calculée, une pour le résultat. Ce n'est pas l'outil qui compte, c'est
+      de remplir la ligne <em>avant</em> de cliquer.
+    </p>
+
+    <div class="vigilance-box reveal">
+      <strong>Les trois gestes qui détruisent un compte</strong>
+      Déplacer son stop quand le prix s'en approche, « juste cette fois ». Renforcer une position
+      perdante pour améliorer son prix moyen. Doubler la taille après une perte pour se refaire. Aucun
+      des trois ne demande une mauvaise analyse : ils demandent seulement une perte et un peu
+      d'impatience. Si vous vous surprenez à en faire un, fermez la plateforme pour la journée. Et
+      méfiez-vous de toute méthode, payante ou non, qui affiche des résultats <b>sans le capital, sans le
+      pire trade et sans le repli maximal</b>.
+    </div>
+
+    <h2 class="reveal">Par où continuer</h2>
+    <p>
+      Si vous débutez, les premiers gestes, du choix du courtier au premier ordre, sont décrits dans
+      <a href="/trading-pour-debutant/">trading pour débutant : par où commencer</a>. Pour voir ces
+      règles appliquées à l'or, avec les niveaux et les horaires qui comptent, lisez
+      <a href="/comment-trader-lor/">comment trader l'or</a> et le <a href="/xauusd/">guide du
+      XAUUSD</a>. Et si votre projet est d'en tirer un revenu, <a href="/vivre-du-trading/">vivre du
+      trading</a> fait le calcul du capital nécessaire.
+    </p>
+    <p>
+      Ma <a href="/formation/">formation au trading de l'or</a> transmet cette gestion du risque avec la méthode : quinze jours de sessions en direct, à 999 €, avec la méthode que
+      j'applique sur le compte dont je publie le journal. Si vous visez un compte financé, le
+      <a href="/capital-finance-prop-firm/">guide du capital financé</a> explique comment fonctionnent
+      ces sociétés et pourquoi elles éliminent d'abord sur le risque, pas sur le gain.
+    </p>
+
+    <p>
+      Le trading comporte un risque élevé de perte en capital, en particulier sur les produits à effet
+      de levier comme les CFD, et la majorité des particuliers qui les utilisent perdent de l'argent.
+      Les performances passées ne préjugent pas des performances futures.
+      <a href="/disclaimer-risque/" style="color:var(--gold-2)">Voir l'avertissement sur les
+      risques</a>.
+    </p>
+
+    <h2 class="reveal">Questions fréquentes sur le money management en trading</h2>
+    <div class="faq-list reveal">
+      <details class="qa reveal">
+        <summary>Qu'est-ce que le money management en trading ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">C'est l'ensemble des règles qui fixent l'argent engagé, indépendamment de l'analyse : la perte acceptée sur chaque trade, la taille de position qui en découle, les limites de perte par jour et par semaine, et la façon dont la taille évolue avec le capital. Le stop loss n'en est qu'un outil.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Combien risquer par trade ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Une fourchette de 0,5 à 1 % du capital par trade permet d'encaisser une série d'une dizaine de pertes en perdant moins de 10 % du compte. Au-delà de 2 %, une série ordinaire creuse un repli difficile à rattraper. Le bon chiffre est celui qui vous laisse trader normalement après cinq pertes de suite.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Qu'est-ce que la règle des 1 % ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Elle consiste à ne jamais perdre plus de 1 % du capital sur un seul trade. Attention : il s'agit de la perte si le stop est touché, pas de la taille de la position. Avec un stop bien placé, une position peut représenter une valeur nominale bien supérieure au capital tout en ne risquant que 1 %.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Comment calculer la taille de position sur l'or ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Sur un CFD or où un lot vaut 100 onces, la taille en lots est égale à la perte acceptée en dollars divisée par la distance du stop en dollars multipliée par 100. Avec 50 USD de risque et un stop à 8 dollars, cela donne 0,06 lot. Vérifiez la taille du contrat chez votre courtier, elle peut différer.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Quel ratio gain/risque viser ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Il n'existe pas de ratio universel. Ce qui compte, c'est l'espérance : le taux de réussite multiplié par le gain moyen, moins le taux d'échec multiplié par la perte moyenne. Un ratio de 1 pour 2 est rentable dès 34 % de réussite ; un ratio de 1 pour 1 demande plus de 50 %. Mesurez les deux dans votre journal avant de choisir.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Faut-il une limite de perte journalière ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Oui. Les séries de pertes concentrées sur une séance viennent rarement du hasard et presque toujours de décisions prises sous le coup d'une perte. Une limite de deux à trois fois le risque par trade, avec un arrêt après deux pertes consécutives, coupe ce mécanisme. Les prop firms en imposent une, généralement autour de 5 %.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>Le money management suffit-il à gagner de l'argent ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Non. Il ne transforme pas une méthode perdante en méthode gagnante : il fait durer le compte assez longtemps pour qu'une méthode à espérance positive produise ses effets, et il limite les dégâts quand elle traverse une mauvaise période. Sans méthode, il retarde seulement la perte.</div>
+      </details>
+      <details class="qa reveal">
+        <summary>La martingale fonctionne-t-elle en trading ?<span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Elle donne l'illusion de fonctionner, parce qu'elle gagne souvent de petites sommes. Mais en doublant la taille après chaque perte, elle expose le compte à une perte totale lors de la première longue série perdante, qui finit toujours par arriver. C'est la méthode la plus sûre pour perdre son capital.</div>
+      </details>
+    </div>
+    <div class="hero-cta" style="justify-content:center;margin-top:2.4rem">
+      <a href="/formation/" class="btn btn-gold">La formation au trading de l'or</a>
+      <a href="/capital-finance-prop-firm/" class="btn btn-ghost">Comprendre le capital financé</a>
+    </div>
+  </div></section>
+  <section class="sec ctaband"><div class="wrap"><h2 class="reveal">Une gestion du risque se juge sur la durée.</h2>
+  <p class="reveal d1">Mes analyses de l'or sont publiées chaque samedi, avec leur niveau d'invalidation, datées et laissées en ligne — qu'elles aient eu raison ou tort. Mon journal de trades montre le reste : le pire trade, le repli maximal, les pertes.</p>
+  <div class="hero-cta reveal d2" style="justify-content:center"><a href="/blog/" class="btn btn-gold">Lire les analyses</a><a href="/resultats/" class="btn btn-ghost">Voir mes résultats</a></div></div></section>
+  <footer>
+    <div class="wrap">
+      <div class="disclaimer"><strong>Avertissement sur les risques.</strong> Le trading et l'investissement sur les marchés financiers (or, indices, cryptomonnaies, CFD…) comportent un risque élevé de perte en capital et ne conviennent pas à tout le monde. La majorité des investisseurs particuliers perdent de l'argent. Les performances passées ne préjugent pas des performances futures. Les contenus publiés par Gold Strategies ont une vocation <strong>pédagogique et informative</strong> et ne constituent pas un conseil en investissement personnalisé. Toute analyse partagée reflète une opinion, susceptible de porter sur des positions détenues par l'auteur (divulgation de conflit d'intérêts). Vous restez seul responsable de vos décisions ; au besoin, consultez un conseiller financier agréé.</div>
+      <div class="foot-grid">
+        <div><a href="/" class="brand" aria-label="Gold Strategies — accueil"><img src="/img/logo-gold-strategies.jpeg" width="46" height="46" alt="Gold Strategies" class="logo-img" /></a><p style="color:var(--muted-2);max-width:38ch">Éducation financière et accompagnement pour développer son pouvoir d'achat et construire un complément de revenu, avec méthode et prudence.</p></div>
+        <div><h4>Explorer</h4><a href="/complement-revenu/">Complément de revenu</a><a href="/methode/">La méthode</a><a href="/trading-de-lor/">Trading de l'or</a><a href="/xauusd/">Guide XAUUSD</a><a href="/xauusd-cours/">Cours du XAUUSD</a><a href="/comment-trader-lor/">Comment trader l'or</a><a href="/investir-dans-lor/">Investir dans l'or</a><a href="/trading-crypto/">Trading crypto</a><a href="/trading-indices/">Trading indices</a><a href="/capital-finance-prop-firm/">Capital financé</a><a href="/augmenter-pouvoir-achat/">Augmenter son pouvoir d'achat</a><a href="/guides/">Guides</a><a href="/resultats/">Résultats</a><a href="/blog/">Blog</a></div>
+        <div><h4>Gold Strategies</h4><a href="/a-propos/">À propos</a><a href="/communaute/">Communauté Telegram</a><a href="/application/">Application</a><a href="https://app.gold-strategies.com/#/connexion">Espace membre</a><a href="/contact/">Contact</a><a href="/mentions-legales/">Mentions légales</a><a href="/disclaimer-risque/">Avertissement sur les risques</a><a href="/politique-conflits-interets/">Politique de conflits d'intérêts</a></div>
+      </div>
+      <div class="foot-bottom"><span>© 2026 Gold Strategies. Tous droits réservés.</span><span>Contenu pédagogique — ne constitue pas un conseil en investissement.</span></div>
+    </div>
+  </footer>
+  <script src="/assets/main.js?v=20261012" defer></script>
+</body>
+</html>
